@@ -9,5 +9,9 @@
 </head>
 <body>
     Home do Meu Tema
-</body>
+
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </html>
