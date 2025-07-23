@@ -5,4 +5,5 @@ app_name = "nomeRelativoAoMeuTema"
 
 urlpatterns = [
     path("home/", views.home, name='homepage'),
+    path("insereCarro/", views.insereCarro, name='insereCarro'),
 ]

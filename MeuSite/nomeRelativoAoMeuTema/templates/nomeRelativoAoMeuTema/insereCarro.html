@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Cria Contato</title>
+</head>
+<body>
+	<h1>Inserir carro</h1>
+	<form action="" method="POST">
+		{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<button type="submit">Cria carro</button>
+	</form>
+</body>
+</html>
