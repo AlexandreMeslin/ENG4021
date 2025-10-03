@@ -1,5 +1,5 @@
 # ENG4021
-## Projeto de Software
+## Projeto Integrado - Software
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Contributors](https://img.shields.io/github/contributors/AlexandreMeslin/ENG4021)
