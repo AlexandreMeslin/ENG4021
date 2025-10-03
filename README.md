@@ -1,8 +1,24 @@
 # ENG4021
-## Exemplo de projeto
+## Projeto de Software
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Contributors](https://img.shields.io/github/contributors/AlexandreMeslin/ENG4021)
 ![Open Issues](https://img.shields.io/github/issues/AlexandreMeslin/ENG4021)
 ![Open PRs](https://img.shields.io/github/issues-pr/AlexandreMeslin/ENG4021)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
+
+
+
+![HTML](https://img.shields.io/badge/language-HTML-brown.svg)
+![Python](https://img.shields.io/badge/language-Python-yellow.svg)
+![CSS](https://img.shields.io/badge/language-CSS-red.svg)
+![Top Language](https://img.shields.io/github/languages/top/AlexandreMeslin/ENG4021)
+![Languages Count](https://img.shields.io/github/languages/count/AlexandreMeslin/ENG4021)
+
+![Last Commit](https://img.shields.io/github/last-commit/AlexandreMeslin/INF1304)
+![Repo Size](https://img.shields.io/github/repo-size/AlexandreMeslin/INF1304)
+![Code Size](https://img.shields.io/github/languages/code-size/AlexandreMeslin/INF1304)
+
+![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/INF1304?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/INF1304?style=social)

@@ -132,3 +132,50 @@
         </tfoot>
     </table>
     ```
+
+# CSS - Cascading Style Sheets
+
+1. Troque a cor de fundo da página para preto. As cores podem ser especificadas pelo seu nome (o resultado não é exato) ou pela quantidade de Vermelho (R), Verde (G) e Azul (B), com valores variando, para cada um, entre 0 e 255, em decimal, ou o seu equivalente em hexadecimal, onde 0 é a total ausência do compontente na cor e 255 é a quantidade máxima do componente. Os valores em hexadecimal são escritos com `#` antes do número. Por exemplo, uma letra vermelha pode ser descrita como:
+
+    ```css
+    p {
+        color: red;
+    }
+    ```
+    ou
+    ```css
+    p {
+        color: #FF0000;
+    }
+    ```
+
+    > Note que o VS-Code mostra um quadrado com a cor selecionada numericamente.
+
+    A cor de fundo de um elemento é dada pelo atributo `background-color`.
+
+1. Troque a cor dos textos dos parágrafos para branco, ou seja, o valor máximo de `RGB`.
+
+1. Troque também o tipo de fonte para `Orbitron` através do atributo `font-family`.
+
+1. Mude a cor de fundo da barra de navegação para azul.
+
+1. No seu código HTML, coloque os links de navegação em uma lista não numerada. Coloque essa lista na classe `navegacao` usando o atributo class. Na folha de estilo, crie uma classe `.navegacao` como mostrado a seguir. Examine o efeito dessa classe nos links de navegação.
+    ```css
+    .navegacao {
+       list-style-type: none; /* Escreva aqui o efeito */
+    }
+    ```
+
+1. Remova o sublinhado dos links e troque a sua cor para amarelo, mas somente dos links que estiverem dentro de um objeto da classe `navegacao`. Para isso, no CSS, informe o nome da classe seguido da tag para criar link. Para remover o sublinhado, use atributo `text-decoration` e coloque o seu valor como `none`.
+
+1. Coloque os títulos `h1`, `h2` e `h3` com texto amarelo e margem a esquerda de 10px.
+
+1. Alinhe os parágrafos com os títulos.
+
+1. Coloque o texto do rodapé como laranja.
+
+1. Coloque o sumário do currículo dentro de um container do tipo `<div>`. Identifique esse container como `sumario`. Troque a cor do texto e do alinhamento desse texto. Para referenciar esse container no CSS, use o formato `#sumario`.
+
+# Próxima Aula
+
+>Na próxima aula iremos resolver o problema da *responsividade*  da página.
