@@ -33,7 +33,12 @@
 
     ![imagem do plugin a ser instalado](imagens/LivePreview.png)
 
-    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento.
+    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento. Para ativar o Live Preview, clique no ícone com uma janela dividida verticalmente e uma lupa (![ícone para ativar o Live Preview](imagens/live_preview_icon.png)) localizado do lado direito das abas junto às abas (o ícone somente aparece quando um arquivo HTML está selecionado para edição).
+
+    > Se der erro na exibição da página HTML, clique na aba `Ports`. Clique em com o botão direito do mouse em cada uma das `Visibilty` das portas que estejam com o status de `Private`, selecione `Port Visibility` no menu suspenso que irá aparecer e troque a visibilidade para `Public`. Feche a aba de visualização HTML que deu erro e tente novamente clicando no ícone de visualização.
+    !(Aba ![Aba Ports](imagens/aba_ports.png)
+    Se a aba `Ports` não estiver visível, pressione Ctrl+Shift+P e digite `View: Toggle Ports` e clique no item para exibir a aba `Ports`
+    
 
 1. Formate o título principal com a tag `<h1>`.
 
@@ -67,7 +72,7 @@
     Versão 2
     Meu currículo
     ```
-1. Coloque a 1a linha como título principal.
+1. Coloque a 1a linha como título `<h2>`.
 
 1. Crie um link para o site da PUC-Rio usando a tag `<a>` como mostrado a seguir:
     ```html
@@ -85,15 +90,17 @@
     ```html
     <a href="#resumo">Resumo</a>
     ```
-    E envolva cada uma das seções do seu texto `HTML` com a tag `<section>` como mostrado a seguir:
+    E envolva cada uma das seções do seu texto `HTML` com a tag `<section></section>` como mostrado a seguir:
     ```html
     <section id="resumo">
+        Um monte de texto aqui...
+    </section>
     ```
-    > A identificação (`id`) dever ser única
+    > A identificação (`id`) dever ser única por página.
 
-1. Crie uma seção `<footer>`.
+1. Crie uma seção com a tag do tipo container `<footer>`.
 
-1. Coloque todo o texto (menos o que estiver em `<nav>` e `<footer>`) dentro de `<main>`.
+1. Coloque todo o texto (menos o que estiver em `<nav>` e `<footer>`) dentro de uma tag container `<main>`.
 
 1. Inclua no texto, uma tabela com as disciplinas que você já cursou com:
     - Código da disciplina
@@ -132,10 +139,46 @@
         </tfoot>
     </table>
     ```
+    Resultado:
+    <table>
+        <thead>
+            <tr>
+                <th>Aluno 1</th>
+                <th>Aluno 2</th>
+                <th>Aluno 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Araci do Precioso Sangue</td>
+                <td>Asteroide Silverio</td>
+                <td>Cafiaspirina Cruz</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>7</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Rodapé 1</td>
+                <td>Rodapé 2</td>
+                <td>Rodapé 3</td>
+            </tr>
+        </tfoot>
+    </table>
 
 # CSS - Cascading Style Sheets
 
-1. Troque a cor de fundo da página para preto. As cores podem ser especificadas pelo seu nome (o resultado não é exato) ou pela quantidade de Vermelho (R), Verde (G) e Azul (B), com valores variando, para cada um, entre 0 e 255, em decimal, ou o seu equivalente em hexadecimal, onde 0 é a total ausência do compontente na cor e 255 é a quantidade máxima do componente. Os valores em hexadecimal são escritos com `#` antes do número. Por exemplo, uma letra vermelha pode ser descrita como:
+1. Crie um arquivo chamado `curriculo.css` na pasta `css`.
+
+1. Crie um link CSS do arquivo HTML para o arquivo `css/curriculo.css` como mostrado a seguir:
+    ```html
+        <link rel="stylesheet" href="css/curriculo.css">
+    ```
+
+1. Troque a cor de fundo da página para preto. As cores podem ser especificadas pelo seu nome (o resultado não é exato) ou pela quantidade de Vermelho (R), Verde (G) e Azul (B), com valores variando, para cada um, entre 0 e 255, em decimal, ou o seu equivalente em hexadecimal, onde 0 é a total ausência do compontente na cor e 255 é a quantidade máxima do componente (o resultado é exato). Os valores em hexadecimal são escritos com `#` antes do número. Por exemplo, letra vermelha nos parágrafos pode ser descrita como:
 
     ```css
     p {
@@ -151,7 +194,7 @@
 
     > Note que o VS-Code mostra um quadrado com a cor selecionada numericamente.
 
-    A cor de fundo de um elemento é dada pelo atributo `background-color`.
+    A cor de fundo de um elemento é dada pelo atributo `background-color`. Em resumo, aplique cor preta (#000000) ao atributo `background-color` para a  tag `<body>` no arquivo CSS.
 
 1. Troque a cor dos textos dos parágrafos para branco, ou seja, o valor máximo de `RGB`.
 
