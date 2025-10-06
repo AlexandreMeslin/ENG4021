@@ -33,7 +33,7 @@
 
     ![imagem do plugin a ser instalado](imagens/LivePreview.png)
 
-    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento. Para ativar o Live Preview, clique no ícone com uma janela dividida verticalmente e uma lupa (![ícone para ativar o Live Preview](imagens/live_preview_icon.png)) localizado do lado direito das abas junto às abas (o ícone somente aparece quando um arquivo HTML está selecionado para edição).
+    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento. Para ativar o Live Preview, você pode digitar Ctrl+K` `V` ou clicar no ícone com uma janela dividida verticalmente e uma lupa (![ícone para ativar o Live Preview](imagens/live_preview_icon.png)) localizado do lado direito das abas junto às abas (o ícone somente aparece quando um arquivo HTML está selecionado para edição).
 
     > Se der erro na exibição da página HTML, clique na aba `Ports`. Clique em com o botão direito do mouse em cada uma das `Visibilty` das portas que estejam com o status de `Private`, selecione `Port Visibility` no menu suspenso que irá aparecer e troque a visibilidade para `Public`. Feche a aba de visualização HTML que deu erro e tente novamente clicando no ícone de visualização.
     !(Aba ![Aba Ports](imagens/aba_ports.png)
@@ -43,13 +43,27 @@
 1. Formate o título principal com a tag `<h1>`.
 
     > A marcação da tag começa com a tag e termina com barra-tag. Por exemplo:
-    >```HTML
-    > <h1>Título do texto</h1>
+    >```html
+    > <h1>Astronauta Spiff</h1>
     >```
 
-1. Formate os títulos secundários com a tag `<h2>`.
+1. Formate os títulos secundários com a tag `<h2>`. Exemplo de títulos secundários:
+    - Resumo
+    - Experiência Profissional
+    - Habilidades Técnicas Espaciais
+    - Habilidades Pessoais
+    - Educação (Auto-Didata e Experiencial)
+    - Idiomas
 
-1. Coloque os parágrafos dentro das tags `<p>`.
+1. Coloque o texto abaixo em `<h3>`:
+    - Astronauta Intergalático e Comandante de Missão Solo
+
+1. Coloque os seguintes parágrafos dentro das tags `<p>`:
+    - Um intrépido e imaginativo astronauta com vasta experiência em exploração espacial solo e em missões críticas a planetas inóspitos.
+                Proficiente em pilotagem de naves espaciais de construção própria,
+                análise de fenômenos alienígenas e resolução criativa de problemas em ambientes extraterrestres.
+                Possui um histórico comprovado de descobertas notáveis e encontros (nem sempre amigáveis) com formas de vida alienígenas diversas.
+    - Várias Expedições (Contínuo)
 
 1. Copie essa [figura](Spiff/img/spiff.jpeg) para a pasta `img`
 
@@ -57,9 +71,21 @@
     ```html
     <img src='img/spiff.jpeg' alt='Foto do astronauta Spiff em ação'>
     ```
-1. Em uma parte do texto, crie uma lista numerada usando a tag `<ol></ol>` envolvendo todos os elementos da lista. Envolva individualmente cada um dos elementos da lista com a tag `<li></li>`.
+    > O texto no atributo `alt` é muito importante para tornar o seu site inclusivo. Ele facilita o entendimento do contexto da figura para aplicativos que fazem leitura de página para usuários com deficiência visual.
 
-1. Em outra parte do texto, crie uma lista não-numerada (com *bullets*) substituindo a tag `<ol>` pela tag `<ul>`.
+1. Crie uma lista numerada usando a tag `<ol></ol>` envolvendo todos os elementos da lista. Envolva individualmente cada um dos elementos da lista com a tag `<li></li>`. Use o seguinte texto:
+    - Doutorado em Exploração Interdimensional e Defesa Contra Alienígenas Malignos (Honras Imaginárias)
+    - Mestrado em Viagem Hiperespacial (com honras)
+    - Universidade Estelar de Calvin — Ciências da Galáxia
+    - Academia Estelar de Calvin — Diploma em Engenharia Espacial e Aventuras
+    - Currículo incluiu estudos avançados em:
+
+1. Em outra parte do texto, crie uma lista não-numerada (com *bullets*). Uma lista não numerada é construída de forma exatamente igual a uma lista numerada, apenas substituindo a tag `<ol>` pela tag `<ul>`. Crie a seguinte lista não numerada dentro da lista numerada criada anteriormente (fora do `<li>` mas ainda dentro do `<ol>`):
+    - Teoria da Propulsão a Jato de Papelão
+    - Linguística Alienígena Intuitiva
+    - Táticas de Fuga e Evasão Escolar Espacial
+    - Astronomia de Quintal Avançada
+    - Sobrevivência com Lancheiras e Suco de Limão
 
 1. Antes do seu texto (antes de tudo, mas ainda dentro de `<body>`), crie um container usando a tag `<nav>`. Copie o seguinte texto para dentro desse container: 
     ```ascii
@@ -72,7 +98,7 @@
     Versão 2
     Meu currículo
     ```
-1. Coloque a 1a linha como título `<h2>`.
+1. Coloque a 1a linha como título `<h2>`. Coloque o restante das linhas como itens de uma lista não numerada
 
 1. Crie um link para o site da PUC-Rio usando a tag `<a>` como mostrado a seguir:
     ```html
@@ -98,7 +124,8 @@
     ```
     > A identificação (`id`) dever ser única por página.
 
-1. Crie uma seção com a tag do tipo container `<footer>`.
+1. Crie uma seção com a tag do tipo container `<footer>` com o seguinte texto:
+    - "Nenhum alienígena fica para trás... porque eu desintegro todos!"   
 
 1. Coloque todo o texto (menos o que estiver em `<nav>` e `<footer>`) dentro de uma tag container `<main>`.
 
@@ -198,14 +225,17 @@
 
 1. Troque a cor dos textos dos parágrafos para branco, ou seja, o valor máximo de `RGB`.
 
-1. Troque também o tipo de fonte para `Orbitron` através do atributo `font-family`.
+1. Troque também o tipo de fonte para `Orbitron` através do atributo `font-family`. Esse tipo de fonte não é padrão para os seus usuários mas está disponível no site do Google, então inclua, na seção `<head>` um link para o navegador fazer donwload:
+    ```html
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    ```
 
 1. Mude a cor de fundo da barra de navegação para azul.
 
 1. No seu código HTML, coloque os links de navegação em uma lista não numerada. Coloque essa lista na classe `navegacao` usando o atributo class. Na folha de estilo, crie uma classe `.navegacao` como mostrado a seguir. Examine o efeito dessa classe nos links de navegação.
     ```css
     .navegacao {
-       list-style-type: none; /* Escreva aqui o efeito */
+       list-style-type: none;
     }
     ```
 
