@@ -1,0 +1,35 @@
+MeuProjeto/
+├── MeuSite
+│   ├── MeuSite
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── templates
+│   │   │   └── MeuSite
+│   │   │       └── home.html
+│   │   ├── urls.py
+│   │   ├── views.py
+│   │   └── wsgi.py
+│   ├── curriculo
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── static
+│   │   │   └── curriculo
+│   │   │       ├── css
+│   │   │       │   ├── curriculo-v0.css
+│   │   │       │   ├── curriculo-v1.css
+│   │   │       │   └── curriculo-v2.css
+│   │   │       ├── img
+│   │   │       │   ├── aircraft-spiff.gif
+│   │   │       │   └── spiff.jpeg
+│   │   │       └── js
+│   │   ├── templates
+│   │   │   └── curriculo
+│   │   │       ├── curriculo-v1.html
+│   │   │       └── curriculo-v2.html
+│   │   ├── tests.py
+│   │   └── views.py
+│   ├── db.sqlite3
+│   └── manage.py
+├── requirements.txt
+└── venv

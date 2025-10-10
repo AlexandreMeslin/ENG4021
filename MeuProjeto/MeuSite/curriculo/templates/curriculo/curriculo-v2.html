@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-bt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo do Astronauta Spiff</title>
-    <link rel="stylesheet" href="css/curriculo-v2.css">
+    <link rel="stylesheet" href="{% static 'curriculo/css/curriculo-v2.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
         </nav>
 
         <main>
-            <img src="img/spiff.jpeg" alt="Foto do astronauta Spiff">
+            <img src="{% static 'curriculo/img/spiff.jpeg' %}" alt="Foto do astronauta Spiff">
 
             <h1>Astronauta Spiff</h1>
 
