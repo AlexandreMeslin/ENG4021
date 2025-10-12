@@ -8,6 +8,121 @@ Para completar esse roteiro, você vai usar o mesmo repositório. **Não use o r
 
 > `Diretório`, `pasta` e `folder` são sinônimos.
 
+## Entendendo um pouco sobre o Django
+
+O MTV (Model-Template-View) é o padrão arquitetural que o Django utiliza, que é uma variação do conhecido MVC (Model-View-Controller).
+
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│    MODEL    │ ←→ │    VIEW     │ ←→ │   TEMPLATE  │
+│             │    │             │    │             │
+│ Lógica de   │    │ Lógica de   │    │ Apresentação│
+│ Dados       │    │ Negócio     │    │ (HTML/CSS)  │
+└─────────────┘    └─────────────┘    └─────────────┘
+```
+
+1. O model é responsável por descrever como os dados serão organizados no Django, incluindo a interação com o banco de dados. As classes que definem os dados são armazenadas nos arquivos `models.py`.
+
+1. O template é um conjunto de páginas HTML/CSS/JavaScript responsável pela apresentação. Os arquivos HTML ficam no diretório `templates` enquanto os arquivos CSS e JavaScript no diretório `static`.
+
+1. O view é um conjunto de funções e classes com seus respectivos métodos responsáveis pela lógica de negócio, ou seja, responsável por receber as requisições HTTP, processar os dados e renderizar os templates. As classes e as funções ficam nos arquivos `views.py`.
+
+### Fluxo de requisição e resposta (request/response)
+
+O fluxo de uma requisição HTTP pode ser resumido assim:
+
+```
+USUÁRIO
+    ↓ (Faz requisição HTTP)
+urls.py (Roteamento)
+    ↓ (Encaminha para view apropriada)
+views.py (Lógica de negócio)
+    ↓ (Consulta dados)
+models.py (Banco de dados - opcional)
+    ↓ (Retorna dados)
+views.py (Processa dados)
+    ↓ (Prepara contexto)
+templates/ (Renderiza HTML)
+    ↓ (Retorna resposta)
+USUÁRIO (Vê resultado)
+```
+
+### Árvore de diretórios e arquivos (mais importantes)
+
+Exemplo de uma estrutura típica de um projeto Django:
+
+```
+MeuProjeto/
+├── MeuSite
+│   ├── MeuSite
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── templates
+│   │   │   └── MeuSite
+│   │   │       └── home.html
+│   │   ├── urls.py
+│   │   ├── views.py
+│   │   └── wsgi.py
+│   ├── curriculo
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── static
+│   │   │   └── curriculo
+│   │   │       ├── css
+│   │   │       │   ├── curriculo-v0.css
+│   │   │       │   ├── curriculo-v1.css
+│   │   │       │   └── curriculo-v2.css
+│   │   │       ├── img
+│   │   │       │   ├── aircraft-spiff.gif
+│   │   │       │   └── spiff.jpeg
+│   │   │       └── js
+│   │   ├── templates
+│   │   │   └── curriculo
+│   │   │       ├── curriculo-v1.html
+│   │   │       └── curriculo-v2.html
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── db.sqlite3
+│   └── manage.py
+├── requirements.txt
+└── venv
+```
+
+### Funcionamento
+
+1. O usuário faz uma requisição (HTTP request).
+
+    Por exemplo: o usuário acessa `http://example.com/curriculo/spiff/`
+
+1. O Django verifica a URL em `urls.py` localizada no diretório do projento principal.
+
+    No arquivo `urls.py` existe um mapeamento de rotas para views e inclusão de outras rotas de outras aplicações.
+
+    ```python
+    urlpatterns = [
+        path("admin/", admin.site.urls),
+        path('', views.home, name='home'),  # Map the home view to the root URL
+        path('curriculo/', include('curriculo.urls')),  # Include the curriculo app URLs
+    ]
+    ```
+
+    Como o diretório referenciado pela URL começa por `curriculo/`, o Django vai procurar a rota no arquivo `urls.py` na aplicação `curriculo`. O arquivo deve conter algo parecido com:
+
+    ```python
+    urlpatterns = [
+        path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
+        path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
+    ]
+    ```
+
+    No nosso exemplo, o restante dos diretórios dão *match* com a rota `spiff`. Nesse caso, o *view* `curriculo_spiff` vai ser executado.
+
+    Esse *view* vai processar o pedido (*request*), preparar os dados e renderizar um dos *templates* para responder (*response*) ao usuário.
+
+## Configurando o ambiente
+
 1. Abra o Codespace.
 
 1. Na raiz do seu repositório, crie um diretório chamado `MeuProjeto`. Você vai desenvolver o seu site Django dentro desse diretório. Nesse diretório, você poderá ter:
@@ -77,6 +192,8 @@ Para completar esse roteiro, você vai usar o mesmo repositório. **Não use o r
     [notice] A new release of pip is available: 23.2.1 -> 25.2
     [notice] To update, run: pip install --upgrade pip
     ```
+
+## Criando o site
 
 1. Crie o seu site
     
