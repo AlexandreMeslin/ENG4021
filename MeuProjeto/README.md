@@ -3,7 +3,7 @@
 
 ## Antes de tudo...
 
-Você criou um repositório para a aula de HTML.
+Você criou um repositório particular para a aula de HTML.
 Para completar esse roteiro, você vai usar o mesmo repositório. **Não use o repositório do seu projeto!**
 
 > `Diretório`, `pasta` e `folder` são sinônimos.
