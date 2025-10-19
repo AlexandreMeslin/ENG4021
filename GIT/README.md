@@ -6,7 +6,10 @@ Este guia explica como **vários alunos podem colaborar** em um mesmo projeto no
 
 O fluxo descrito abaixo usa **forks** (cópias individuais no GitHub) e **GitHub Codespaces** (ambientes de edição online).
 
----
+## Links úteis
+
+- https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 
 ## CENÁRIO GERAL
 
@@ -50,7 +53,7 @@ O GitHub criará uma cópia pessoal do repositório, por exemplo (aluno2, aluno3
 
 ## Fazer modificações
 
-Edite normalmente os arquivos no Codespace.  
+Edite normalmente os arquivos no Codespace. 
 Por exemplo, altere `src/main.c` e `README.md`.
 
 Para verificar mudanças:
@@ -85,7 +88,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 ## Fazer commit e push no fork
-Após editar:
+
+> Aqui você vai atualizar o seu repositório clonado, aquele que você fez o *fork*. Você **não** vai atualizar o repositório do seu projeto. Isso vai ser feito mais abaixo.
+
+Após editar, no terminal, digite:
 
 ```bash
 git add .
@@ -99,40 +105,62 @@ Agora suas alterações estão no seu fork (aluno2/ENG4021).
 
 No GitHub (aluno2/ENG4021):
 
-Clique em Contribute → Open pull request
+1. Clique em `Contribute` → `Open pull request`.
 
-Verifique:
+    ![Abrir um PR](./img/GIT-TelaCriarPR.png)
 
-yaml
-￼Copy code
-base repository: aluno1/ENG4021     ← destino (repositório principal)
-head repository: aluno2/ENG4021     ← origem (seu fork)
-Adicione um título e uma descrição das mudanças.
+1. Verifique:
 
-Clique em Create pull request.
+    ```
+    base repository: aluno1/ENG4021     ← destino (repositório principal)
+    head repository: aluno2/ENG4021     ← origem (seu fork)
+    ```
 
-🔍 6. Revisão pelo dono do repositório
+1. Adicione um título e uma descrição das mudanças.
+
+    ![Abrir um PR](./img/GIT-TelaCriarPR2.png)
+
+1. Clique em `Create pull request`.
+
+    ![Abrir um PR](./img/GIT-TelaCriarPR3.png)
+
+## Revisão pelo dono do repositório
+
 O aluno1 verá o PR em:
 
-bash
-￼Copy code
+```bash
 https://github.com/aluno1/ENG4021/pulls
+```
+
+O **PR** também pode ser visto pela interface Web observando o link `Pull request`. No seu lado direito, você verá a quantidade de PRs pendentes.
+
+![Aceitar PR](./img/GIT-TelaAceitarPR.png)
+
 Ele pode:
-
-Analisar o código modificado.
-
-Comentar ou solicitar alterações.
-
-Fazer o merge quando estiver tudo certo.
+- Analisar o código modificado.
+- Comentar ou solicitar alterações.
+- Fazer o merge quando estiver tudo certo.
 
 Quando o merge é feito, as mudanças entram no repositório principal.
 
-⚙️ 7. Atualizar o fork com o repositório principal
+1. Clique no link `Pull requests`
+
+    ![Aceitar PR](./img/GIT-TelaAceitarPR2.png)
+
+1. Clique no PR que você deseja realizar o merge:
+
+    ![Aceitar PR](./img/GIT-TelaAceitarPR3.png)
+
+1. Se não houver problemas, clique em `Merge pull request` e depois em `Confirm merge` para confirmar o *merge* .
+
+    ![Aceitar PR](./img/GIT-TelaAceitarPR4.png)
+
+## Atualizar o fork com o repositório principal
+
 Quando aluno1 aceita um PR ou altera algo diretamente, os outros forks ficam desatualizados.
 Cada aluno deve sincronizar o fork com o original antes de novas modificações:
 
-bash
-￼Copy code
+```bash
 # Adicionar o repositório principal (de aluno1)
 git remote add upstream https://github.com/aluno1/ENG4021.git
 
@@ -145,21 +173,10 @@ git merge upstream/main
 
 # Atualizar o fork remoto
 git push origin main
-🧠 Resumo do fluxo
-diff
-￼Copy code
-+--------------------------------------+
-| aluno1/ENG4021 (repositório oficial) |
-|                                      |
-|   ↑ Pull Requests (aluno2, aluno3)   |
-+--------------------------------------+
-        ↑                 ↑
-        |                 |
-  Fork de aluno2     Fork de aluno3
- (Codespace)         (Codespace)
-🧰 Comandos essenciais
-bash
-￼Copy code
+```
+
+## Comandos essenciais
+```bash
 # Ver status dos arquivos
 git status
 
@@ -177,29 +194,11 @@ git remote add upstream https://github.com/aluno1/ENG4021.git
 git fetch upstream
 git merge upstream/main
 git push origin main
-🧩 Dicas úteis
-Faça commits pequenos e frequentes, com mensagens claras.
+```
 
-Antes de editar, sempre atualize seu fork com git fetch upstream.
+## Dicas úteis
 
-No PR, descreva bem as alterações e a motivação.
-
-O aluno1 pode usar a aba Pull Requests para revisar e comentar.
-
-📘 Exemplo visual (simplificado)
-perl
-￼Copy code
-aluno1/ENG4021 ────────┐
-                       │ Pull Request
-                       │
-aluno2/ENG4021 (fork) ─┤
-                       │
-aluno3/ENG4021 (fork) ─┘
-📄 Licença e boas práticas
-Certifique-se de manter o mesmo arquivo de licença (ex: MIT) do repositório original,
-e de incluir seu nome nos comentários dos arquivos em que trabalhou.
-
-Autor original do projeto: aluno1
-Colaboradores via fork: aluno2, aluno3, ...
-Ambiente de desenvolvimento: GitHub Codespaces
-Fluxo de colaboração: Fork → Edit → Commit → PR → Merge → Sync
+- Faça commits pequenos e frequentes, com mensagens claras.
+- Antes de editar, sempre atualize seu fork com git fetch upstream.
+- No PR, descreva bem as alterações e a motivação.
+- O `aluno1` pode usar a aba Pull Requests para revisar e comentar.
