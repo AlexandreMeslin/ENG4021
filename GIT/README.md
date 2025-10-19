@@ -261,6 +261,8 @@ Discard 1 commit to make this branch match the upstream repository. 1 commit wil
 You can resolve merge conflicts using the command line and a text editor.
 ```
 
+![Branch out-of-date](./img/GIT-ConflitoDetectado.png)
+
 ### Solução
 
 Vá para o terminal do Codespace.
