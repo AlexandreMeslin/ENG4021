@@ -202,3 +202,45 @@ git push origin main
 - Antes de editar, sempre atualize seu fork com git fetch upstream.
 - No PR, descreva bem as alterações e a motivação.
 - O `aluno1` pode usar a aba Pull Requests para revisar e comentar.
+
+# Problemas conhecidos e suas "soluções"
+
+## Origem e local divergem
+
+### Sintoma
+
+```ascii
+From https://github.com/AlexandreMeslin/ENG4021
+ * branch            main       -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+```
+
+### Solução (mais conservadora)
+
+```bash
+git pull --tags origin main --no-rebase
+```
+
+Resultado esperado:
+
+```ascii
+From https://github.com/AlexandreMeslin/ENG4021
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ GIT/img/GIT-TelaSyncFork.png | Bin 0 -> 154035 bytes
+ README.md                    |   4 ++--
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 GIT/img/GIT-TelaSyncFork.png
+```
