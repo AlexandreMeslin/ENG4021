@@ -244,3 +244,103 @@ Merge made by the 'ort' strategy.
  2 files changed, 2 insertions(+), 2 deletions(-)
  create mode 100644 GIT/img/GIT-TelaSyncFork.png
 ```
+
+---
+
+## O mesmo arquivo editado na origem e no clone
+
+### Sintoma
+
+Ao tentar fazer o `push`, o Github informa o conflito:
+
+```txt
+This branch has conflicts that must be resolved
+
+Discard 1 commit to make this branch match the upstream repository. 1 commit will be removed from this branch.
+
+You can resolve merge conflicts using the command line and a text editor.
+```
+
+### Solução
+
+Vá para o terminal do Codespace.
+
+1. Verifique se você está na branch `main`:
+
+    ```bash
+    git status
+    ```
+
+    Resultado esperado
+
+    ```
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    nothing to commit, working tree clean
+    ```
+
+1. Verifique se o repositório original está como `upstream`:
+
+    ```bash
+    git remote -v
+    ```
+
+    Resultado esperado:
+
+    ```ascii
+    origin  https://github.com/alexandre-att/ENG4021 (fetch)
+    origin  https://github.com/alexandre-att/ENG4021 (push)
+    upstream        https://github.com/AlexandreMeslin/ENG4021.git (fetch)
+    upstream        https://github.com/AlexandreMeslin/ENG4021.git (push)
+    ```
+
+1. Atualize o seu repositório clonado:
+
+    ```bash
+    git fetch upstream
+    ```
+
+    Resultado esperado:
+
+    ```
+    remote: Enumerating objects: 7, done.
+    remote: Counting objects: 100% (7/7), done.
+    remote: Compressing objects: 100% (3/3), done.
+    remote: Total 4 (delta 1), reused 4 (delta 1), pack-reused 0 (from 0)
+    Unpacking objects: 100% (4/4), 466 bytes | 466.00 KiB/s, done.
+    From https://github.com/AlexandreMeslin/ENG4021
+       9243ba8..b7f24d6  main       -> upstream/main
+    ```
+
+1. Faça o merge do conteúdo atualizado na sua branch
+
+    ```bash
+    git merge upstream/main
+    ```
+
+    Resultado esperado:
+
+    ```
+    Auto-merging GIT/arq1.txt
+    CONFLICT (content): Merge conflict in GIT/arq1.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+    ```
+
+1. Se vira para resolver os conflitos
+
+    Edite o(s) arquivo(s) com conflitos.
+    O resultado da edição será o conteúdo final do arquivo no seu projeto original.
+    Remova as linhas com `<<<<<<<`, `=======`, e `>>>>>>>`.
+
+    ![Editor de conflitos](./img/GIT-EditorDeConflito.png)
+
+1. Depois de corrigir todos os conflitos de todos os arquivos, no terminal do Codespace:
+
+    ```bash
+    git add .
+    git commit
+    git push origin main
+    ```
+
+1. Faça novamente o procedimento para realizar o PR na interface Web do Github.
