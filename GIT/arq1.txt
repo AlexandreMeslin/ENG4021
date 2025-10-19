@@ -1,3 +1,5 @@
 Arquivo no repositório original
 
+Vamos gerar um conflito no clone
+
 Vamos gerar um conflito no original
