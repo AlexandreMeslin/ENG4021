@@ -346,6 +346,15 @@ Vá para o terminal do Codespace.
 
     Edite o(s) arquivo(s) com conflitos.
     O resultado da edição será o conteúdo final do arquivo no seu projeto original.
+
+    O Git adiciona esses marcadores especiais:
+    
+    | Marcador | Significado |
+    |---|---|
+    | <<<<<<< HEAD | Seu conteúdo local (no fork, ou branch atual) |
+    | ======= | Separador entre as duas versões |
+    | >>>>>>> upstream/main | Conteúdo vindo do repositório original |
+
     Remova as linhas com `<<<<<<<`, `=======`, e `>>>>>>>`.
 
     ![Editor de conflitos](./img/GIT-EditorDeConflito.png)
