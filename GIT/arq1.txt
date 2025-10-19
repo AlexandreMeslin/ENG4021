@@ -3,3 +3,5 @@ Arquivo no repositório original
 Vamos gerar um conflito no clone de novo!
 
 Vamos gerar um conflito no original
+
+de novo!
