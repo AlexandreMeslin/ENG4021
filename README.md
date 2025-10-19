@@ -27,6 +27,7 @@
 
 | Entreada | Descrição | Tópico |
 |---|---|---|
+| [GIT](./GIT/) | Sprint 1 | Uso do Github |
 | [HTML](./HTML/) | Atividade Individual 1 | HTML |
 | [MeuProjeto](./MeuProjeto/) | Atividade individual 2 | Django |
 | [MeuSite](MeuSite) | deprecated | |
