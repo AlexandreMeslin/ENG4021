@@ -1,3 +1,19 @@
+# Índice
+
+- [Links úteis](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#links-%C3%BAteis)
+- [Uso do Github](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#uso-do-github)
+- [Problemas conhecidos e suas "soluções"](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#problemas-conhecidos-e-suas-solu%C3%A7%C3%B5es)
+- [Comandos utilizados](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#comandos-utilizados)
+
+---
+
+# Links úteis
+
+- https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+
+---
+
 # Uso do Github
 
 Este guia explica como **vários alunos podem colaborar** em um mesmo projeto no GitHub — no caso, o repositório fictício chamado `ENG4021`.
@@ -5,11 +21,6 @@ Este guia explica como **vários alunos podem colaborar** em um mesmo projeto no
 > Modifique o nome do repositório de acordo com o seu projeto
 
 O fluxo descrito abaixo usa **forks** (cópias individuais no GitHub) e **GitHub Codespaces** (ambientes de edição online).
-
-## Links úteis
-
-- https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 
 ## CENÁRIO GERAL
 
@@ -203,6 +214,8 @@ git push origin main
 - No PR, descreva bem as alterações e a motivação.
 - O `aluno1` pode usar a aba Pull Requests para revisar e comentar.
 
+---
+
 # Problemas conhecidos e suas "soluções"
 
 ## Origem e local divergem
@@ -346,3 +359,21 @@ Vá para o terminal do Codespace.
     ```
 
 1. Faça novamente o procedimento para realizar o PR na interface Web do Github.
+
+---
+
+# Comandos utilizados
+
+```bash
+    git add .
+    git checkout main
+    git commit
+    git commit -m "Atualiza função principal e README"
+    git fetch upstream
+    git merge upstream/main
+    git pull --tags origin main --no-rebase
+    git push origin main
+    git remote -v
+    git remote add upstream https://github.com/aluno1/ENG4021.git
+    git status
+```
