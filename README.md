@@ -22,3 +22,12 @@
 
 ![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/INF1304?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/INF1304?style=social)
+
+## Índice
+
+| Entreada | Descrição | Tópico |
+|---|---|---|
+| [HTML](./HTML/) | Atividade Individual 1 | HTML |
+| [MeuProjeto](./MeuProjeto/) | Atividade individual 2 | Django |
+| [MeuSite](MeuSite) | deprecated | |
+
