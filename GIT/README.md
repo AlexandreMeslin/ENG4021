@@ -218,6 +218,9 @@ git push origin main
 
 # Problemas conhecidos e suas "soluções"
 
+- [Origem e local divergem](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#origem-e-local-divergem)
+- [O mesmo arquivo editado na origem e no clone](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#o-mesmo-arquivo-editado-na-origem-e-no-clone)
+
 ## Origem e local divergem
 
 ### Sintoma
