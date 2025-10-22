@@ -389,3 +389,21 @@ Vá para o terminal do Codespace.
     git remote add upstream https://github.com/aluno1/ENG4021.git
     git status
 ```
+
+## Para criar uma tag:
+
+```bash
+git tag -a v2025.2 -m "Release version 2025.2"
+git push origin --tags
+```
+
+Resultado esperado:
+
+```
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 173 bytes | 173.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/AlexandreMeslin/INF1018
+ * [new tag]         v2025.2 -> v2025.2
+```
