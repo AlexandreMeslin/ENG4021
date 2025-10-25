@@ -7,7 +7,7 @@
 
 ## Tarefas
 
-- Criação do site baseado em Django
+- Criar site baseado em Django
 - Atualizar o arquivo README.md
 - Implementar autenticação de usuário
 - Alimentar base de dados
@@ -204,12 +204,116 @@ class ClasseProtegida(LoginRequiredMixin, View):
     return render(request, 'chatsec/inicio.html')
 ```
 
-##Base de Dados
+## Base de Dados
 > tempo estimado: menos de 3h-estudante
 
-Use a interface administrativa para criar as informações do seu banco de dados.
+> Para você implementar essa tarefa, o site básico em Django já deve ter sido criado.
 
-Não se esqueça de migrar o banco de dados se houver alguma modificação em algum dos modelos ou se o Django avisar que deve realizar uma migração.
+> Se você não é o dono (`owner`) do repositório, você já deve ter clonado o repositório do seu time, criando um `fork` dele - Veja como fazer isso em [como fazer um `fork` de um repositório](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT#fazer-o-fork-do-reposit%C3%B3rio).
+
+> Esse exemplo supõe que o projeto que você criou se chama `MeuSite`. Troque todas as ocorrências de `MeuSite` pelo nome correto da sua aplicação.
+
+1. No diretório `MeuSite/MeuSite`, crie o arquivo `models.py`. Você pode fazer isso usando a interface gráfica do **Codespace**.
+
+1. Vamos supor que você queira criar uma tabela no banco de dados para armazenar dados de um contato de uma agenda telefônica ou coisa parecida. Considerando que os atributos de uma pessoa são os seguinte:
+
+  | Atributo | Tipo do atributo | Tipo do atributo no banco de dados |
+  |---|---|---|
+  | id | chave primária (todas as tabelas que você criar devem ter) | AutoField |
+  | nome | String | CharField |
+  | idade | Inteiro | IntegerField |
+  | salario | Real | DecimalField |
+  | email | e-mail | EmailField |
+  | dtNasc | Data | DateField |
+
+1. Baseado nos campos descritos acima, vamos criar uma classe no arquivo `models.py` para representar uma `Pessoa` (note a letra `P` maiúscula). Toda classe que representa um modelo que vai ser persistido no banco de dados deve extender a classe `django.db.models.Model`. O arquivo `models.py` deve conter a seguinte classe:
+
+  ```python
+  from django.db import models
+  
+  class Pessoa(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=100, help_text='Entre o nome')
+    idade = models.IntegerField(help_text='Entre a idade')
+    salario = models.DecimalField(help_text='Entre o salário' decimal_places=2, max_digits=8)
+    email = models.EmailField(help_text='Informe o email', max_length=254)
+    dtNasc = models.DateField(help_text='Nascimento no formato DD/MM/AAAA', verbose_name='Data de nascimento')
+      
+    def __str__(self):
+      '''
+      Como cada uma das entradas do banco de dados vai aparecer 
+      na interface administrativa.
+      Veja mais em `magic method`, `special method`, `dunder method`
+      dunder == double underscore ou double underline
+      @seealso: https://docs.python.org/3/reference/datamodel.html#specialnames
+      '''
+      return "Pessoa: " + self.nome 
+  ```
+
+1. Se você precisar criar outros tipos de campos ou com outros atributos, veja uma lista não exaustiva a seguir:
+  ```python
+  AutoField
+  BigAutoField
+  BigIntegerField
+  BinaryField
+  BooleanField
+  CharField
+  DateField
+  DateTimeField
+  DecimalField
+  DurationField
+  EmailField
+  FileField
+  FilePathField
+  FloatField
+  ImageField
+  IntegerField
+  GenericIPAddressField
+  NullBooleanField
+  PositiveIntegerField
+  PositiveSmallIntegerField
+  SlugField
+  SmallIntegerField
+  TextField
+  TimeField
+  URLField
+  UUIDField
+  ```
+
+  Você também pode consultar a [documentação oficial](https://docs.djangoproject.com/en/4.1/ref/models/fields/).
+
+1. Use a interface administrativa para criar as informações do seu banco de dados.
+
+1. Não se esqueça de migrar o banco de dados se houver alguma modificação em algum dos modelos ou se o Django avisar que deve realizar uma migração.
+  ```python
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
+  Saída esperada (semelhante a essa):
+  ```
+  Operations to perform:
+    Apply all migrations: admin, auth, contatos, contenttypes, sessions
+  Running migrations:
+    Applying contenttypes.0001_initial... OK
+    Applying auth.0001_initial... OK
+    Applying admin.0001_initial... OK
+    Applying admin.0002_logentry_remove_auto_add... OK
+    Applying admin.0003_logentry_add_action_flag_choices... OK
+    Applying contenttypes.0002_remove_content_type_name... OK
+    Applying auth.0002_alter_permission_name_max_length... OK
+    Applying auth.0003_alter_user_email_max_length... OK
+    Applying auth.0004_alter_user_username_opts... OK
+    Applying auth.0005_alter_user_last_login_null... OK
+    Applying auth.0006_require_contenttypes_0002... OK
+    Applying auth.0007_alter_validators_add_error_messages... OK
+    Applying auth.0008_alter_user_username_max_length... OK
+    Applying auth.0009_alter_user_last_name_max_length... OK
+    Applying auth.0010_alter_group_name_max_length... OK
+    Applying auth.0011_update_proxy_permissions... OK
+    Applying auth.0012_alter_user_first_name_max_length... OK
+    Applying contatos.0001_initial... OK
+    Applying sessions.0001_initial... OK
+  ```
 
 ## Página de consulta
 > tempo estimado: menos de 2h-estudante
