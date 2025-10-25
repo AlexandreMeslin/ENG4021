@@ -226,7 +226,9 @@ class ClasseProtegida(LoginRequiredMixin, View):
   | email | e-mail | EmailField |
   | dtNasc | Data | DateField |
 
-1. Baseado nos campos descritos acima, vamos criar uma classe no arquivo `models.py` para representar uma `Pessoa` (note a letra `P` maiúscula). Toda classe que representa um modelo que vai ser persistido no banco de dados deve extender a classe `django.db.models.Model`. O arquivo `models.py` deve conter a seguinte classe:
+1. Baseado nos campos descritos acima, vamos criar uma classe no arquivo `models.py` para representar uma `Pessoa` (note a letra `P` maiúscula).
+  Modifique o nome da classe para representar o objeto que você quer criar para o seu projeto.
+  Toda classe que representa um modelo que vai ser persistido no banco de dados deve extender a classe `django.db.models.Model`. O arquivo `models.py` deve conter a seguinte classe:
 
   ```python
   from django.db import models
@@ -314,6 +316,19 @@ class ClasseProtegida(LoginRequiredMixin, View):
     Applying contatos.0001_initial... OK
     Applying sessions.0001_initial... OK
   ```
+
+1. No arquivo `MeuSite/MeuSite/admin.py` registre o banco de dados para ser administrado via interface administrativa:
+  ```python
+
+  from django.contrib import admin
+  # Register your models here.
+  # Lembre-se que `Pessoa` é o nome da classe que você criou
+  # Você deve substituir `Pessoa` pela classe criada referente ao seu projeto
+  from contatos.models import Pessoa
+  admin.site.register(Pessoa)
+  ```
+
+1. Visite o seu site e inclua no final da URL o diretório `admim`. Supondo que o endereço do site é `https://fantastic-space-zebra-vp7p7jpxw69hp9v4-8000.app.github.dev/`, use o endereço `https://fantastic-space-zebra-vp7p7jpxw69hp9v4-8000.app.github.dev/admin/`.
 
 ## Página de consulta
 > tempo estimado: menos de 2h-estudante
