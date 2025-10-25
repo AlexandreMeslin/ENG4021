@@ -6,9 +6,7 @@
 ![Open Issues](https://img.shields.io/github/issues/AlexandreMeslin/ENG4021)
 ![Open PRs](https://img.shields.io/github/issues-pr/AlexandreMeslin/ENG4021)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-magenta.svg)
-
-
-
+![GitHub Created At](https://img.shields.io/github/created-at/AlexandreMeslin/ENG4021)
 
 ![HTML](https://img.shields.io/badge/language-HTML-brown.svg)
 ![Python](https://img.shields.io/badge/language-Python-yellow.svg)
@@ -22,6 +20,9 @@
 
 ![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/INF1304?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/INF1304?style=social)
+![GitHub followers](https://img.shields.io/github/followers/AlexandreMeslin)
+![GitHub User's stars](https://img.shields.io/github/stars/AlexandreMeslin)
+![GitHub watchers](https://img.shields.io/github/watchers/AlexandreMeslin/ENG4021)
 
 ## Índice
 
