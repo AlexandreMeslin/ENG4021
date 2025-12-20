@@ -2,6 +2,13 @@
 
 ### Atividade Individual 4
 
+Nessa atividade, você vai implemnetar autenticação e autorização de usuários, implementando:
+
+- Sistema de login de usuário
+- Proteção de páginas
+- Sistema para trocar senha de usuário
+- Sistema para recuperação de senha de usuário
+
 ## Passos iniciais
 
 Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/).
