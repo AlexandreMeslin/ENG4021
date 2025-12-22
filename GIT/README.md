@@ -18,6 +18,7 @@
 
 Este guia explica como **vários alunos podem colaborar** em um mesmo projeto no GitHub — no caso, o repositório fictício chamado `ENG4021`.
 
+> [!IMPORTANT]\
 > Modifique o nome do repositório de acordo com o seu projeto
 
 O fluxo descrito abaixo usa **forks** (cópias individuais no GitHub) e **GitHub Codespaces** (ambientes de edição online - IDE).
