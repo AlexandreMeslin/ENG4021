@@ -5,8 +5,11 @@
 ![Contributors](https://img.shields.io/github/contributors/AlexandreMeslin/ENG4021)
 ![Open Issues](https://img.shields.io/github/issues/AlexandreMeslin/ENG4021)
 ![Open PRs](https://img.shields.io/github/issues-pr/AlexandreMeslin/ENG4021)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-magenta.svg)
 ![GitHub Created At](https://img.shields.io/github/created-at/AlexandreMeslin/ENG4021)
+
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-magenta.svg)
+![Pull Requests](https://img.shields.io/github/issues-pr/AlexandreMeslin/ENG4021)
+![Students](https://img.shields.io/badge/Students-Contributions%20Welcome-yellow)
 
 ![HTML](https://img.shields.io/badge/language-HTML-brown.svg)
 ![Python](https://img.shields.io/badge/language-Python-yellow.svg)
@@ -18,11 +21,34 @@
 ![Repo Size](https://img.shields.io/github/repo-size/AlexandreMeslin/INF1304)
 ![Code Size](https://img.shields.io/github/languages/code-size/AlexandreMeslin/INF1304)
 
-![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/INF1304?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/INF1304?style=social)
+![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/ENG4021?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/ENG4021?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/AlexandreMeslin)
 ![GitHub User's stars](https://img.shields.io/github/stars/AlexandreMeslin)
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexandreMeslin/ENG4021)
+
+Community Profile
+
+![License](https://img.shields.io/github/license/AlexandreMeslin/ENG4021)
+![Contributing](https://img.shields.io/badge/Contributing-Yes-brightgreen)
+![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Yes-blue)
+![Security Policy](https://img.shields.io/badge/Security-Policy-red)
+![Support](https://img.shields.io/badge/Support-Available-orange)
+
+![Community Profile](https://img.shields.io/badge/Community%20Profile-100%25-success)
+
+![CITATION.cff](https://img.shields.io/badge/Citation-CFF-blueviolet)
+![Open Science](https://img.shields.io/badge/Open%20Science-Ready-success)
+![PUC-Rio](https://img.shields.io/badge/PUC--Rio-Department%20of%20Informatics-003366)
+
+![Governance](https://img.shields.io/badge/Governance-Defined-blue)
+![Code Owners](https://img.shields.io/badge/CODEOWNERS-Enabled-lightgrey)
+![Roadmap](https://img.shields.io/badge/Roadmap-Published-informational)
+
+![Course](https://img.shields.io/badge/Course-ENG4021-blue)
+![PUC-Rio](https://img.shields.io/badge/Institution-PUC--Rio-003366)
+![Semester](https://img.shields.io/badge/Semester-2026.1-lightgrey)
+![Educational](https://img.shields.io/badge/Educational-Repository-brightgreen)
 
 ## Índice
 
