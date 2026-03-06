@@ -1,0 +1,57 @@
+name: Community Profile Compliance
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 3 * * 0" # semanal domingo
+
+jobs:
+  community-profile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub Community Profile
+        id: profile
+        run: |
+          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/community/profile)
+
+          echo "$RESPONSE" > profile.json
+          SCORE=$(echo "$RESPONSE" | jq '.health_percentage')
+          echo "score=$SCORE" >> $GITHUB_OUTPUT
+
+      - name: Generate badge JSON
+        run: |
+          SCORE=${{ steps.profile.outputs.score }}
+          COLOR="red"
+          if [ "$SCORE" -ge 80 ]; then COLOR="yellow"; fi
+          if [ "$SCORE" -ge 95 ]; then COLOR="brightgreen"; fi
+
+          cat <<EOF > .github/community-profile.json
+          {
+            "schemaVersion": 1,
+            "label": "Community Profile",
+            "message": "${SCORE}%",
+            "color": "${COLOR}"
+          }
+          EOF
+
+      - name: Commit badge file
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add .github/community-profile.json
+          git commit -m "Update Community Profile badge" || exit 0
+          git push
+          
+      - name: Fail if compliance < 100%
+        run: |
+          SCORE=${{ steps.profile.outputs.score }}
+          if [ "$SCORE" -lt 100 ]; then
+            echo "Community Profile score is $SCORE%. Must be 100%."
+            exit 1
+          fi

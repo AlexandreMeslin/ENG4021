@@ -545,6 +545,35 @@ Ao tentar fazer o *merge* você se depara com a seguinte mensagem de erro:
 
 ![Confirma o merge](img/GIT-merge8.png)
 
+---
+
+## Repositórios fora de sincronismo
+
+### Descrição
+
+Existe algum arquivo no repositório remoto que não está no repositório local.
+
+### Sintoma
+
+```bash
+$ git push origin HEAD:master
+To https://github.com/meslin8752/RegionAlert.git
+ ! [rejected]        HEAD -> master (fetch first)
+error: failed to push some refs to 'https://github.com/meslin8752/RegionAlert.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+Solução
+
+```bash
+git pull origin master --allow-unrelated-histories
+```
+
+
 ## Merge não terminado
 
 ### Descrição
