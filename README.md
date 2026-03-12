@@ -1,6 +1,8 @@
 # ENG4021
 ## Projeto Integrado - Software
 
+![SObre o Copilot](img/GitHub_2026-03-12.png)
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 ![Contributors](https://img.shields.io/github/contributors/AlexandreMeslin/ENG4021)
 ![Open Issues](https://img.shields.io/github/issues/AlexandreMeslin/ENG4021)
