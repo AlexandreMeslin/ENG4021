@@ -6,26 +6,33 @@ doi: null
 url: "[https://github.com/AlexandreMeslin/ENG4021](https://github.com/AlexandreMeslin/ENG4021)"
 abstract: "Material didático e código-fonte da disciplina ENG4021 (Projeto Integrado - Software) da Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio). O repositório contém exemplos, exercícios, templates e projetos utilizados em aula."
 keywords:
-
-* software engineering
-* projeto de software
-* ensino
-* PUC-Rio
-* GitHub Classroom
-  authors:
-* family-names: "Meslin"
-  given-names: "Alexandre"
-  affiliation: "Departamento de Informática, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)"
-  orcid: "[https://orcid.org/0000-0002-2038-043X](https://orcid.org/0000-0002-2038-043X)"
-  license: "MIT"
-  preferred-citation:
-  type: software
-  authors:
-
-  * family-names: "Meslin"
+  - software engineering
+  - projeto de software
+  - ensino
+  - PUC-Rio
+  - GitHub Classroom
+authors:
+  - family-names: "Meslin"
     given-names: "Alexandre"
     affiliation: "Departamento de Informática, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)"
+    orcid: "[https://orcid.org/0000-0002-2038-043X](https://orcid.org/0000-0002-2038-043X)"
+    license: "MIT"
     title: "ENG4021 - Projeto Integrado - Software"
     year: 2026
     version: "2026.1"
     url: "[https://github.com/AlexandreMeslin/ENG4021](https://github.com/AlexandreMeslin/ENG4021)"
+preferred-citation:
+  type: software
+  title: "ENG4021 - Projeto Integrado - Software"
+  version: "2026.1"
+  url: "[https://github.com/AlexandreMeslin/ENG4021](https://github.com/AlexandreMeslin/ENG4021)"
+  authors:
+    - family-names: "Meslin"
+      given-names: "Alexandre"
+      affiliation: "Departamento de Informática, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)"
+      orcid: "[https://orcid.org/0000-0002-2038-043X](https://orcid.org/0000-0002-2038-043X)"
+      license: "MIT"
+      title: "ENG4021 - Projeto Integrado - Software"
+      year: 2026
+      version: "2026.1"
+      url: "[https://github.com/AlexandreMeslin/ENG4021](https://github.com/AlexandreMeslin/ENG4021)"
