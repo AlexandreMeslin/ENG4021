@@ -223,7 +223,10 @@ Agora o seu repositório está atualizado e o seu trabalho definitivamente salvo
 Antes disso, ele apenas exitia no *container* criado para o seu Codespace.
 Ou seja, se o seu Codespace fosse apagado ou destruído, o seu trabalho iria junto!
 
+Se você ficar muito tempo sem usar algum dos seus Codespaces, ele será apagado pelo GitHub.
+Mas, antes disso, você irá receber uma mensagem como esta:
 
+![Codespace about to be deleted](img/github-codespace-delete.png)
 
 
 ## Criar um Pull Request (PR)
