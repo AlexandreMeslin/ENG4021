@@ -6,13 +6,16 @@ on:
   schedule:
     - cron: "0 3 * * 0" # semanal domingo
 
+permissions:
+  contents: write
+
 jobs:
   community-profile:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Fetch GitHub Community Profile
         id: profile
