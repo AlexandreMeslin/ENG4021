@@ -1,7 +1,7 @@
 # ENG4021
 ## Projeto Integrado - Software
 
-> **Informação recebida do GitHub via e-mail em 2026-03-12 às 13:23**s
+> **Informação recebida do GitHub via e-mail em 2026-03-12 às 13:23**
 ![Sobre o Copilot](img/GitHub_2026-03-12.png)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://opensource.org/licenses/MIT)
