@@ -59,17 +59,6 @@ Community Profile
 ![Semester](https://img.shields.io/badge/Semester-2026.1-lightgrey)
 ![Educational](https://img.shields.io/badge/Educational-Repository-brightgreen)
 
-## Índice
-
-| Entreada | Descrição | Tópico |
-|---|---|---|
-| [GIT](./Sprint-1_GIT/) | Sprint 1 | Uso do Github |
-| [HTML](./AI1-HTML/) | Atividade Individual 1 | HTML |
-| [MeuProjeto](./AI2-MeuProjeto/) | Atividade individual 2 | Django |
-| [CRUD](./AI3-CRUD-1/) | Atividade individual 3 | CRUD (parte 1) |
-| [CRUD](./AI4-CRUD-2/) | Atividade individual 4 | CRUD (parte 2) |
-| [MeuSite](MeuSite) | deprecated | |
-
 ## Problemas e soluções
 
 ### Python
@@ -78,6 +67,7 @@ Community Profile
 
 ### Git
 
+- [Problemas com GIT](GIT#problemas-conhecidos-e-suas-solu%C3%A7%C3%B5es)
 - [Usuário não conhecido no repositório local](GIT/README.md#usuário-não-conhecido-no-repositório-local)
 - [Desistir de um commit porque não consegue fazer push](GIT/README.md#desistir-de-um-commit-porque-n%C3%A3o-consegue-fazer-push)
 - [Origem e local divergem](GIT/README.md#origem-e-local-divergem)

@@ -2,7 +2,6 @@
 
 - [Links úteis](#links-%C3%BAteis)
 - [Uso do Github](#uso-do-github)
-- [Problemas com GIT](GIT#problemas-conhecidos-e-suas-solu%C3%A7%C3%B5es)
 - [Problemas conhecidos e suas "soluções"](#problemas-conhecidos-e-suas-solu%C3%A7%C3%B5es)
 - [Comandos utilizados](#comandos-utilizados)
 
