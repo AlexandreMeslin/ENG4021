@@ -66,7 +66,7 @@ Use o documento de inscrição fornecido pelo SAU para comprovar que você é al
 - Criar o repositório do time (de preferência, use o mesmo repositório criado como tarefa da `Sprint 1`).
 - Usando o **Codespace**, criar um diretório chamado `Calculadora` na raiz do repositório do time.
 Esse diretório será utilizado para criar a calculadora.
-- Implementar o módulo `calculadora.py` que irá importar os seguintes módulos que estão sendo desevolvidos pelos alunos 1, 2, 3, 4 e 5:
+- Implementar o módulo `calculadora.py` que irá importar os seguintes módulos que estão sendo desevolvidos pelos alunos 2, 3, 4 e 5:
     - `soma.py`
     - `subtrai.py`
     - `multiplica.py`
@@ -128,7 +128,7 @@ Antes de começar a trabalhar, siga sempre essas [dicas](#dicas-muito-úteis-ou-
 
    > O Codespace é como um **VS-Code** rodando no navegador.
 
-   > Nesse momento, você tem uma cópia do *fork* que você fez do repositório original, ou seja, uma cópia da cópia.
+   > Nesse momento, você tem um **clone** do *fork* que você fez do repositório original, ou seja, uma cópia da cópia.
 
 - Aluno 2:
     - Criar o modulo `soma.py` dentro do diretório `Calculadora`.
@@ -231,7 +231,9 @@ Mas, antes disso, você irá receber uma mensagem como esta:
 
 ## Criar um Pull Request (PR)
 
-No GitHub (aluno2/ENG4021):
+Agora você vai atualizar o repositório principal a partir do *fork* que você fez.
+
+No GitHub (∀ n | n>1 ⇒ aluno*n*/ENG4021):
 
 1. Clique no botão <svg aria-hidden="true" focusable="false" class="octicon octicon-git-pull-request" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align: text-bottom;"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></svg> Contribute e depois no botão verde `Open pull request`.
 
@@ -307,8 +309,8 @@ Para isso, basta clicar no botão <svg aria-hidden="true" focusable="false" clas
 
 - Testar o funcionamento da calculadora usando o Codespace
 - Criar um card no Kanban. No card:
-    - Incluir um *print* da calculadora funcionando.
-    - Incluir um *print* do diretório `Calculadora` como evidência de que a tarefa foi concluída.
+    - Incluir um *print* da calculadora funcionando no seu codespace.
+    - Incluir um *print* do diretório `Calculadora`, mostrando todos os arquivos do projeto, como evidência de que a tarefa foi concluída.
 
 
 
