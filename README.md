@@ -23,6 +23,8 @@
 ![Last Commit](https://img.shields.io/github/last-commit/AlexandreMeslin/INF1304)
 ![Repo Size](https://img.shields.io/github/repo-size/AlexandreMeslin/INF1304)
 ![Code Size](https://img.shields.io/github/languages/code-size/AlexandreMeslin/INF1304)
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/AlexandreMeslin/INF1029/v2026.1)
+
 
 ![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/ENG4021?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AlexandreMeslin/ENG4021?style=social)
@@ -36,7 +38,7 @@
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 
-Community Profile
+**Community Profile**
 
 ![License](https://img.shields.io/github/license/AlexandreMeslin/ENG4021)
 ![Contributing](https://img.shields.io/badge/Contributing-Yes-brightgreen)
