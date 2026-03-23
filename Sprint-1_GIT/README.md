@@ -356,6 +356,10 @@ Verifique sempre a mensagem no topo da página.
 
 Depois de instalar a extensão de Python, alguns (muitos) módulos não são mais reconhecidos.
 
+> Antes de executar essa solução, verifique se:
+> 1. O `venv` está ativo.
+> 1. O módulo com erro está instalado
+
 ### Explicação
 
 A extensão não localizou o interpretador Python correto.

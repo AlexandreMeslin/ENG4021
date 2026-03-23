@@ -66,6 +66,7 @@
 ### Python
 
 - [Qualquer problema relativo a CORS ou CSRF](https://github.com/AlexandreMeslin/ENG4021/tree/main/AI2-MeuProjeto#cors)
+- [Módulos não reconhecidos](https://github.com/AlexandreMeslin/ENG4021/tree/main/Sprint-1_GIT#m%C3%B3dulos-n%C3%A3o-reconhecidos)
 
 ### Git
 
