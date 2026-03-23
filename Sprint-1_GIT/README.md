@@ -347,3 +347,23 @@ Verifique sempre a mensagem no topo da página.
     Para resolver a situação, comece atualizando o seu branch, clicando no botão
     <svg aria-hidden="true" focusable="false" class="octicon octicon-sync" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align: text-bottom;"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"></path></svg> **Sync fork**, e depois no botão verde, `Update branch`.
     Agora você está no estado `behind` listado [aqui](#behind).
+
+---
+
+## Módulos não reconhecidos
+
+### Sintoma:
+
+Depois de instalar a extensão de Python, alguns (muitos) módulos não são mais reconhecidos.
+
+### Explicação
+
+A extensão não localizou o interpretador Python correto.
+
+### Solução:
+
+1. Pressione `Ctrl+shift+P`.
+1. Digite `Python Select Interpreter`.
+1. Clique em `Enter interpreter path...`.
+1. Clique em `Browser your file system to find a Python interpreter.`.
+1. Navegue até o diretório do seu `venv` e selecione o executável Python `venv/bin/python`.
