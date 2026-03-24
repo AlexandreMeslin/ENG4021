@@ -235,6 +235,10 @@ git push origin main
 
 ## Usuário não conhecido no repositório local
 
+### Descrição
+
+O Git não consegue encontrar as credenciais locais para fazer login no repositório remoto ou as credenciais que ele encontrou estão erradas ou desatualizadas.
+
 ### Sintoma
 
 ```
@@ -276,6 +280,10 @@ git config user.email "seu_email@dominio.com"
 
 ## Desistir de um commit porque não consegue fazer push
 
+### Descrição
+
+Você criou um *commit*, não fez, não quer fazer ou não consegue fazer um *push* e deseja desfazer o *commit* por algum motivo.
+
 ### Sintoma
 
 ```
@@ -309,6 +317,11 @@ Tente sincronizar agora com a origem (se quiser, pode usar agora a interface gr�
 ---
 
 ## Origem e local divergem
+
+### Descrição
+
+Os repositórios remoto e local divergem em um ou mais arquivos.
+Ou seja, alguns arquivos no repositório remoto estão mais atualizados do que no repositório local e vice-versa.
 
 ### Sintoma
 
@@ -351,6 +364,10 @@ Merge made by the 'ort' strategy.
 ---
 
 ## O mesmo arquivo editado na origem e no clone
+
+## Descrição
+
+O mesmo arquivo foi modificado em dois locais diferentes.
 
 ### Sintoma
 
@@ -463,6 +480,12 @@ Vá para o terminal do Codespace.
 
 ## O push vai tornar público um e-mail privado
 
+### Descrição
+
+Você configurou o dispositivo de segurança para não revelar o seu e-mail.
+Mas ao realizar um PR, um e-mail deve ser informado.
+Opcionalmente você pode usar um *alias* de e-mail criado pelo GitHub para esconder o seu e-mail.
+
 ### Sintoma:
 
 ```
@@ -498,6 +521,11 @@ curl -s https://api.github.com/users/SEU_USERNAME | grep '"id"'
 ---
 
 ## O *branch* do PR tem conflitos com o conteúdo do repositório origem
+
+### Descrição
+
+Existem um ou mais conflitos que o Git não consegue resolver automaticamente.
+Uma intervenção manual (sua) é necessária.
 
 ### Sintoma:
 
@@ -567,11 +595,13 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-Solução
+### Solução
 
 ```bash
 git pull origin master --allow-unrelated-histories
 ```
+
+---
 
 
 ## Merge não terminado
