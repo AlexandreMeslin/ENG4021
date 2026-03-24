@@ -1,0 +1,44 @@
+name: Copy Issues to INF1407
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    if: github.repository == 'AlexandreMeslin/ENG4021'
+    
+    steps:
+      - name: Setup GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install gh -y
+      
+      - name: Authenticate
+        run: echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+      
+      - name: Copy issue to INF1407
+        run: |
+          gh issue create \
+            --repo "AlexandreMeslin/INF1407" \
+            --title "[ENG4021] ${{ github.event.issue.title }}" \
+            --body "**Issue original:** ${{ github.event.issue.html_url }}
+            
+            **Autor:** @${{ github.event.issue.user.login }}
+            
+            ---
+            
+            ${{ github.event.issue.body }}" \
+            --label "copied-from-eng4021"
+      
+      - name: Comment on original
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --repo "AlexandreMeslin/ENG4021" \
+            --body "✅ Issue copiada para [INF1407](https://github.com/AlexandreMeslin/INF1407)"
