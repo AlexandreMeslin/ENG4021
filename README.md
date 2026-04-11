@@ -1,4 +1,6 @@
 # ENG4021
+
+
 ## Projeto Integrado - Software
 
 > **Informação recebida do GitHub via e-mail em 2026-03-12 às 13:23**
@@ -60,6 +62,18 @@
 ![PUC-Rio](https://img.shields.io/badge/Institution-PUC--Rio-003366)
 ![Semester](https://img.shields.io/badge/Semester-2026.1-lightgrey)
 ![Educational](https://img.shields.io/badge/Educational-Repository-brightgreen)
+
+
+
+## Contribuindo
+
+Interessado em contribuir? Confira nosso [CONTRIBUTING.md](./CONTRIBUTING.md) para encontrar recursos sobre como contribuir, além de um guia sobre como configurar um ambiente de desenvolvimento.
+
+### Junte-se à nossa incrível comunidade como colaborador de código
+
+![Imagem com os contribuidores](https://contrib.rocks/image?repo=AlexandreMeslin/ENG4021&anon=0&columns=25&max=100&r=true)
+
+
 
 ## Problemas e soluções
 
