@@ -225,6 +225,7 @@ git push origin main
 
 # Problemas conhecidos e suas "soluções"
 
+- [Criar autenticação por repositório](#Criar-autenticação-por-repositório)
 - [Usuário não conhecido no repositório local](#usuário-não-conhecido-no-repositório-local)
 - [Desistir de um commit porque não consegue fazer push](#desistir-de-um-commit-porque-n%C3%A3o-consegue-fazer-push)
 - [Origem e local divergem](#origem-e-local-divergem)
@@ -232,6 +233,31 @@ git push origin main
 - [Alterações locais não commitadas](#altera%C3%A7%C3%B5es-locais-n%C3%A3o-commitadas)
 - [O push vai tornar público um e-mail privado](#o-push-vai-tornar-p%C3%BAblico-um-e-mail-privado)
 - [O branch do PR tem conflitos com o conteúdo do repositório origem](#o-branch-do-pr-tem-conflitos-com-o-conte%C3%BAdo-do-reposit%C3%B3rio-origem)
+
+---
+
+## Criar autenticação por repositório
+
+### Descrição
+
+Você tem mais de uma conta no GitHub e deseja clonar repositórios das suas diversas contas.
+
+### Sintoma
+
+Tem preguiça de ficar trocando de conta o tempo todo.
+
+### Solução
+
+No Repositório clonado:
+
+```bash
+cd REPOSITÓRIO
+git remote set-url origin git@github-personal:USERNAME/REPOSITÓRIO.git
+git config user.name "Seu Nome"
+git config user.email "email-pessoal"
+```
+
+---
 
 ## Usuário não conhecido no repositório local
 
