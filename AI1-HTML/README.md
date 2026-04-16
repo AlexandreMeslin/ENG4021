@@ -38,7 +38,7 @@ A segunda página pode ser sobre o seu currículo mesmo.
 
     ![imagem do plugin a ser instalado](imagens/LivePreview.png)
 
-    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento. Para ativar o Live Preview, você pode digitar Ctrl+K` `V` ou clicar no ícone com uma janela dividida verticalmente e uma lupa (![ícone para ativar o Live Preview](imagens/live_preview_icon.png)) localizado do lado direito das abas junto às abas (o ícone somente aparece quando um arquivo HTML está selecionado para edição).
+    Utilize o plugin para visualizar cada uma das modificações que você fizer no documento. Para ativar o Live Preview, você pode digitar `Ctrl+K` `V` ou clicar no ícone com uma janela dividida verticalmente e uma lupa (![ícone para ativar o Live Preview](imagens/live_preview_icon.png)) localizado do lado direito das abas junto às abas (o ícone somente aparece quando um arquivo HTML está selecionado para edição).
 
     > Se der erro na exibição da página HTML, clique na aba `Ports`. Clique em com o botão direito do mouse em cada uma das `Visibilty` das portas que estejam com o status de `Private`, selecione `Port Visibility` no menu suspenso que irá aparecer e troque a visibilidade para `Public`. Feche a aba de visualização HTML que deu erro e tente novamente clicando no ícone de visualização.
     !(Aba ![Aba Ports](imagens/aba_ports.png)
@@ -79,18 +79,23 @@ A segunda página pode ser sobre o seu currículo mesmo.
     > O texto no atributo `alt` é muito importante para tornar o seu site inclusivo. Ele facilita o entendimento do contexto da figura para aplicativos que fazem leitura de página para usuários com deficiência visual.
 
 1. Crie uma lista numerada usando a tag `<ol></ol>` envolvendo todos os elementos da lista. Envolva individualmente cada um dos elementos da lista com a tag `<li></li>`. Use o seguinte texto:
+
+    ```ascii
     - Doutorado em Exploração Interdimensional e Defesa Contra Alienígenas Malignos (Honras Imaginárias)
     - Mestrado em Viagem Hiperespacial (com honras)
     - Universidade Estelar de Calvin — Ciências da Galáxia
     - Academia Estelar de Calvin — Diploma em Engenharia Espacial e Aventuras
     - Currículo incluiu estudos avançados em:
+    ```
 
 1. Em outra parte do texto, crie uma lista não-numerada (com *bullets*). Uma lista não numerada é construída de forma exatamente igual a uma lista numerada, apenas substituindo a tag `<ol>` pela tag `<ul>`. Crie a seguinte lista não numerada dentro da lista numerada criada anteriormente (fora do `<li>` mas ainda dentro do `<ol>`):
+    ```ascii
     - Teoria da Propulsão a Jato de Papelão
     - Linguística Alienígena Intuitiva
     - Táticas de Fuga e Evasão Escolar Espacial
     - Astronomia de Quintal Avançada
-    - Sobrevivência com Lancheiras e Suco de Limão
+    - Sobrevivência com Lancheiras e Refresco de Laranja Lima
+    ```
 
 1. Antes do seu texto (antes de tudo, mas ainda dentro de `<body>`), crie um container usando a tag `<nav>`. Copie o seguinte texto para dentro desse container: 
     ```ascii
@@ -254,6 +259,61 @@ A segunda página pode ser sobre o seu currículo mesmo.
 
 1. Coloque o sumário do currículo dentro de um container do tipo `<div>`. Identifique esse container como `sumario`. Troque a cor do texto e do alinhamento desse texto. Para referenciar esse container no CSS, use o formato `#sumario`.
 
-# Próxima Aula
+## Responsividade
 
->Na próxima aula iremos resolver o problema da *responsividade*  da página.
+Para criar uma página responsiva, ou seja, uma página que possa ser apresentada em uma tela grande como a de um laptop ou desktop e também tenha uma boa visibilidade em uma tela pequena como a de um celular podemos usar uma *Media Query*.
+
+Em uma *Media Query* podemos especificar um conjunto de regras CSS que serão aplicadas de acordo com a resolução do *View Port* (não é a resolução real da tela e sim como o dispositivo percebe a resolução de acordo com o tamanho da tela).
+
+A sintaxe básica é:
+
+```css
+@media (condição)
+```
+
+Onde ***condição*** pode ser:
+
+- `max-width: 768px` - para telas com largura máxima de 768 pixels
+- `min-width: 1440px` - para telas com largura mínima de 1440 pixels
+- `orientation: portrait` - para telas em modo retrato
+- `orientation: landscape` - para telas em modo paisagem
+
+Dentro do bloco da *Media Query* podemos colocar as regras CSS que queremos aplicar para aquela condição. 
+Por exemplo:
+
+```css
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empilha em telas menores */
+    }
+
+    nav {
+        width: 100%; /* Ocupa toda a largura */
+        position: unset;
+        margin-left: 0px;
+    }
+
+    main {
+        margin-left: unset; /* Espaço para o nav depois de usar fixed */
+    }
+
+    .navegacao li {
+        display: inline;
+    }
+
+    .navegacao {
+        text-align: right;
+    }
+}
+```
+
+O valor 768 é comumente utilizado para criar estilos para serem exibidos em telas de celulares.
+Para páginas destinadas a tablets, o valor mais utilizado é de 1024.
+
+| Resolução | Dispositivo |
+|---|---|
+| < 480px |  celular pequeno |
+| < 576px |  bootstrap sm |
+| < 768px |  celular |
+| < 1024px | tablet |
+| > 1400px | monitor grande |
