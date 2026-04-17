@@ -236,6 +236,37 @@ git push origin main
 
 ---
 
+## Referência remota corrompida ou inconsistente
+
+### Descrição
+
+Isso normalmente acontece após:
+
+- fetch interrompido
+- duas operações Git simultâneas
+- VS Code + terminal usando Git ao mesmo tempo
+- rebase/reset remoto
+- corrupção leve no .git/refs
+- sync concorrente em filesystem/cloud
+
+### Sintoma
+
+```
+> git fetch --all
+error: cannot lock ref 'refs/remotes/origin/main': is at 18cf59ffbca03bfcce999b48bc4b571898dff21d but expected b3743522cd610a423639f282c7be421c1762f116
+From https://github.com/AlexandreMeslin/INF1407
+ ! b374352..18cf59f  main       -> origin/main  (unable to update local ref)
+```
+
+### Solução
+
+```bash
+git remote prune origin
+git fetch origin
+```
+
+---
+
 ## Criar autenticação por repositório
 
 ### Descrição
