@@ -134,7 +134,8 @@ MeuProjeto/
     ]
     ```
 
-    No nosso exemplo, o restante dos diretórios dão *match* com a rota `spiff`. Nesse caso, o *view* `curriculo_spiff` vai ser executado.
+    No nosso exemplo, o restante dos diretórios dão *match* com a rota `spiff`. 
+    Nesse caso, o *view* `curriculo_spiff` vai ser executado.
 
     Esse *view* vai processar o pedido (*request*), preparar os dados e renderizar um dos *templates* para responder (*response*) ao usuário.
 
@@ -149,76 +150,95 @@ MeuProjeto/
     - Configurações gerais
     - Arquivo `requirements.txt`
 
-1. Crie o arquivo `requirements.txt` no seu diretório `MeuProjeto`. Esse arquivo conterá todas as dependências de pacotes do seu projeto. No arquivo, inclua a linha `django`.
+1. Crie o arquivo `requirements.txt` no seu diretório `MeuProjeto`. 
+    Esse arquivo conterá todas as dependências de pacotes do seu projeto. 
+    No arquivo, inclua a linha `django`, informando que o projeto precisa do pacote Django na sua composição.
 
     ![requirements.txt com apenas Django](img/requirements-django.png)
 
 1. Vamos agora criar um *virtual environment*. 
     - No terminal do Codespace, vá para o diretório do seu projento digitando:
+
         ```bash
         cd MeuProjeto
         ```
-        O *prompt* da linha de comando deverá agora conter o nome do seu projeto (`MeuProjeto (main) $ `). Para verificar se você realmente está no lugar certo, use o comando:
+
+        O *prompt* da linha de comando deverá agora conter o nome do seu projeto (`MeuProjeto (main) $ `). 
+        Para verificar se você realmente está no lugar certo, use o comando:
+        
         ```bash
         ls -l
         ```
-        e verifique se o resultado foi parecido com esse:
+        
+        e verifique se o resultado foi parecido com esse (se você consegue ver listado o arquivo `requirements.txt`):
+        
         ```bash
         @AlexandreMeslin ➜ /workspaces/ENG4021/MeuProjeto (main) $ ls -l
         total 12
         -rw-rw-rw-  1 codespace codespace    7 Oct 10 20:36 requirements.txt
         ```
+
     - Crie o *virtual environment* com o comando a seguir:
-    ```bash
-    python -m venv venv
-    ```
-    Esse comando vai criar um diretório chamado `venv`. Veja explicação no Apêncide A.
+        
+        ```bash
+        python -m venv venv
+        ```
+        
+        Esse comando vai criar um diretório chamado `venv`. Veja explicação no Apêncide A.
 
     - Ative o `venv` com o seguinte comando:
-    ```bash
-    source venv/bin/activate
-    ```
-    Nesse ponto, o seu `prompt` deverá começar por `(venv)`, como por exemplo, no meu caso:
-    ```bash
-    (venv) @AlexandreMeslin ➜ /workspaces/ENG4021/MeuProjeto (main) $ 
-    ```
+        
+        ```bash
+        source venv/bin/activate
+        ```
+    
+        Nesse ponto, o seu `prompt` deverá começar por `(venv)`, como por exemplo, no meu caso:
+        
+        ```bash
+        (venv) @AlexandreMeslin ➜ /workspaces/ENG4021/MeuProjeto (main) $ 
+        ```
 
     - Uma vez criado o `venv`, instale as dependências com o seguinte comando:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    O resultado esperado deve ser parecido com esse:
-    ```
-    Collecting django (from -r requirements.txt (line 1))
-    Obtaining dependency information for django from https://files.pythonhosted.org/packages/8f/ef/81f3372b5dd35d8d354321155d1a38894b2b766f576d0abffac4d8ae78d9/django-5.2.7-py3-none-any.whl.metadata
-    Downloading django-5.2.7-py3-none-any.whl.metadata (4.1 kB)
-    Collecting asgiref>=3.8.1 (from django->-r requirements.txt (line 1))
-    Obtaining dependency information for asgiref>=3.8.1 from https://files.pythonhosted.org/packages/17/9c/fc2331f538fbf7eedba64b2052e99ccf9ba9d6888e2f41441ee28847004b/asgiref-3.10.0-py3-none-any.whl.metadata
-    Downloading asgiref-3.10.0-py3-none-any.whl.metadata (9.3 kB)
-    Collecting sqlparse>=0.3.1 (from django->-r requirements.txt (line 1))
-    Obtaining dependency information for sqlparse>=0.3.1 from https://files.pythonhosted.org/packages/a9/5c/bfd6bd0bf979426d405cc6e71eceb8701b148b16c21d2dc3c261efc61c7b/sqlparse-0.5.3-py3-none-any.whl.metadata
-    Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
-    Downloading django-5.2.7-py3-none-any.whl (8.3 MB)
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 39.9 MB/s eta 0:00:00
-    Downloading asgiref-3.10.0-py3-none-any.whl (24 kB)
-    Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.4/44.4 kB 12.4 MB/s eta 0:00:00
-    Installing collected packages: sqlparse, asgiref, django
-    Successfully installed asgiref-3.10.0 django-5.2.7 sqlparse-0.5.3
+    
+        ```bash
+        pip install -r requirements.txt
+        ```
+        O resultado esperado deve ser parecido com esse:
+    
+        ```
+        Collecting django (from -r requirements.txt (line 1))
+        Obtaining dependency information for django from https://files.pythonhosted.org/packages/8f/ef/81f3372b5dd35d8d354321155d1a38894b2b766f576d0abffac4d8ae78d9/django-5.2.7-py3-none-any.whl.metadata
+        Downloading django-5.2.7-py3-none-any.whl.metadata (4.1 kB)
+        Collecting asgiref>=3.8.1 (from django->-r requirements.txt (line 1))
+        Obtaining dependency information for asgiref>=3.8.1 from https://files.pythonhosted.org/packages/17/9c/fc2331f538fbf7eedba64b2052e99ccf9ba9d6888e2f41441ee28847004b/asgiref-3.10.0-py3-none-any.whl.metadata
+        Downloading asgiref-3.10.0-py3-none-any.whl.metadata (9.3 kB)
+        Collecting sqlparse>=0.3.1 (from django->-r requirements.txt (line 1))
+        Obtaining dependency information for sqlparse>=0.3.1 from https://files.pythonhosted.org/packages/a9/5c/bfd6bd0bf979426d405cc6e71eceb8701b148b16c21d2dc3c261efc61c7b/sqlparse-0.5.3-py3-none-any.whl.metadata
+        Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+        Downloading django-5.2.7-py3-none-any.whl (8.3 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 39.9 MB/s eta 0:00:00
+        Downloading asgiref-3.10.0-py3-none-any.whl (24 kB)
+        Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.4/44.4 kB 12.4 MB/s eta 0:00:00
+        Installing collected packages: sqlparse, asgiref, django
+        Successfully installed asgiref-3.10.0 django-5.2.7 sqlparse-0.5.3
 
-    [notice] A new release of pip is available: 23.2.1 -> 25.2
-    [notice] To update, run: pip install --upgrade pip
-    ```
+        [notice] A new release of pip is available: 23.2.1 -> 25.2
+        [notice] To update, run: pip install --upgrade pip
+        ```
 
 ## Criando o site
 
 1. Crie o seu site
     
     Usando o terminal, crie um projeto Django chamado `MeuSite`:
+    
     ```bash
     django-admin startproject MeuSite
     ```
-    Esse comando irá criar vários diretórios deixando a sua árvore parecida com essa:
+    
+    Esse comando irá criar vários diretórios deixando a sua árvore parecida com essa (verfique na barra lateral esquerda do seu Codespace):
+    
     ```
     MeuProjeto/
     ├── MeuSite
@@ -234,15 +254,21 @@ MeuProjeto/
     ```
 
 1. Teste o seu site.
+
     - Desça para o diretório `MeuSite`
+
     ```bash
     cd MeuSite
     ```
+
     - Suba o servidor com o seguinte comando:
+
     ```bash
     python manage.py runserver
     ```
+
     Resultado esperado:
+
     ```
     Watching for file changes with StatReloader
     Performing system checks...
@@ -272,6 +298,7 @@ MeuProjeto/
 1. Algumas configurações básicas...
 
     - Inclua o seu site na lista de aplicações do seu projeto editando o arquivo `settings.py` e inclua a sua aplicação na lista de aplicações instaladas como mostrado:
+
     ```python
     # Application definition
 
@@ -288,7 +315,7 @@ MeuProjeto/
 
 1. Vamos criar uma home-page para o seu site.
 
-    Criar uma página inicial (home-page) para um site Django envolve a coordenação de quatro componentes principais: a `URL`, o `View` e o `Template`.
+    Criar uma página inicial (home-page) para um site Django envolve a coordenação de três componentes principais: a `URL`, o `View` e o `Template`.
 
     - Definindo o template HTML.
 
@@ -339,41 +366,42 @@ MeuProjeto/
 
     - Configure as URLs do Aplicativo em `urls.py`
 
-    No arquivo `urls.py`, mapeie a função `home` para um caminho vazio (''). O arquivo deve ficar semelhante a esse:
-    ```python
-    """
-    URL configuration for MeuSite project.
+        No arquivo `urls.py`, mapeie a função `home` para um caminho vazio (''). O arquivo deve ficar semelhante a esse:
 
-    The `urlpatterns` list routes URLs to views. For more information please see:
-        https://docs.djangoproject.com/en/5.2/topics/http/urls/
-    Examples:
-    Function views
-        1. Add an import:  from my_app import views
-        2. Add a URL to urlpatterns:  path('', views.home, name='home')
-    Class-based views
-        1. Add an import:  from other_app.views import Home
-        2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-    Including another URLconf
-        1. Import the include() function: from django.urls import include, path
-        2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-    """
+        ```python
+        """
+        URL configuration for MeuSite project.
 
-    from django.contrib import admin
-    from django.urls import path
-    from MeuSite import views  # Import the home view
+        The `urlpatterns` list routes URLs to views. For more information please see:
+            https://docs.djangoproject.com/en/5.2/topics/http/urls/
+        Examples:
+        Function views
+            1. Add an import:  from my_app import views
+            2. Add a URL to urlpatterns:  path('', views.home, name='home')
+        Class-based views
+            1. Add an import:  from other_app.views import Home
+            2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+        Including another URLconf
+            1. Import the include() function: from django.urls import include, path
+            2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+        """
 
-    urlpatterns = [
-        path("admin/", admin.site.urls),
+        from django.contrib import admin
+        from django.urls import path
+        from MeuSite import views  # Import the home view
 
-        # Add the home view URL pattern
-        # Map the home view to the root URL
-        path('', views.home, name='home'),  # Map the home view to the root URL
-    ]
-    ```
+        urlpatterns = [
+            path("admin/", admin.site.urls),
+
+            # Add the home view URL pattern
+            # Map the home view to the root URL
+            path('', views.home, name='home'),  # Map the home view to the root URL
+        ]
+        ```
 
     - Teste a sua home-page colocando o site no ar. Resultado esperado:
 
-    ![homepage básica](img/homepage-basica.png)
+        ![homepage básica](img/homepage-basica.png)
 
 
 1. A sua aplicação principal se chama `MeuSite`. Mas vamos criar uma aplicação secundária chamada `curriculo`.
@@ -381,63 +409,68 @@ MeuProjeto/
     - Pare o servidor Django digitando Ctrl+C no terminal.
 
     - Crie a aplicação secundaria com o comando:
-    ```bash
-    python manage.py startapp curriculo
-    ```
-    Esse comando deverá deixar a árvore de diretórios com esse formato:
-    ```
-    MeuProjeto/
-    ├── MeuSite
-    │   ├── MeuSite
-    │   │   ├── __init__.py
-    │   │   ├── __pycache__
-    │   │   │   ├── __init__.cpython-312.pyc
-    │   │   │   ├── settings.cpython-312.pyc
-    │   │   │   ├── urls.cpython-312.pyc
-    │   │   │   └── wsgi.cpython-312.pyc
-    │   │   ├── asgi.py
-    │   │   ├── settings.py
-    │   │   ├── urls.py
-    │   │   └── wsgi.py
-    │   ├── curriculo
-    │   │   ├── __init__.py
-    │   │   ├── admin.py
-    │   │   ├── apps.py
-    │   │   ├── migrations
-    │   │   │   └── __init__.py
-    │   │   ├── models.py
-    │   │   ├── tests.py
-    │   │   └── views.py
-    │   ├── db.sqlite3
-    │   └── manage.py
-    ├── img
-    │   ├── Django-AloMundo.png
-    │   └── requirements-django.png
-    ├── requirements.txt
-    └── venv
-    ```
+
+        ```bash
+        python manage.py startapp curriculo
+        ```
+
+        Esse comando deverá deixar a árvore de diretórios com esse formato:
+
+        ```
+        MeuProjeto/
+        ├── MeuSite
+        │   ├── MeuSite
+        │   │   ├── __init__.py
+        │   │   ├── __pycache__
+        │   │   │   ├── __init__.cpython-312.pyc
+        │   │   │   ├── settings.cpython-312.pyc
+        │   │   │   ├── urls.cpython-312.pyc
+        │   │   │   └── wsgi.cpython-312.pyc
+        │   │   ├── asgi.py
+        │   │   ├── settings.py
+        │   │   ├── urls.py
+        │   │   └── wsgi.py
+        │   ├── curriculo
+        │   │   ├── __init__.py
+        │   │   ├── admin.py
+        │   │   ├── apps.py
+        │   │   ├── migrations
+        │   │   │   └── __init__.py
+        │   │   ├── models.py
+        │   │   ├── tests.py
+        │   │   └── views.py
+        │   ├── db.sqlite3
+        │   └── manage.py
+        ├── img
+        │   ├── Django-AloMundo.png
+        │   └── requirements-django.png
+        ├── requirements.txt
+        └── venv
+        ```
 
     - Registre a sua aplicação editando o arquivo `settings.py`:
-    ```python
-    # Application definition
 
-    INSTALLED_APPS = [
-        "django.contrib.admin",
-        "django.contrib.auth",
-        "django.contrib.contenttypes",
-        "django.contrib.sessions",
-        "django.contrib.messages",
-        "django.contrib.staticfiles",
-        'MeuSite',      # esse já deveria existir aqui
-        'curriculo',    # esse é novo
-    ]
-   ```
+        ```python
+        # Application definition
+
+        INSTALLED_APPS = [
+            "django.contrib.admin",
+            "django.contrib.auth",
+            "django.contrib.contenttypes",
+            "django.contrib.sessions",
+            "django.contrib.messages",
+            "django.contrib.staticfiles",
+            'MeuSite',      # esse já deveria existir aqui
+            'curriculo',    # esse é novo
+        ]
+    ```
 
 1. Vamos colocar os currículos no ar
 
     - Arquivos estáticos
 
-        O Django considera a folha de estilo, as mídias e os scripts em JavaScript como arquivos estáticos. Eles devem ser colocados dentro de um diretório chamado `static` dentro de cada uma das aplicações.
+        O Django considera a folha de estilo, as mídias e os scripts em JavaScript como arquivos estáticos. 
+        Eles devem ser colocados dentro de um diretório chamado `static` dentro de cada uma das aplicações.
 
         - Crie um diretório chamado `static` dentro do diretório `curriculo`
         - Dentro do diretório `static`, crie um diretório chamado `curriculo`. Dentro desse diretório, crie os seguintes diretórios
@@ -453,6 +486,7 @@ MeuProjeto/
         - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para esse último diretório.
 
         Nesse ponto, você deverá ter uma árvore de diretórios semelhante a essa:
+
         ```
         MeuProjeto/
         ├── MeuSite
@@ -490,140 +524,157 @@ MeuProjeto/
         ├── requirements.txt
         └── venv
         ```
+
         - Edite os seus arquivos HTML e faça as seguintes modificações:
-            - Coloque a seguinte linha como primeira linha de cada um dos arquivos HTML. Essa linha instrui ao Django para carregar os arquivos estáticos ao renderizar a página.
+            - Coloque a seguinte linha como primeira linha de cada um dos arquivos HTML. 
+                Essa linha instrui ao Django para carregar os arquivos estáticos ao renderizar a página.
+
             ```
             {% load static %}
             ```
+
             - Substitua **TODAS** as referências às suas folhas de estilo, de:
+
             ```html
             <link rel="stylesheet" href="css/curriculo-v0.css">
             ```
             Para:
+
             ```html
             <link rel="stylesheet" href="{% static 'curriculo/css/curriculo-v1.css' %}">
             ```
+
             - Substitua **TODAS** as referências às suas imagens, de:
+
             ```html
             <img src="img/spiff.jpeg" alt="Foto do astronauta Spiff">
             ```
+
             Para:
+
             ```html
             <img src="{% static 'curriculo/img/spiff.jpeg' %}" alt="Foto do astronauta Spiff">
             ```
 
     - View para os currículos
     
-    Crie um view para cada um dos currículos do seu site editando o arquivo `MeuSite/curriculo/views.py`. Resultado esperado (parecido com esse, mas não necessariamente igual):
-    ```python
-    from django.shortcuts import render
+        Crie um view para cada um dos currículos do seu site editando o arquivo `MeuSite/curriculo/views.py`. 
+        Resultado esperado (parecido com esse, mas não necessariamente igual):
+    
+        ```python
+        from django.shortcuts import render
 
-    # Create your views here.
+        # Create your views here.
 
-    def curriculo_spiff(request):
-        '''
-        View function for the astronaut Spiff's resume page.
-        Renders the curriculo-v1.html template.
-        This will display the resume page when the corresponding URL is accessed
-        The curriculo_spiff view is responsible for displaying the content of the resume page
-        It is a simple function-based view
-        It takes a request object as a parameter
-        It returns a rendered HTML response
-        @param request: The HTTP request object
-        @return: Rendered HTML response with resume page content
-        '''
-        return render(request, 'curriculo/curriculo-v1.html')
+        def curriculo_spiff(request):
+            '''
+            View function for the astronaut Spiff's resume page.
+            Renders the curriculo-v1.html template.
+            This will display the resume page when the corresponding URL is accessed
+            The curriculo_spiff view is responsible for displaying the content of the resume page
+            It is a simple function-based view
+            It takes a request object as a parameter
+            It returns a rendered HTML response
+            @param request: The HTTP request object
+            @return: Rendered HTML response with resume page content
+            '''
+            return render(request, 'curriculo/curriculo-v1.html')
 
-    def curriculo_spiff_v2(request):
-        '''
-        View function for the astronaut Spiff's resume page version 2.
-        A responsive version of the resume page.
-        Renders the curriculo-v2.html template.
-        This will display the resume page version 2 when the corresponding URL is accessed
-        The curriculo_spiff_v2 view is responsible for displaying the content of the resume page version 2
-        It is a simple function-based view
-        It takes a request object as a parameter
-        It returns a rendered HTML response
-        @param request: The HTTP request object
-        @return: Rendered HTML response with resume page version 2 content
-        '''
-        return render(request, 'curriculo/curriculo-v2.html')
-    ```
+        def curriculo_spiff_v2(request):
+            '''
+            View function for the astronaut Spiff's resume page version 2.
+            A responsive version of the resume page.
+            Renders the curriculo-v2.html template.
+            This will display the resume page version 2 when the corresponding URL is accessed
+            The curriculo_spiff_v2 view is responsible for displaying the content of the resume page version 2
+            It is a simple function-based view
+            It takes a request object as a parameter
+            It returns a rendered HTML response
+            @param request: The HTTP request object
+            @return: Rendered HTML response with resume page version 2 content
+            '''
+            return render(request, 'curriculo/curriculo-v2.html')
+        ```
 
     - Rotas para os currículos
 
-    Crie o arquivo `MeuSite/curriculo/urls.py`. Nesse arquivo, inclua rotas para os currículos criados. Veja o seguinte exemplo (o seu arquivo não precisa ficar exatamente igual a esse):
-    ```python
-    from django.urls import path
-    from . import views
+        Crie o arquivo `MeuSite/curriculo/urls.py`. 
+        Nesse arquivo, inclua rotas para os currículos criados. 
+        Veja o seguinte exemplo (o seu arquivo não precisa ficar exatamente igual a esse):
 
-    app_name = 'curriculo'
+        ```python
+        from django.urls import path
+        from . import views
 
-    urlpatterns = [
-        # essa rota pode ser acessada em /curriculo/spiff/
-        # ou seja, /curriculo/ + spiff/
-        # o link para essa rota pode ser criado usando o nome 'curriculo_spiff'
-        # Exemplo: {% url 'curriculo:curriculo_spiff' %}
-        path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
-        # essa rota pode ser acessada em /curriculo/spiff/v2/
-        path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
-    ]
-    ```
+        app_name = 'curriculo'
 
-    Inclua esse arquivo de rotas no conjunto de rotas do seu site editando o arquivo `MeuSite/MeuSite/urls.py`:
-    ```python
-    """
-    URL configuration for MeuSite project.
+        urlpatterns = [
+            # essa rota pode ser acessada em /curriculo/spiff/
+            # ou seja, /curriculo/ + spiff/
+            # o link para essa rota pode ser criado usando o nome 'curriculo_spiff'
+            # Exemplo: {% url 'curriculo:curriculo_spiff' %}
+            path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
+            # essa rota pode ser acessada em /curriculo/spiff/v2/
+            path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
+        ]
+        ```
 
-    The `urlpatterns` list routes URLs to views. For more information please see:
-        https://docs.djangoproject.com/en/5.2/topics/http/urls/
-    Examples:
-    Function views
-        1. Add an import:  from my_app import views
-        2. Add a URL to urlpatterns:  path('', views.home, name='home')
-    Class-based views
-        1. Add an import:  from other_app.views import Home
-        2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-    Including another URLconf
-        1. Import the include() function: from django.urls import include, path
-        2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-    """
+        Inclua esse arquivo de rotas no conjunto de rotas do seu site editando o arquivo `MeuSite/MeuSite/urls.py`:
 
-    from django.contrib import admin
-    from django.urls import path
-    from MeuSite import views  # Import the home view
-    from django.urls import include  # Import include to include app URLs
+        ```python
+        """
+        URL configuration for MeuSite project.
 
-    urlpatterns = [
-        path("admin/", admin.site.urls),
+        The `urlpatterns` list routes URLs to views. For more information please see:
+            https://docs.djangoproject.com/en/5.2/topics/http/urls/
+        Examples:
+        Function views
+            1. Add an import:  from my_app import views
+            2. Add a URL to urlpatterns:  path('', views.home, name='home')
+        Class-based views
+            1. Add an import:  from other_app.views import Home
+            2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+        Including another URLconf
+            1. Import the include() function: from django.urls import include, path
+            2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+        """
 
-        # Add the home view URL pattern
-        # Map the home view to the root URL
-        path('', views.home, name='home'),  # Map the home view to the root URL
-        path('curriculo/', include('curriculo.urls')),  # Include the curriculo app URLs
-    ]
-    ```
+        from django.contrib import admin
+        from django.urls import path
+        from MeuSite import views  # Import the home view
+        from django.urls import include  # Import include to include app URLs
+
+        urlpatterns = [
+            path("admin/", admin.site.urls),
+
+            # Add the home view URL pattern
+            # Map the home view to the root URL
+            path('', views.home, name='home'),  # Map the home view to the root URL
+            path('curriculo/', include('curriculo.urls')),  # Include the curriculo app URLs
+        ]
+        ```
 
     - Na home-page do seu site, no arquivo `home.html`, inclua links para os currículos, por exemplo:
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page</title>
-    </head>
-    <body>
-        <h1>Home Page do MeuSite</h1>
 
-        <h2>Links para os currículos</h2>
-        <ul>
-            <li><a href="{% url 'curriculo:curriculo_spiff' %}">Currículo do Spiff</a></li>
-            <li><a href="{% url 'curriculo:curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
-        </ul>
-    </body>
-    </html>
-    ```
+        ```html
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Home Page</title>
+        </head>
+        <body>
+            <h1>Home Page do MeuSite</h1>
+
+            <h2>Links para os currículos</h2>
+            <ul>
+                <li><a href="{% url 'curriculo:curriculo_spiff' %}">Currículo do Spiff</a></li>
+                <li><a href="{% url 'curriculo:curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
+            </ul>
+        </body>
+        </html>
+        ```
 
     - Teste o seu site
 
@@ -632,12 +683,19 @@ MeuProjeto/
 
 ## Apendice A - Criando um ambiente virtual <a id='apendice-a'></a>
 
-Criando um venv:
+Criando um venv.
+Verifique se você ainda não criou o ambiente virtual de uma (ou ambas) as seguites formas:
 
-Use o comando:
+1. Veja na barra lateral esquerda do Codespace se existe o diretório `venv` na raiz do seu projeto.
+1. Verifique através do comando `ls -l` na linha de comando do Codespace se o diretório `venv` é listado.
+
+Para criar um `venv` inexistente, use o comando:
+
 ```bash
 python -m venv venv
 ```
+
+> Se já existir um `venv`, nada a mais acontecerá.
 
 Explicação:
 
@@ -647,6 +705,11 @@ Explicação:
 |-m | run library module as a script (terminates option list) |
 | venv | (o primeiro) Nome do módulo a ser executado - esse módulo cria um *virtual environment* |
 | venv | (o segundo) Nome do *virtual environment* a ser criado |
+
+Depois de criar o `venv`, não se esqueça de instalar os requisitos através do arquivo `requirements.txt` com o comando `pip install -r requirements.txt`.
+
+---
+---
 
 ##  Apêndice B - Problemas conhecidos e suas "soluções" <a id='problemas'></a>
 
