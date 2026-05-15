@@ -321,7 +321,7 @@ MeuProjeto/
 
         O template é o código HTML que define a estrutura visual da sua página inicial.
 
-        - Crie um diretório chamado `templates` dentro do diretório `MeuSite\MeuSite`
+        - Crie um diretório chamado `templates` dentro do diretório `MeuSite/MeuSite`
         - Crie um diretório chamado `MeuSite` dentro do diretório `templates`
         - Crie um arquivo HTML dentro do diretório `MeuSite/MeuSite/templates/MeuSite` chamado `home.html`
 
