@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo do Astronauta Spiff</title>
+    <link rel="stylesheet" href="{% static 'curriculo/css/estilo.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="img/home.png" alt="Home page" class="icone">
+            <img src="{% static 'curriculo/img/home.png' %}" alt="Foto do astronauta Spiff">
+        </a>
+    </nav>
+    <main>
+        <h1>Currículo do Astronauta Spiff</h1>
+
+        <img src="{% static 'curriculo/img/spiff.jpeg' %}" alt="Foto do astronauta Spiff">
+    </main>
+</body>
+</html>
