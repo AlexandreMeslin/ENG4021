@@ -473,7 +473,7 @@ MeuProjeto/
         Eles devem ser colocados dentro de um diretório chamado `static` dentro de cada uma das aplicações.
 
         - Crie um diretório chamado `static` dentro do diretório `curriculo`
-        - Dentro do diretório `static`, crie um diretório chamado `curriculo`. Dentro desse diretório, crie os seguintes diretórios
+        - Dentro do diretório `static` (`curriculo/static`), crie um diretório chamado `curriculo`. Dentro desse diretório `curriculo/static/curriculo`, crie os seguintes diretórios
             - js
             - img
             - css
@@ -482,7 +482,7 @@ MeuProjeto/
 
     - Templates de currículos
 
-        - Crie um diretório chamado `templates` dentro do diretório `MeuSite\curriculo`. Dentro de `templates`, crie um diretório chamado `curriculo`.
+        - Crie um diretório chamado `templates` dentro do diretório `MeuSite/curriculo`. Dentro de `templates` (`MeuSite/curriculo/templates`), crie um diretório chamado `curriculo`.
         - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para esse último diretório.
 
         Nesse ponto, você deverá ter uma árvore de diretórios semelhante a essa:
