@@ -108,7 +108,6 @@ INSTALLED_APPS = [
 ]
 ```
 
-Crie o modelo de dados para o nosso banco de dados de carros.
 No diretório `CarsApp`, crie o arquivo `models.py` e inclua a seguinte classe para representar a nossa base de dados de carros:
 
 ```python
