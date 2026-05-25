@@ -16,6 +16,7 @@ Antes de implementar essa tarefa, estude um pouco sobre o uso do Github e do Cod
 Bibliografia recomendada:
 - [Hello World - GitHub Docs](https://docs.github.com/en/get-started/start-your-journey/hello-world)
 - [Using Git - GitHub Docs](https://docs.github.com/en/get-started/using-git)
+- Para informações sobre comandos Git, veja [Git documentation](https://git-scm.com/docs)
 
 Em caso de dúvidas ou problemas, consulte também [GIT](https://github.com/AlexandreMeslin/ENG4021/tree/main/GIT).
 
