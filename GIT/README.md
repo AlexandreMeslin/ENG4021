@@ -236,6 +236,42 @@ git push origin main
 
 ---
 
+## Branch local e remota divergindo
+
+### Descrição
+
+Esse erro do Git significa que:
+- sua branch local e a remota divergiram
+- existem commits diferentes nos dois lados
+- o Git não consegue fazer um fast-forward
+
+### Sintoma
+
+```bash
+$ git pull --tags origin main
+From https://github.com/AlexandreMeslin/INF1407
+ * branch            main       -> FETCH_HEAD
+hint: Diverging branches can't be fast-forwarded, you need to either:
+hint: 
+hint:   git merge --no-ff
+hint: 
+hint: or:
+hint: 
+hint:   git rebase
+hint: 
+hint: Disable this message with "git config advice.diverging false"
+fatal: Not possible to fast-forward, aborting.
+```
+
+### Solução
+
+```bash
+git merge origin/main
+git push
+```
+
+---
+
 ## Referência remota corrompida ou inconsistente
 
 ### Descrição
