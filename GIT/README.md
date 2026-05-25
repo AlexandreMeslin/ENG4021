@@ -233,42 +233,7 @@ git push origin main
 - [Alterações locais não commitadas](#altera%C3%A7%C3%B5es-locais-n%C3%A3o-commitadas)
 - [O push vai tornar público um e-mail privado](#o-push-vai-tornar-p%C3%BAblico-um-e-mail-privado)
 - [O branch do PR tem conflitos com o conteúdo do repositório origem](#o-branch-do-pr-tem-conflitos-com-o-conte%C3%BAdo-do-reposit%C3%B3rio-origem)
-
----
-
-## Branch local e remota divergindo
-
-### Descrição
-
-Esse erro do Git significa que:
-- sua branch local e a remota divergiram
-- existem commits diferentes nos dois lados
-- o Git não consegue fazer um fast-forward
-
-### Sintoma
-
-```bash
-$ git pull --tags origin main
-From https://github.com/AlexandreMeslin/INF1407
- * branch            main       -> FETCH_HEAD
-hint: Diverging branches can't be fast-forwarded, you need to either:
-hint: 
-hint:   git merge --no-ff
-hint: 
-hint: or:
-hint: 
-hint:   git rebase
-hint: 
-hint: Disable this message with "git config advice.diverging false"
-fatal: Not possible to fast-forward, aborting.
-```
-
-### Solução
-
-```bash
-git merge origin/main
-git push
-```
+- [Branch local e remota divergindo](#origem-e-local-divergem)
 
 ---
 
@@ -762,6 +727,42 @@ git commit
 From https://github.com/AlexandreMeslin/ENG4021
  * branch            main       -> FETCH_HEAD
 Already up to date.
+```
+
+---
+
+## Branch local e remota divergindo
+
+### Descrição
+
+Esse erro do Git significa que:
+- sua branch local e a remota divergiram
+- existem commits diferentes nos dois lados
+- o Git não consegue fazer um fast-forward
+
+### Sintoma
+
+```bash
+$ git pull --tags origin main
+From https://github.com/AlexandreMeslin/INF1407
+ * branch            main       -> FETCH_HEAD
+hint: Diverging branches can't be fast-forwarded, you need to either:
+hint: 
+hint:   git merge --no-ff
+hint: 
+hint: or:
+hint: 
+hint:   git rebase
+hint: 
+hint: Disable this message with "git config advice.diverging false"
+fatal: Not possible to fast-forward, aborting.
+```
+
+### Solução
+
+```bash
+git merge origin/main
+git push
 ```
 
 ---
