@@ -109,7 +109,7 @@ INSTALLED_APPS = [
 ```
 
 Crie o modelo de dados para o nosso banco de dados de carros.
-No diretório `CarsApp`, inclua a seguinte classe para representar a nossa base de dados de carros:
+No diretório `CarsApp`, inclua a seguinte classe no arquivo `models.py` para representar a nossa base de dados de carros:
 
 ```python
 from django.db import models
@@ -280,7 +280,7 @@ def searchf(request):
         return render(request, 'CarsApp/home.html', contexto)
 ```
 
-Crie o arquivo `CarsApp.urls.py` e inclua uma rota para esse `view`:
+No diretório `CarsApp`, crie o arquivo `urls.py` e inclua uma rota para esse `view`:
 
 ```python
 from django.contrib import admin
