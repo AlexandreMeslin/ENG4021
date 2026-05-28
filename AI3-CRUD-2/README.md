@@ -354,7 +354,7 @@ Modifique o arquivo `settings.py`:
 STATIC_URL = "/static/" # inclua a / antes de static
 ```
 
-Inclua, no cabeçalho do template, um link para um arquivo de estilo:
+Caso ainda não exista, adicione um link para o arquivo de estilo no cabeçalho do template:
 
 ```html
 <head>
