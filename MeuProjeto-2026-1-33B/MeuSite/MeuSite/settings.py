@@ -25,8 +25,12 @@ SECRET_KEY = "django-insecure-=ebr^oj$j2nlst0cu0bqqz$^oh=^80ut$0bew8nxh=02d&9pq&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']       # esta variável já existia mas o valor estava errado. Troquei o valor para '*' para permitir acesso de qualquer host, o que é útil durante o desenvolvimento. Em produção, você deve especificar os hosts permitidos.
+CORS_ALLOW_ALL_ORIGINS = True   # esta variável não existia, mas é necessária para permitir que o frontend (que pode estar rodando em um host diferente) acesse a API do backend. Definir como True permite todas as origens, o que é útil durante o desenvolvimento. Em produção, você deve configurar isso de forma mais restritiva.
+CSRF_TRUSTED_ORIGINS = [        # esta variável tambem não exitia, tive que criar. Ela é necessária para permitir que o backend aceite requisições de origens confiáveis, especialmente quando o frontend e o backend estão em hosts diferentes. Adicionei os hosts locais comuns para desenvolvimento.
+    'https://localhost:8000', 
+    'http://localhost:8000',
+]
 
 # Application definition
 
