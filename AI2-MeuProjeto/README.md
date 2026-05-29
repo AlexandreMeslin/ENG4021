@@ -573,7 +573,6 @@ MeuProjeto/
     - Teste o seu site
 
     > [!NOTE]
-
     > Se as figuras não apareceram, verifique se você atualizou os links das tags `<img>` como foi descrito um pouco mais acima.
 
     > Se os estilos não foram aplicados, verifique se você atualizou os links das folhas de estilo na tag `<link>` como foi descrito um pouco mais acima.
