@@ -32,6 +32,7 @@ Você criou um repositório particular para a aula de HTML.
 Para completar esse roteiro, você vai usar o mesmo repositório.
 **Não use o repositório do seu projeto!**
 
+> [!NOTE]
 > `Diretório`, `pasta` e `folder` são sinônimos.
 
 ## Entendendo um pouco sobre o Django
@@ -291,8 +292,10 @@ MeuProjeto/
 
     ![Alô mundo Django!](img/Django-AloMundo.png)
 
+    > [!NOTE]
     > Para parar o seu site, basta digitar Ctrl+C no terminal.
 
+    > [!NOTE]
     > Repita esse procedimento para colocar o seu site no ar sempre que necessário.
 
 1. Algumas configurações básicas...
@@ -351,6 +354,7 @@ MeuProjeto/
 
         - Crie o arquivo `views.py` no diretório `MeuProjeto/MeuSite/MeuSite/` com o seguinte conteúdo:
 
+        > [!WARNING]
         >  Se for copia e colar, cuidado com o alinhamento!
 
         ```python
@@ -572,9 +576,10 @@ MeuProjeto/
 
     - Teste o seu site
 
-> [!NOTE]
+> [!TIP]
 > Se as figuras não apareceram, verifique se você atualizou os links das tags `<img>` como foi descrito um pouco mais acima.
 
+> [!TIP]
 > Se os estilos não foram aplicados, verifique se você atualizou os links das folhas de estilo na tag `<link>` como foi descrito um pouco mais acima.
 
 
