@@ -8,6 +8,7 @@ def home(request):
     '''
     return render(request, 'MeuSite/home.html')
 
+@login_required
 def secreta(request):
     '''
     View que eu criei para renderizar a minha página secreta.
