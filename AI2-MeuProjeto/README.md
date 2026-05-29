@@ -292,11 +292,11 @@ MeuProjeto/
 
     ![Alô mundo Django!](img/Django-AloMundo.png)
 
-    > [!NOTE]
-    > Para parar o seu site, basta digitar Ctrl+C no terminal.
+> [!NOTE]
+> Para parar o seu site, basta digitar Ctrl+C no terminal.
 
-    > [!NOTE]
-    > Repita esse procedimento para colocar o seu site no ar sempre que necessário.
+> [!NOTE]
+> Repita esse procedimento para colocar o seu site no ar sempre que necessário.
 
 1. Algumas configurações básicas...
 
