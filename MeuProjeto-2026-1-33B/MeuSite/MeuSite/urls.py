@@ -24,4 +24,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),  # Include authentication URLs
+    # secreta/ é o endereço da página secreta, 
+    # views.secreta é a função que renderiza a página secreta, 
+    # e 'secreta' é o nome da rota que pode ser usado para referenciar essa URL em outros lugares do código (como em templates).
+    path('secreta/', views.secreta, name='secreta'),  # Rota para a página secreta
 ]
