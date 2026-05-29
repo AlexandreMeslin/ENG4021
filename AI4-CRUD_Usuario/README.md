@@ -11,7 +11,7 @@ Nessa atividade, você vai implemnetar autenticação e autorização de usuári
 
 ## Passos iniciais
 
-Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/).
+Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/) ou a [atividade individual 3](../AI3-CRUD-2/).
 
 > Você vai desenvolver essa atividade no seu repositório privado. **NÃO** use o repositório do time!
 
