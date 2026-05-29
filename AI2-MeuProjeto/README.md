@@ -18,10 +18,19 @@
 - [Apêndice A - Criando um ambiente virtual](#apendice-a)
 - [Apêndice B - Problemas conhecidos e suas "soluções"](#problemas)
 
+## O que vamos fazer hoje
+
+Este roteiro mostra como criar páginas estáticas usando o Django.
+Nós vamos aproveitar as páginas criadas na atividade [AI1-HTML](../AI1-HTML/).
+
+> [!IMPORTANT]
+> Você precisa completar a atividade [AI1-HTML](../AI1-HTML/) antes de começar esta atividade. 
+
 ## Antes de tudo...
 
 Você criou um repositório particular para a aula de HTML.
-Para completar esse roteiro, você vai usar o mesmo repositório. **Não use o repositório do seu projeto!**
+Para completar esse roteiro, você vai usar o mesmo repositório.
+**Não use o repositório do seu projeto!**
 
 > `Diretório`, `pasta` e `folder` são sinônimos.
 
@@ -38,9 +47,11 @@ O MTV (Model-Template-View) é o padrão arquitetural que o Django utiliza, que 
 └─────────────┘    └─────────────┘    └─────────────┘
 ```
 
-1. O model é responsável por descrever como os dados serão organizados no Django, incluindo a interação com o banco de dados. As classes que definem os dados são armazenadas nos arquivos `models.py`.
+1. O model é responsável por descrever como os dados serão organizados no Django, incluindo a interação com o banco de dados.
+As classes que definem os dados são armazenadas nos arquivos `models.py`.
 
-1. O template é um conjunto de páginas HTML/CSS/JavaScript responsável pela apresentação. Os arquivos HTML ficam no diretório `templates` enquanto os arquivos CSS e JavaScript no diretório `static`.
+1. O template é um conjunto de páginas HTML/CSS/JavaScript responsável pela apresentação.
+Os arquivos HTML ficam no diretório `templates` enquanto os arquivos CSS e JavaScript no diretório `static`.
 
 1. O view é um conjunto de funções e classes com seus respectivos métodos responsáveis pela lógica de negócio, ou seja, responsável por receber as requisições HTTP, processar os dados e renderizar os templates. As classes e as funções ficam nos arquivos `views.py`.
 
@@ -72,18 +83,11 @@ Exemplo de uma estrutura típica de um projeto Django:
 MeuProjeto/
 ├── MeuSite
 │   ├── MeuSite
-│   │   ├── asgi.py
-│   │   ├── settings.py
-│   │   ├── templates
-│   │   │   └── MeuSite
-│   │   │       └── home.html
-│   │   ├── urls.py
-│   │   ├── views.py
-│   │   └── wsgi.py
-│   ├── curriculo
 │   │   ├── admin.py
 │   │   ├── apps.py
+│   │   ├── asgi.py
 │   │   ├── models.py
+│   │   ├── settings.py
 │   │   ├── static
 │   │   │   └── curriculo
 │   │   │       ├── css
@@ -95,12 +99,14 @@ MeuProjeto/
 │   │   │       │   └── spiff.jpeg
 │   │   │       └── js
 │   │   ├── templates
-│   │   │   └── curriculo
+│   │   │   └── MeuSite
+│   │   │       ├── home.html
 │   │   │       ├── curriculo-v1.html
 │   │   │       └── curriculo-v2.html
 │   │   ├── tests.py
 │   │   ├── urls.py
-│   │   └── views.py
+│   │   ├── views.py
+│   │   └── wsgi.py
 │   ├── db.sqlite3
 │   └── manage.py
 ├── requirements.txt
@@ -111,7 +117,7 @@ MeuProjeto/
 
 1. O usuário faz uma requisição (HTTP request).
 
-    Por exemplo: o usuário acessa `http://example.com/curriculo/spiff/`
+    Por exemplo: o usuário acessa `http://example.com/spiff/`
 
 1. O Django verifica a URL em `urls.py` localizada no diretório do projento principal.
 
@@ -121,21 +127,12 @@ MeuProjeto/
     urlpatterns = [
         path("admin/", admin.site.urls),
         path('', views.home, name='home'),  # Map the home view to the root URL
-        path('curriculo/', include('curriculo.urls')),  # Include the curriculo app URLs
-    ]
-    ```
-
-    Como o diretório referenciado pela URL começa por `curriculo/`, o Django vai procurar a rota no arquivo `urls.py` na aplicação `curriculo`. O arquivo deve conter algo parecido com:
-
-    ```python
-    urlpatterns = [
         path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
-        path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
+        path('spiff-v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
     ]
     ```
 
-    No nosso exemplo, o restante dos diretórios dão *match* com a rota `spiff`. 
-    Nesse caso, o *view* `curriculo_spiff` vai ser executado.
+    Como o diretório referenciado pela URL começa por `spiff/`, o **Django** vai invocar o *view* `curriculo_spiff` que está no módulo `views.py` do diretório `MeuSite/MeuSite`.
 
     Esse *view* vai processar o pedido (*request*), preparar os dados e renderizar um dos *templates* para responder (*response*) ao usuário.
 
@@ -184,7 +181,8 @@ MeuProjeto/
         python -m venv venv
         ```
         
-        Esse comando vai criar um diretório chamado `venv`. Veja explicação no Apêncide A.
+        Esse comando vai criar um diretório chamado `venv`. 
+        Veja explicação no Apêncide A.
 
     - Ative o `venv` com o seguinte comando:
         
@@ -203,6 +201,7 @@ MeuProjeto/
         ```bash
         pip install -r requirements.txt
         ```
+
         O resultado esperado deve ser parecido com esse:
     
         ```
@@ -255,7 +254,7 @@ MeuProjeto/
 
 1. Teste o seu site.
 
-    - Desça para o diretório `MeuSite`
+    - Desça para o diretório `MeuSite`:
 
     ```bash
     cd MeuSite
@@ -286,7 +285,8 @@ MeuProjeto/
     For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
     ```
 
-    - Use o link oferecido pelo Codespace para examinar o seu site. Opcionamente você pode selecionar a aba `PORTS` e abrir o link que está relacionado à porta 8000.
+    - Use o link oferecido pelo Codespace para examinar o seu site.
+    Opcionamente você pode selecionar a aba `PORTS` e abrir o link que está relacionado à porta 8000.
     Resultado esperado:
 
     ![Alô mundo Django!](img/Django-AloMundo.png)
@@ -298,6 +298,8 @@ MeuProjeto/
 1. Algumas configurações básicas...
 
     - Inclua o seu site na lista de aplicações do seu projeto editando o arquivo `settings.py` e inclua a sua aplicação na lista de aplicações instaladas como mostrado:
+
+    > O módulo `settings.py` está dentro do diretório `MeuProjeto/MeuSite/MeuSite/`.
 
     ```python
     # Application definition
@@ -321,9 +323,8 @@ MeuProjeto/
 
         O template é o código HTML que define a estrutura visual da sua página inicial.
 
-        - Crie um diretório chamado `templates` dentro do diretório `MeuSite/MeuSite`
-        - Crie um diretório chamado `MeuSite` dentro do diretório `templates`
-        - Crie um arquivo HTML dentro do diretório `MeuSite/MeuSite/templates/MeuSite` chamado `home.html`
+        - Crie um diretório chamado `templates` dentro do diretório `MeuProjeto/MeuSite/MeuSite`
+        - Crie um arquivo HTML dentro do diretório `MeuSite/MeuSite/templates/` chamado `home.html`
 
         Resultado esperado:
         ```
@@ -333,8 +334,7 @@ MeuProjeto/
         │   │   ├── asgi.py
         │   │   ├── settings.py
         │   │   ├── templates
-        │   │   │   └── MeuSite
-        │   │   │       └── home.html
+        │   │   │   └── home.html
         │   │   ├── urls.py
         │   │   └── wsgi.py
         │   ├── db.sqlite3
@@ -349,7 +349,7 @@ MeuProjeto/
 
         O View é uma função Python que recebe uma requisição HTTP, processa a lógica (se necessário) e retorna uma resposta, geralmente renderizando um template.
 
-        - crie o arquivo `views.py` no diretório `MeuSite/MeuSite` com o seguinte conteúdo:
+        - Crie o arquivo `views.py` no diretório `MeuProjeto/MeuSite/MeuSite/` com o seguinte conteúdo:
 
         >  Se for copia e colar, cuidado com o alinhamento!
 
@@ -361,7 +361,7 @@ MeuProjeto/
             View function for home page of site.
             Renders the home.html template.
             '''
-            return render(request, 'MeuSite/home.html')
+            return render(request, 'home.html')
         ```
 
     - Configure as URLs do Aplicativo em `urls.py`
@@ -399,81 +399,21 @@ MeuProjeto/
         ]
         ```
 
-    - Teste a sua home-page colocando o site no ar. Resultado esperado:
+    - Teste a sua home-page colocando o site no ar. 
+    
+    - Resultado esperado:
 
         ![homepage básica](img/homepage-basica.png)
-
-
-1. A sua aplicação principal se chama `MeuSite`. Mas vamos criar uma aplicação secundária chamada `curriculo`.
-
-    - Pare o servidor Django digitando Ctrl+C no terminal.
-
-    - Crie a aplicação secundaria com o comando:
-
-        ```bash
-        python manage.py startapp curriculo
-        ```
-
-        Esse comando deverá deixar a árvore de diretórios com esse formato:
-
-        ```
-        MeuProjeto/
-        ├── MeuSite
-        │   ├── MeuSite
-        │   │   ├── __init__.py
-        │   │   ├── __pycache__
-        │   │   │   ├── __init__.cpython-312.pyc
-        │   │   │   ├── settings.cpython-312.pyc
-        │   │   │   ├── urls.cpython-312.pyc
-        │   │   │   └── wsgi.cpython-312.pyc
-        │   │   ├── asgi.py
-        │   │   ├── settings.py
-        │   │   ├── urls.py
-        │   │   └── wsgi.py
-        │   ├── curriculo
-        │   │   ├── __init__.py
-        │   │   ├── admin.py
-        │   │   ├── apps.py
-        │   │   ├── migrations
-        │   │   │   └── __init__.py
-        │   │   ├── models.py
-        │   │   ├── tests.py
-        │   │   └── views.py
-        │   ├── db.sqlite3
-        │   └── manage.py
-        ├── img
-        │   ├── Django-AloMundo.png
-        │   └── requirements-django.png
-        ├── requirements.txt
-        └── venv
-        ```
-
-    - Registre a sua aplicação editando o arquivo `settings.py`:
-
-        ```python
-        # Application definition
-
-        INSTALLED_APPS = [
-            "django.contrib.admin",
-            "django.contrib.auth",
-            "django.contrib.contenttypes",
-            "django.contrib.sessions",
-            "django.contrib.messages",
-            "django.contrib.staticfiles",
-            'MeuSite',      # esse já deveria existir aqui
-            'curriculo',    # esse é novo
-        ]
-    ```
 
 1. Vamos colocar os currículos no ar
 
     - Arquivos estáticos
 
         O Django considera a folha de estilo, as mídias e os scripts em JavaScript como arquivos estáticos. 
-        Eles devem ser colocados dentro de um diretório chamado `static` dentro de cada uma das aplicações.
+        Eles devem ser colocados dentro de um diretório chamado `static`.
 
-        - Crie um diretório chamado `static` dentro do diretório `curriculo`
-        - Dentro do diretório `static` (`curriculo/static`), crie um diretório chamado `curriculo`. Dentro desse diretório `curriculo/static/curriculo`, crie os seguintes diretórios
+        - Crie um diretório chamado `static` dentro do diretório `MeuProjeto/MeuSite/MeuSite/`
+        - Dentro do diretório `static` crie os seguintes diretórios
             - js
             - img
             - css
@@ -482,43 +422,33 @@ MeuProjeto/
 
     - Templates de currículos
 
-        - Crie um diretório chamado `templates` dentro do diretório `MeuSite/curriculo`. Dentro de `templates` (`MeuSite/curriculo/templates`), crie um diretório chamado `curriculo`.
-        - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para esse último diretório.
+        - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para o diretório `templates` (`MeuProjeto/MeuSite/MeuSite/templates/`).
 
         Nesse ponto, você deverá ter uma árvore de diretórios semelhante a essa:
 
         ```
         MeuProjeto/
-        ├── MeuSite
-        │   ├── MeuSite
+        ├── MeuSite/
+        │   ├── MeuSite/
         │   │   ├── asgi.py
         │   │   ├── settings.py
-        │   │   ├── templates
-        │   │   │   └── MeuSite
-        │   │   │       └── home.html
+        │   │   ├── static/
+        │   │   │   ├── css/
+        │   │   │   │   ├── curriculo-v0.css
+        │   │   │   │   ├── curriculo-v1.css
+        │   │   │   │   └── curriculo-v2.css
+        │   │   │   ├── img/
+        │   │   │   │   ├── aircraft-spiff.gif
+        │   │   │   │   └── spiff.jpeg
+        │   │   │   └── js/
+        │   │   ├── templates/
+        │   │   │   ├── curriculo-v1.html
+        │   │   │   ├── curriculo-v2.html
+        │   │   │   └── home.html
+        │   │   ├── settings.py
         │   │   ├── urls.py
         │   │   ├── views.py
         │   │   └── wsgi.py
-        │   ├── curriculo
-        │   │   ├── admin.py
-        │   │   ├── apps.py
-        │   │   ├── models.py
-        │   │   ├── static
-        │   │   │   └── curriculo
-        │   │   │       ├── css
-        │   │   │       │   ├── curriculo-v0.css
-        │   │   │       │   ├── curriculo-v1.css
-        │   │   │       │   └── curriculo-v2.css
-        │   │   │       ├── img
-        │   │   │       │   ├── aircraft-spiff.gif
-        │   │   │       │   └── spiff.jpeg
-        │   │   │       └── js
-        │   │   ├── templates
-        │   │   │   └── curriculo
-        │   │   │       ├── curriculo-v1.html
-        │   │   │       └── curriculo-v2.html
-        │   │   ├── tests.py
-        │   │   └── views.py
         │   ├── db.sqlite3
         │   └── manage.py
         ├── requirements.txt
@@ -541,7 +471,7 @@ MeuProjeto/
             Para:
 
             ```html
-            <link rel="stylesheet" href="{% static 'curriculo/css/curriculo-v1.css' %}">
+            <link rel="stylesheet" href="{% static 'css/curriculo-v1.css' %}">
             ```
 
             - Substitua **TODAS** as referências às suas imagens, de:
@@ -553,12 +483,12 @@ MeuProjeto/
             Para:
 
             ```html
-            <img src="{% static 'curriculo/img/spiff.jpeg' %}" alt="Foto do astronauta Spiff">
+            <img src="{% static 'img/spiff.jpeg' %}" alt="Foto do astronauta Spiff">
             ```
 
     - View para os currículos
     
-        Crie um view para cada um dos currículos do seu site editando o arquivo `MeuSite/curriculo/views.py`. 
+        Crie um view para cada um dos currículos do seu site editando o arquivo `MeuProjeto/MeuSite/MeuSite/views.py`. 
         Resultado esperado (parecido com esse, mas não necessariamente igual):
     
         ```python
@@ -578,7 +508,7 @@ MeuProjeto/
             @param request: The HTTP request object
             @return: Rendered HTML response with resume page content
             '''
-            return render(request, 'curriculo/curriculo-v1.html')
+            return render(request, 'curriculo-v1.html')
 
         def curriculo_spiff_v2(request):
             '''
@@ -593,64 +523,28 @@ MeuProjeto/
             @param request: The HTTP request object
             @return: Rendered HTML response with resume page version 2 content
             '''
-            return render(request, 'curriculo/curriculo-v2.html')
+            return render(request, 'curriculo-v2.html')
         ```
 
     - Rotas para os currículos
 
-        Crie o arquivo `MeuSite/curriculo/urls.py`. 
+        Edit o arquivo `MeuProjeto/MeuSite/MeuSite/urls.py`. 
         Nesse arquivo, inclua rotas para os currículos criados. 
         Veja o seguinte exemplo (o seu arquivo não precisa ficar exatamente igual a esse):
 
         ```python
         from django.urls import path
-        from . import views
+        from MeuSite import views
 
-        app_name = 'curriculo'
+        app_name = 'MeuSite'
 
         urlpatterns = [
-            # essa rota pode ser acessada em /curriculo/spiff/
-            # ou seja, /curriculo/ + spiff/
+            # essa rota pode ser acessada em /spiff/
             # o link para essa rota pode ser criado usando o nome 'curriculo_spiff'
-            # Exemplo: {% url 'curriculo:curriculo_spiff' %}
+            # Exemplo: {% url 'curriculo_spiff' %}
             path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
-            # essa rota pode ser acessada em /curriculo/spiff/v2/
+            # essa rota pode ser acessada em /spiff/v2/
             path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
-        ]
-        ```
-
-        Inclua esse arquivo de rotas no conjunto de rotas do seu site editando o arquivo `MeuSite/MeuSite/urls.py`:
-
-        ```python
-        """
-        URL configuration for MeuSite project.
-
-        The `urlpatterns` list routes URLs to views. For more information please see:
-            https://docs.djangoproject.com/en/5.2/topics/http/urls/
-        Examples:
-        Function views
-            1. Add an import:  from my_app import views
-            2. Add a URL to urlpatterns:  path('', views.home, name='home')
-        Class-based views
-            1. Add an import:  from other_app.views import Home
-            2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-        Including another URLconf
-            1. Import the include() function: from django.urls import include, path
-            2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-        """
-
-        from django.contrib import admin
-        from django.urls import path
-        from MeuSite import views  # Import the home view
-        from django.urls import include  # Import include to include app URLs
-
-        urlpatterns = [
-            path("admin/", admin.site.urls),
-
-            # Add the home view URL pattern
-            # Map the home view to the root URL
-            path('', views.home, name='home'),  # Map the home view to the root URL
-            path('curriculo/', include('curriculo.urls')),  # Include the curriculo app URLs
         ]
         ```
 
@@ -669,14 +563,20 @@ MeuProjeto/
 
             <h2>Links para os currículos</h2>
             <ul>
-                <li><a href="{% url 'curriculo:curriculo_spiff' %}">Currículo do Spiff</a></li>
-                <li><a href="{% url 'curriculo:curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
+                <li><a href="{% url 'curriculo_spiff' %}">Currículo do Spiff</a></li>
+                <li><a href="{% url 'curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
             </ul>
         </body>
         </html>
         ```
 
     - Teste o seu site
+
+    >[!NOTE]
+
+    > Se as figuras não apareceram, verifique se você atualizou os links das tags `<img>` como foi descrito um pouco mais acima.
+
+    > Se os estilos não foram aplicados, verifique se você atualizou os links das folhas de estilo na tag `<link>` como foi descrito um pouco mais acima.
 
 
 # Apendices
@@ -686,7 +586,7 @@ MeuProjeto/
 Criando um venv.
 Verifique se você ainda não criou o ambiente virtual de uma (ou ambas) as seguites formas:
 
-1. Veja na barra lateral esquerda do Codespace se existe o diretório `venv` na raiz do seu projeto.
+1. Veja na barra lateral esquerda do *Codespace* se existe o diretório `venv` na raiz do seu projeto.
 1. Verifique através do comando `ls -l` na linha de comando do Codespace se o diretório `venv` é listado.
 
 Para criar um `venv` inexistente, use o comando:
@@ -709,17 +609,16 @@ Explicação:
 Depois de criar o `venv`, não se esqueça de instalar os requisitos através do arquivo `requirements.txt` com o comando `pip install -r requirements.txt`.
 
 ---
----
 
 ##  Apêndice B - Problemas conhecidos e suas "soluções" <a id='problemas'></a>
 
 - [Qualquer problema relativo a CORS ou CSRF](https://github.com/AlexandreMeslin/ENG4021/tree/main/AI2-MeuProjeto#cors)
 
-### CORS
+### CORS ou CSRF
 
 #### Sintoma
 
-Qualquer problema ligado ao CORS (Cross-Origin Resource Sharing)
+Qualquer problema ligado ao CORS (Cross-Origin Resource Sharing) ou CSRF (Cross-Site Request Forgery)
 
 #### Solução
 

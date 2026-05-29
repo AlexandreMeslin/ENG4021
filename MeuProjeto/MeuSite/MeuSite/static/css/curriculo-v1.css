@@ -1,0 +1,50 @@
+body {
+    background-color: #000000;
+    font-family: 'Orbitron', sans-serif;
+}
+
+nav {
+    background-color: blue;
+}
+
+.navegacao {
+    list-style-type: none; /* Remove os bullets */
+}
+
+.navegacao a {
+    text-decoration: none;  /* Remove o sublinhado */
+    color: yellow;
+}
+
+h1 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+h2 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+h3 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+p {
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+#sumario {
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+li {
+    color: #FFFFFF;
+}
+
+footer {
+    color: orange;
+}

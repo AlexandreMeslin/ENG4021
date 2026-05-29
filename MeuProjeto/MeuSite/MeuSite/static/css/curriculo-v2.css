@@ -1,0 +1,93 @@
+body {
+    background-color: #000000;
+    font-family: 'Orbitron', sans-serif;
+}
+
+nav {
+    background-color: blue;
+    min-width: 200px;   /* Largura fixa para o nav */
+    overflow-y: auto;   /* Rolagem vertical se o conteúdo ultrapassar */
+    position: fixed;    /* Fixa o nav na posição */
+    height: 100%;       /* Ocupa toda a altura da viewport - importante ao usar fixed */
+    top: 0;             /* Alinha ao topo */
+    left: 0;            /* Alinha à esquerda */
+}
+
+main {
+    flex-grow: 1;       /* Ocupa o espaço restante */
+    padding: 20px;
+    margin-left: 200px; /* Espaço para o nav depois de usar fixed */
+}
+
+footer {
+    flex-grow: 1;       /* Ocupa o espaço restante */
+    color: orange;
+}
+
+.navegacao {
+    list-style-type: none; /* Remove os bullets */
+}
+
+.navegacao a {
+    text-decoration: none;  /* Remove o sublinhado */
+    color: yellow;
+}
+
+h1 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+h2 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+h3 {
+    color: yellow;
+    margin-left: 10px;
+}
+
+p {
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+#sumario {
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+li {
+    color: #FFFFFF;
+}
+
+.container {
+    display: flex;      /* Usa Flexbox */
+    min-height: 100vh;  /* Ocupa toda a altura da viewport */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empilha em telas menores */
+    }
+
+    nav {
+        width: 100%; /* Ocupa toda a largura */
+        position: unset;
+        margin-left: 0px;
+    }
+
+    main {
+        margin-left: unset; /* Espaço para o nav depois de usar fixed */
+    }
+
+    .navegacao li {
+        display: inline;
+    }
+
+    .navegacao {
+        text-align: right;
+    }
+}
