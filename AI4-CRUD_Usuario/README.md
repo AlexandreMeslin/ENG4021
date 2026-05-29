@@ -46,6 +46,11 @@ Para você desenvolver essa atividade, você deve completar a [atividade individ
 
     > Tenha certeza que o ambiente virtual está ativo conferindo o texto `(venv)` no início do *prompt*.
 
+1. Entre no diretório do seu site com o comando a seguir:
+    ```bash
+    cd MeuSite
+    ```
+
 1. Provavelmente você já migrou o seu banco de dados, mas se não tiver migrado ainda, essa é uma boa hora:
 
     ```bash
@@ -62,7 +67,6 @@ Se você está em dúvida, crie um novo usuário e está resolvido.
 1. Uma boa ideia seria você testar para ver se o seu site está no funcionando. Coloque o site no ar e use o seu navegador para testar:
 
     ```bash
-    cd MeuSite/
     python manage.py runserver 0.0.0.0:8000
     ```
 
