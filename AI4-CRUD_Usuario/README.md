@@ -77,6 +77,8 @@ Se você está em dúvida, crie um novo usuário e está resolvido.
 No arquivo `MeuSite/MeuSite/urls.py`, inclua a seguinte rota na lista de rotas:
 
 ```python
+from django.urls.conf import include
+
 urlpatterns = [
     # aqui pode haver mais linhas
     # inclua a linha abaixo no final da lista
