@@ -572,7 +572,7 @@ MeuProjeto/
 
     - Teste o seu site
 
-    >[!NOTE]
+    > [!NOTE]
 
     > Se as figuras não apareceram, verifique se você atualizou os links das tags `<img>` como foi descrito um pouco mais acima.
 
