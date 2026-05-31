@@ -82,36 +82,29 @@ Exemplo de uma estrutura típica de um projeto Django:
 
 ```
 MeuProjeto/
-├── MeuSite
-│   ├── MeuSite
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── asgi.py
-│   │   ├── models.py
-│   │   ├── settings.py
-│   │   ├── static
-│   │   │   └── curriculo
-│   │   │       ├── css
-│   │   │       │   ├── curriculo-v0.css
-│   │   │       │   ├── curriculo-v1.css
-│   │   │       │   └── curriculo-v2.css
-│   │   │       ├── img
-│   │   │       │   ├── aircraft-spiff.gif
-│   │   │       │   └── spiff.jpeg
-│   │   │       └── js
-│   │   ├── templates
-│   │   │   └── MeuSite
-│   │   │       ├── home.html
-│   │   │       ├── curriculo-v1.html
-│   │   │       └── curriculo-v2.html
-│   │   ├── tests.py
-│   │   ├── urls.py
-│   │   ├── views.py
-│   │   └── wsgi.py
-│   ├── db.sqlite3
-│   └── manage.py
+├── MeuSite/
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   ├── curriculo-v0.css
+│   │   │   ├── curriculo-v1.css
+│   │   │   └── curriculo-v2.css
+│   │   ├── img/
+│   │   │   ├── aircraft-spiff.gif
+│   │   │   └── spiff.jpeg
+│   │   └── js/
+│   ├── templates/
+│   │   ├── curriculo-v1.html
+│   │   ├── curriculo-v2.html
+│   │   └── home.html
+│   ├── urls.py
+│   ├── views.py
+│   └── wsgi.py
+├── db.sqlite3
+├── manage.py
 ├── requirements.txt
-└── venv
+└── venv/
 ```
 
 ### Funcionamento
@@ -133,7 +126,7 @@ MeuProjeto/
     ]
     ```
 
-    Como o diretório referenciado pela URL começa por `spiff/`, o **Django** vai invocar o *view* `curriculo_spiff` que está no módulo `views.py` do diretório `MeuSite/MeuSite`.
+    Como o diretório referenciado pela URL começa por `spiff/`, o **Django** vai invocar o *view* `curriculo_spiff` que está no módulo `views.py` do diretório `MeuSite`.
 
     Esse *view* vai processar o pedido (*request*), preparar os dados e renderizar um dos *templates* para responder (*response*) ao usuário.
 
@@ -232,34 +225,29 @@ MeuProjeto/
 1. Crie o seu site
     
     Usando o terminal, crie um projeto Django chamado `MeuSite`:
+
+    > IMPORTANTE: note o "ponto" no final do comando!
     
     ```bash
-    django-admin startproject MeuSite
+    django-admin startproject MeuSite .
     ```
     
     Esse comando irá criar vários diretórios deixando a sua árvore parecida com essa (verfique na barra lateral esquerda do seu Codespace):
     
     ```
     MeuProjeto/
-    ├── MeuSite
-    │   ├── MeuSite
-    │   │   ├── __init__.py
-    │   │   ├── asgi.py
-    │   │   ├── settings.py
-    │   │   ├── urls.py
-    │   │   └── wsgi.py
-    │   └── manage.py
+    ├── MeuSite/
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── manage.py
     ├── requirements.txt
-    └── venv
+    └── venv/
     ```
 
 1. Teste o seu site.
-
-    - Desça para o diretório `MeuSite`:
-
-    ```bash
-    cd MeuSite
-    ```
 
     - Suba o servidor com o seguinte comando:
 
@@ -292,17 +280,15 @@ MeuProjeto/
 
     ![Alô mundo Django!](img/Django-AloMundo.png)
 
-> [!NOTE]
-> Para parar o seu site, basta digitar Ctrl+C no terminal.
+    > Para parar o seu site, basta digitar Ctrl+C no terminal.
 
-> [!NOTE]
-> Repita esse procedimento para colocar o seu site no ar sempre que necessário.
+    > Repita esse procedimento para colocar o seu site no ar sempre que necessário.
 
 1. Algumas configurações básicas...
 
     - Inclua o seu site na lista de aplicações do seu projeto editando o arquivo `settings.py` e inclua a sua aplicação na lista de aplicações instaladas como mostrado:
 
-    > O módulo `settings.py` está dentro do diretório `MeuProjeto/MeuSite/MeuSite/`.
+    > O módulo `settings.py` está dentro do diretório `MeuProjeto/MeuSite/`.
 
     ```python
     # Application definition
@@ -326,22 +312,21 @@ MeuProjeto/
 
         O template é o código HTML que define a estrutura visual da sua página inicial.
 
-        - Crie um diretório chamado `templates` dentro do diretório `MeuProjeto/MeuSite/MeuSite`
-        - Crie um arquivo HTML dentro do diretório `MeuSite/MeuSite/templates/` chamado `home.html`
+        - Crie um diretório chamado `templates` dentro do diretório `MeuProjeto/MeuSite`
+        - Crie um arquivo HTML dentro do diretório `MeuProjeto/MeuSite/templates/` chamado `home.html`
 
         Resultado esperado:
         ```
         MeuProjeto/
         ├── MeuSite
-        │   ├── MeuSite
-        │   │   ├── asgi.py
-        │   │   ├── settings.py
-        │   │   ├── templates
-        │   │   │   └── home.html
-        │   │   ├── urls.py
-        │   │   └── wsgi.py
-        │   ├── db.sqlite3
-        │   └── manage.py
+        │   ├── asgi.py
+        │   ├── settings.py
+        │   ├── templates
+        │   │   └── home.html
+        │   ├── urls.py
+        │   └── wsgi.py
+        ├── db.sqlite3
+        ├── manage.py
         ├── requirements.txt
         └── venv
         ```
@@ -352,10 +337,10 @@ MeuProjeto/
 
         O View é uma função Python que recebe uma requisição HTTP, processa a lógica (se necessário) e retorna uma resposta, geralmente renderizando um template.
 
-        - Crie o arquivo `views.py` no diretório `MeuProjeto/MeuSite/MeuSite/` com o seguinte conteúdo:
+        - Crie o arquivo `views.py` no diretório `MeuProjeto/MeuSite/` com o seguinte conteúdo:
 
-        > [!WARNING]
-        >  Se for copia e colar, cuidado com o alinhamento!
+        > Cuidado: 
+        > Se for copiar e colar, cuidado com o alinhamento!
 
         ```python
         from django.shortcuts import render
@@ -416,7 +401,7 @@ MeuProjeto/
         O Django considera a folha de estilo, as mídias e os scripts em JavaScript como arquivos estáticos. 
         Eles devem ser colocados dentro de um diretório chamado `static`.
 
-        - Crie um diretório chamado `static` dentro do diretório `MeuProjeto/MeuSite/MeuSite/`
+        - Crie um diretório chamado `static` dentro do diretório `MeuProjeto/MeuSite/`
         - Dentro do diretório `static` crie os seguintes diretórios
             - js
             - img
@@ -426,35 +411,34 @@ MeuProjeto/
 
     - Templates de currículos
 
-        - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para o diretório `templates` (`MeuProjeto/MeuSite/MeuSite/templates/`).
+        - Copie (**copiar, não mover**) o currículo do Spiff e o currículo que você criou para o diretório `templates` (`MeuProjeto/MeuSite/templates/`).
 
         Nesse ponto, você deverá ter uma árvore de diretórios semelhante a essa:
 
         ```
         MeuProjeto/
         ├── MeuSite/
-        │   ├── MeuSite/
-        │   │   ├── asgi.py
-        │   │   ├── settings.py
-        │   │   ├── static/
-        │   │   │   ├── css/
-        │   │   │   │   ├── curriculo-v0.css
-        │   │   │   │   ├── curriculo-v1.css
-        │   │   │   │   └── curriculo-v2.css
-        │   │   │   ├── img/
-        │   │   │   │   ├── aircraft-spiff.gif
-        │   │   │   │   └── spiff.jpeg
-        │   │   │   └── js/
-        │   │   ├── templates/
-        │   │   │   ├── curriculo-v1.html
-        │   │   │   ├── curriculo-v2.html
-        │   │   │   └── home.html
-        │   │   ├── settings.py
-        │   │   ├── urls.py
-        │   │   ├── views.py
-        │   │   └── wsgi.py
-        │   ├── db.sqlite3
-        │   └── manage.py
+        │   ├── asgi.py
+        │   ├── settings.py
+        │   ├── static/
+        │   │   ├── css/
+        │   │   │   ├── curriculo-v0.css
+        │   │   │   ├── curriculo-v1.css
+        │   │   │   └── curriculo-v2.css
+        │   │   ├── img/
+        │   │   │   ├── aircraft-spiff.gif
+        │   │   │   └── spiff.jpeg
+        │   │   └── js/
+        │   ├── templates/
+        │   │   ├── curriculo-v1.html
+        │   │   ├── curriculo-v2.html
+        │   │   └── home.html
+        │   ├── settings.py
+        │   ├── urls.py
+        │   ├── views.py
+        │   └── wsgi.py
+        ├── db.sqlite3
+        ├── manage.py
         ├── requirements.txt
         └── venv
         ```
@@ -492,7 +476,7 @@ MeuProjeto/
 
     - View para os currículos
     
-        Crie um view para cada um dos currículos do seu site editando o arquivo `MeuProjeto/MeuSite/MeuSite/views.py`. 
+        Crie um view para cada um dos currículos do seu site editando o arquivo `MeuProjeto/MeuSite/views.py`. 
         Resultado esperado (parecido com esse, mas não necessariamente igual):
     
         ```python
@@ -532,7 +516,7 @@ MeuProjeto/
 
     - Rotas para os currículos
 
-        Edit o arquivo `MeuProjeto/MeuSite/MeuSite/urls.py`. 
+        Edit o arquivo `MeuProjeto/MeuSite/urls.py`. 
         Nesse arquivo, inclua rotas para os currículos criados. 
         Veja o seguinte exemplo (o seu arquivo não precisa ficar exatamente igual a esse):
 
@@ -574,7 +558,7 @@ MeuProjeto/
         </html>
         ```
 
-    - Teste o seu site
+    - Teste o seu site.
 
 > [!TIP]
 > Se as figuras não apareceram, verifique se você atualizou os links das tags `<img>` como foi descrito um pouco mais acima.

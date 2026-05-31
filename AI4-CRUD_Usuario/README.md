@@ -11,70 +11,79 @@ Nessa atividade, você vai implemnetar autenticação e autorização de usuári
 
 ## Passos iniciais
 
-Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/) ou a [atividade individual 3](../AI3-CRUD-2/).
+Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/).
 
 > Você vai desenvolver essa atividade no seu repositório privado. **NÃO** use o repositório do time!
 
-1. Vá para o diretório do seu projeto:
+- Vá para o diretório do seu projeto:
 
-    ```bash
-    cd MeuProjeto
+```bash
+cd MeuProjeto
+```
+
+Se você estiver no lugar correto, você verá uma saída semelhante à seguinte ao usar o comando `ls -l` no terminal:
+
+```bash
+$ ls -l
+total 20
+drwxrwxrwx+ 5 codespace codespace 4096 May 30 14:33 MeuSite
+-rw-r--r--  1 codespace codespace    0 May 30 14:26 db.sqlite3
+-rwxr-xr-x  1 codespace codespace  663 May 30 14:22 manage.py
+-rw-rw-rw-  1 codespace codespace    6 May 30 14:17 requirements.txt
+drwxrwxrwx+ 5 codespace codespace 4096 May 30 14:18 venv
     ```
 
-    Se você estiver no lugar correto, você verá uma saída semelhante à seguinte ao usar o comando `ls -l` no terminal:
+- Crie um ambiente virtual, se ele não existir.
 
-    ```bash
-    $ ls -l
-    total 29
-    drwxrwxrwx 1 root root     0 nov 12 19:15 img
-    drwxrwxrwx 1 root root     0 nov 12 19:15 MeuSite
-    -rwxrwxrwx 1 root root 25398 nov 12 19:15 README.md
-    -rwxrwxrwx 1 root root     7 nov 12 19:15 requirements.txt
-    ```
+> [!TIP]
+> Você pode saber se o ambiente virtual já foi criado verificando se o diretório `venv` está presente.
 
-1. Crie um ambiente virtual, se ele não existir.
-
-    ```bash
-    python -m venv venv
-    ```
+```bash
+python -m venv venv
+```
 
 1. Ative o ambiente virtual:
 
-    ```bash
-    source venv/bin/activate
-    ```
+> [!TIP]
+> Você pode saber se o ambiente virtual já está ativado verificando se o *prompt* inicia por `(venv)`.
 
-    > Tenha certeza que o ambiente virtual está ativo conferindo o texto `(venv)` no início do *prompt*.
+```bash
+source venv/bin/activate
+```
 
-1. Entre no diretório do seu site com o comando a seguir:
-    ```bash
-    cd MeuSite
-    ```
+> [!IMPORTANT]
+> Tenha certeza que o ambiente virtual está ativo conferindo o texto `(venv)` no início do *prompt*.
 
-1. Provavelmente você já migrou o seu banco de dados, mas se não tiver migrado ainda, essa é uma boa hora:
+- Entre no diretório do seu site com o comando a seguir:
 
-    ```bash
-    python manage.py migrate
-    ```
+```bash
+cd MeuSite
+```
 
-1. Aproveite para criar um usuário, caso ainda não tenha criado.
+- Provavelmente você já migrou o seu banco de dados, mas se não tiver migrado ainda, essa é uma boa hora:
+
+```bash
+python manage.py migrate
+```
+
+- Aproveite para criar um usuário, caso ainda não tenha criado.
 Se você está em dúvida, crie um novo usuário e está resolvido.
 
-    ```bash
-    python manage.py createsuperuser
-    ```
+```bash
+python manage.py createsuperuser
+```
 
-1. Uma boa ideia seria você testar para ver se o seu site está no funcionando. Coloque o site no ar e use o seu navegador para testar:
+- Uma boa ideia seria você testar para ver se o seu site está no funcionando. Coloque o site no ar e use o seu navegador para testar:
 
-    ```bash
-    python manage.py runserver 0.0.0.0:8000
-    ```
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
 
 ## Criando o login
 
 ### Rotas
 
-No arquivo `MeuSite/MeuSite/urls.py`, inclua a seguinte rota na lista de rotas:
+No arquivo `MeuProjeto/MeuSite/urls.py`, inclua a seguinte rota na lista de rotas:
 
 ```python
 from django.urls.conf import include
@@ -85,6 +94,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # Include authentication URLs
 ]
 ```
+
+> [!IMPORTANT]
+> Não se esqueça de importar o módulo `include` no seu módulo `urls.py` como mostrado logo acima.
 
 Ao incluir essa path, o Django vai criar para você as seguintes URLs. Entre colchetes você encontra o nome do endpoint para usar como link:
 
@@ -101,21 +113,32 @@ accounts/reset/done/ [name='password_reset_complete']
 
 ### Configuração
 
-1. Edite o arquivo `MeuSite/MeuSite/settings.py` e inclua as seguintes linhas para criar as variáveis de configuração do *login* :
+- Edite o arquivo `MeuProjeto/MeuSite/settings.py` e inclua as seguintes linhas para criar as variáveis de configuração do *login* :
 
 ```python
 LOGOUT_REDIRECT_URL = '/accounts/login/'  # Para onde vai após logout
 LOGIN_URL = '/accounts/login/'       # URL de login (padrão)
 # ATENÇÃO!!! Troque o valor da variável abaixo para que ela seja uma das rotas
 # válidas no seu arquivo MeuSite/curriculo/urls.py
-LOGIN_REDIRECT_URL = '/curriculo/spiff/'   # Para onde vai após login
+LOGIN_REDIRECT_URL = '/spiff/'   # Para onde vai após login
+```
+
+Para evitar problemas de *CSRF* (*Cross-Site Request Forgery* - Falsificação de Solicitação entre Sites) e *CORS* (*Cross-Origin Resource Sharing* - Compartilhamento de recursos de origens diferentes), inclua as seguintes linhas no seu arquivo `settings.py`
+
+```python
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000', 
+    'http://localhost:8000',
+]
 ```
 
 ### Página de login
 
-Em `curriculo/templates/`, crie o diretório `registration`. 
+Em `MeuProjeto/MeuSite/templates/`, crie o diretório `registration`. 
 Dentro desse diretório, crie o arquivo `login.html`.
 
+> [!NOTE]
 > Certifique-se que dentro de `templates`, você visualiza os dois diretórios no mesmo nível: `curriculo` e `registration`.
 
 Use esse modelo como conteúdo da sua página de *login*.
@@ -124,7 +147,7 @@ Modifique o modelo para ajustar às suas preferências.
 ```html
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,7 +165,8 @@ Modifique o modelo para ajustar às suas preferências.
 </html>
 ```
 
-Na sua *home-page*, inclua uma rota para o *login* editando o arquivo `MeuSite/MeuSite/templates/MeuSite/home.html`. A rota pode ser parecida com essa:
+Na sua *home-page*, inclua uma rota para o *login* editando o arquivo `MeuProjeto/MeuSite/templates/home.html`.
+A rota pode ser parecida com essa:
 
 ```html
 <a href="{% url 'login' %}">Login</a>
@@ -163,8 +187,8 @@ O exemplo a seguir inclui um *link* para o *login* e outro para o *logout* na *h
 
     <h2>Links para os currículos</h2>
     <ul>
-        <li><a href="{% url 'curriculo:curriculo_spiff' %}">Currículo do Spiff</a></li>
-        <li><a href="{% url 'curriculo:curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
+        <li><a href="{% url 'curriculo_spiff' %}">Currículo do Spiff</a></li>
+        <li><a href="{% url 'curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
     </ul>
 
     <h2>Área de controle de acesso</h2>
@@ -178,9 +202,10 @@ O exemplo a seguir inclui um *link* para o *login* e outro para o *logout* na *h
 
 ### Proteção da página
 
-Se você implementou totalmente A AI2, a sua aplicação `curriculo` deve ter, no mínimo, dois views. Vamos proteger um deles.
+Se você implementou totalmente A AI2, a sua aplicação deve ter, no mínimo, dois views. Vamos proteger um deles.
 
-Edite o arquivo `MeuSite/curriculo/views.py`. Importe o seguinte decorador:
+Edite o arquivo `MeuProjeto/MeuSite/views.py`.
+Importe o seguinte decorador:
 
 ```python
 from django.contrib.auth.decorators import login_required
@@ -196,18 +221,46 @@ O seu `view` deve estar parecido com esse (veja o *import* e a anotação na fun
 
 ```python
 from django.shortcuts import render
+
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+def home(request):
+    '''
+    View function for home page of site.
+    Renders the home.html template.
+    '''
+    return render(request, 'home.html')
 
-# Essa função abaixo não está protegida
+@login_required
 def curriculo_spiff(request):
-    return render(request, 'curriculo/curriculo-v1.html')
+    '''
+    View function for the astronaut Spiff's resume page.
+    Renders the curriculo-v1.html template.
+    This will display the resume page when the corresponding URL is accessed
+    The curriculo_spiff view is responsible for displaying the content of the resume page
+    It is a simple function-based view
+    It takes a request object as a parameter
+    It returns a rendered HTML response
+    @param request: The HTTP request object
+    @return: Rendered HTML response with resume page content
+    '''
+    return render(request, 'curriculo-v1.html')
 
-# A função abaixo está protegida. Veja a anotação @login_required
 @login_required
 def curriculo_spiff_v2(request):
-    return render(request, 'curriculo/curriculo-v2.html')
+    '''
+    View function for the astronaut Spiff's resume page version 2.
+    A responsive version of the resume page.
+    Renders the curriculo-v2.html template.
+    This will display the resume page version 2 when the corresponding URL is accessed
+    The curriculo_spiff_v2 view is responsible for displaying the content of the resume page version 2
+    It is a simple function-based view
+    It takes a request object as a parameter
+    It returns a rendered HTML response
+    @param request: The HTTP request object
+    @return: Rendered HTML response with resume page version 2 content
+    '''
+    return render(request, 'curriculo-v2.html')
 ```
 
 ### Testando tudo
@@ -224,42 +277,18 @@ def curriculo_spiff_v2(request):
 
 1. Tente visitar as páginas, principalmente a protegida. Você será encaminhado para a página de *login*, mas conseguirá visitar a página liberada.
 
-1. Faça um vídeo com essa demonstração e coloque no chat do Discord.
-
 ### Trocar senha
 
-1. Crie um *link* na sua *home-page* para permitir que o usuário troque a senha. No *link*, lembre ao usuário que ele deve estar *logado* para poder trocar sua senha.
+Crie um *link* na sua *home-page* para permitir que o usuário troque a senha. 
+No *link*, lembre ao usuário que ele deve estar *logado* para poder trocar sua senha.
 
-    ```python
-    <a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
-    ```
+```python
+<a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
+```
 
-    > O *link* não deveria estar na *home-page*, mas não temos muitas páginas nessa atividade, então...
+> [!CAUTION]
+> O *link* não deveria estar na *home-page*, mas não temos muitas páginas nessa atividade, então...
 
-    Teste a troca da senha.
+Teste a troca da senha.
 
-    > Observe que você está usando um *template* criado pelo **Django** para realizar a troca da senha. Se você quiser, veja como usar o seu *template*.
-
-### Recuperar a senha
-
-1. Edite o seu arquivo `settings.py` e inclua a definição da seguinte variável. Essa variável informa que o e-mail não deve ser enviado para um correio convencional e sim apenas exibido no terminal do Django
-
-    ```python
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    ```
-
-1. Crie o seguinte *link* na sua página de *login*:
-
-    ```python
-    <a href="{% url 'password_reset' %}">Redefinir senha (para usuários que esqueceram a senha)</a>
-    ```
-
-1. Teste a recuperação de senha. 
-Como o *link* para recuperar a senha não vai ser enviado para o seu e-mail, veja o texto no terminal do Codespace, o mesmo onde o servido Django está sendo executado.
-
-    - Copie o *link* para um editor de textos.
-    O texto deve ser parecido com esse: `http://localhost:8000/accounts/reset/Mg/cz9ps9-658668afff0402561f6d835bfba522e1/`
-    - Troque a parte inicial (`http://localhost:8000`) pela URL do seu site.
-    Por exemplo, se a URl do seu site for `https://zany-yodel-p7q7q57x9rwc77g9-8000.app.github.dev`, o endereço de recuperação de senha deveria ser `https://zany-yodel-p7q7q57x9rwc77g9-8000.app.github.dev/accounts/reset/Mg/cz9ps9-658668afff0402561f6d835bfba522e1/`
-    - Copie e cole o endereço completo no seu navegador e informe a nova senha
-    - Tente entrar no site com a nova senha
+> Observe que você está usando um *template* criado pelo **Django** para realizar a troca da senha. Se você quiser, veja como usar o seu *template*.

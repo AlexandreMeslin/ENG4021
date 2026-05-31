@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Home Page do MeuSite</h1>
+
+    <h2>Links para os currículos</h2>
+    <ul>
+        <li><a href="{% url 'curriculo_spiff' %}">Currículo do Spiff</a></li>
+        <li><a href="{% url 'curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
+    </ul>
+
+    <h2>Área de controle de acesso</h2>
+    <ul>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><form method='POST' action="{% url 'logout' %}">{% csrf_token %}<button type='submit'>Logout</button></form></li>
+    </ul>
+    <a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
+</body>
+</html>
