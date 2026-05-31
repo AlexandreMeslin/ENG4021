@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+
+    <h1>Lista de Carros</h1>
+
+    <!-- 
+    Esse é o formulário básico para busca.
+    Você deve usar a tag form e colocar os campos referentes a busca dentro dela.
+    Lembre-se de usar o atributo method para enviar o formulário como POST.
+    Para o Django aceitar de volta o formulário, você tem que incluir o comando {% csrf_token %}
+    Veja que o formulário deve ter um botão de envio também.
+    Modifique os campos input e button para obter o aspecto que você quer.
+    -->
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Buscar carro..." value="{{ search_query }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>MPG</th>
+                <th>Cilindros</th>
+                <th>Disposição</th>
+                <th>Potência</th>
+                <th>Peso</th>
+                <th>Aceleração</th>
+                <th>Câmbio</th>
+                <th>Marchas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carro in carros %}
+            <tr>
+                <td><a href="{% url 'detalhes' carro.id %}">{{ carro.name }}</a></td>
+                <td>{{ carro.mpg }}</td>
+                <td>{{ carro.cyl }}</td>
+                <td>{{ carro.disp }}</td>
+                <td>{{ carro.hp }}</td>
+                <td>{{ carro.wt }}</td>
+                <td>{{ carro.qsec }}</td>
+                <td>{{ carro.am }}</td>
+                <td>{{ carro.gear }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9">Nenhum carro encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+</body>
+</html>
