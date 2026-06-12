@@ -169,7 +169,19 @@ Na sua *home-page*, inclua uma rota para o *login* editando o arquivo `MeuProjet
 A rota pode ser parecida com essa:
 
 ```html
-<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'login' %}">
+    Login
+</a>
+```
+
+Para fazer *logout*, devemos enviar o pedido via método *POST*, o que requer o uso de um formulário (ou de um *script* em JavaScript).
+Veja como podemos criar um botão simples para criar o *login*:
+
+```html
+<form method='POST' action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type='submit'>Logout</button>
+</form>
 ```
 
 O exemplo a seguir inclui um *link* para o *login* e outro para o *logout* na *home-page*:
@@ -200,6 +212,26 @@ O exemplo a seguir inclui um *link* para o *login* e outro para o *logout* na *h
 </html>
 ```
 
+> [!TIP]
+> Se você quiser que o seu botão de *logout* se pareça com um *link*, inclua o *link* para o Bootstrap na seção `<head>` da sua página e coloque o botão *submit*  nas classes `btn` e `btn-link`.
+
+*Link* para o Bootstrap:
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+```
+
+Exemplo de *logout* com formato de *link*:
+
+```html
+<div style="display: inline-block;">
+    <form method='POST' action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type='submit' class="btn btn-link">Logout</button>
+    </form>
+</div>
+```
+
 Teste a sua página de *login*!
 
 ### Proteção da página
@@ -207,7 +239,8 @@ Teste a sua página de *login*!
 > [!CAUTION]
 > NÃO CONTINUE SE VOCÊ NÃO TIVER TESTADO COMPLETAMENTE A SUA PÁGINA DE LOGIN E LOGOUT.
 
-Se você implementou totalmente A AI2, a sua aplicação deve ter, no mínimo, dois views. Vamos proteger um deles.
+Se você implementou totalmente A AI2, a sua aplicação deve ter, no mínimo, dois views.
+Vamos proteger um deles.
 
 Edite o arquivo `MeuProjeto/MeuSite/views.py`.
 Importe o seguinte decorador:
@@ -246,6 +279,7 @@ def curriculo_spiff(request):
     It is a simple function-based view
     It takes a request object as a parameter
     It returns a rendered HTML response
+
     @param request: The HTTP request object
     @return: Rendered HTML response with resume page content
     '''
@@ -262,6 +296,7 @@ def curriculo_spiff_v2(request):
     It is a simple function-based view
     It takes a request object as a parameter
     It returns a rendered HTML response
+
     @param request: The HTTP request object
     @return: Rendered HTML response with resume page version 2 content
     '''
@@ -272,7 +307,7 @@ def curriculo_spiff_v2(request):
 
 1. Acesse a sua *home-page*.
 
-1. Faça login.
+1. Faça *login*.
 
 1. Visite ambas as páginas: a liberada e a protegida (copie o endereço das páginas - principalmente a protegida).
 

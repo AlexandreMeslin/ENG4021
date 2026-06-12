@@ -263,7 +263,9 @@ from MTCars.models import MTCars
 def searchf(request):
     if request.method == 'GET':
         carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
-        return render(request, 'home.html', {'carros': carros})
+        contexto = {
+            'carros': carros,
+        }
     else:
         search_query = request.POST.get('search')
         # Aqui você pode adicionar a lógica para filtrar os carros com base na pesquisa
@@ -273,12 +275,12 @@ def searchf(request):
         # No template, você pode acessar esses dados usando as chaves do dicionário.
         contexto = {
             'search_query': search_query,   # o texto pesquisado
-            'carros': carros                # os resultados da pesquisa
+            'carros': carros,               # os resultados da pesquisa
         }
-        # No meu caso, eu mostro a mesma página,
-        # mas você pode usar outro template para mostrar uma página diferente.
-        # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
-        return render(request, 'home.html', contexto)
+    # No meu caso, eu mostro a mesma página,
+    # mas você pode usar outro template para mostrar uma página diferente.
+    # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
+    return render(request, 'home.html', contexto)
 ```
 
 No diretório `Carros/MTCars`, edite o arquivo `urls.py` e inclua uma rota para esse `view`:
@@ -406,7 +408,9 @@ Transforme o nome do carro em um link. Antes você tinha esse código no arquivo
 Modifique para esse código para incluir um link com o `id` do carro:
 
 ```html
-<td><a href="{% url 'detalhes' carro.id %}">{{ carro.name }}</a></td>
+<td>
+    <a href="{% url 'detalhes' carro.id %}">{{ carro.name }}</a>
+</td>
 ```
 
 Crie uma nova view para exibir os detalhes do carro.
@@ -419,7 +423,7 @@ def detalhes(request, carro_id):
     # você vai criar uma variável carro no template associado pela função render.
     # Essa variável é um objeto carro, com todas as suas propriedades.
     contexto = {
-        'carro': carro
+        'carro': carro,
     }
     return render(request, 'detalhes.html', contexto)
 ```
