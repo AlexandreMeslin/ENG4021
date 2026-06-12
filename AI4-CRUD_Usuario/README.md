@@ -200,7 +200,12 @@ O exemplo a seguir inclui um *link* para o *login* e outro para o *logout* na *h
 </html>
 ```
 
+Teste a sua página de *login*!
+
 ### Proteção da página
+
+> [!CAUTION]
+> NÃO CONTINUE SE VOCÊ NÃO TIVER TESTADO COMPLETAMENTE A SUA PÁGINA DE LOGIN E LOGOUT.
 
 Se você implementou totalmente A AI2, a sua aplicação deve ter, no mínimo, dois views. Vamos proteger um deles.
 
