@@ -11,6 +11,7 @@
 
 - https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 - https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+- [Lista de badges para licenças](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
 
 ---
 

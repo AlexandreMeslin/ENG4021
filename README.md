@@ -22,10 +22,10 @@
 ![Top Language](https://img.shields.io/github/languages/top/AlexandreMeslin/ENG4021)
 ![Languages Count](https://img.shields.io/github/languages/count/AlexandreMeslin/ENG4021)
 
-![Last Commit](https://img.shields.io/github/last-commit/AlexandreMeslin/INF1304)
-![Repo Size](https://img.shields.io/github/repo-size/AlexandreMeslin/INF1304)
-![Code Size](https://img.shields.io/github/languages/code-size/AlexandreMeslin/INF1304)
-![GitHub commits since tagged version](https://img.shields.io/github/commits-since/AlexandreMeslin/INF1029/v2026.1)
+![Last Commit](https://img.shields.io/github/last-commit/AlexandreMeslin/ENG4021)
+![Repo Size](https://img.shields.io/github/repo-size/AlexandreMeslin/ENG4021)
+![Code Size](https://img.shields.io/github/languages/code-size/AlexandreMeslin/ENG4021)
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/AlexandreMeslin/ENG4021/v2026.1)
 
 
 ![GitHub stars](https://img.shields.io/github/stars/AlexandreMeslin/ENG4021?style=social)
