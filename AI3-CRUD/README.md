@@ -11,6 +11,17 @@ Desenvolver um site usando o banco de carros `MTCars` para permitir uma consulta
 > [!IMPORTANT]
 > NÃO use o mesmo projeto ou site da atividade anterior
 
+## Roteiro
+
+- Criar um projeto
+- Construir um banco de dados
+- Criar uma home-page estática
+- Criar uma página para listar todos os dados
+- Criar uma página para listar alguns itens selecionados
+- Criar dados com a interface administrativa
+- Adicionar estilo às páginas
+- Criar uma página para listar detalhes de um ote,
+
 ## Passos
 
 Abra o `Codespace` no seu repositório individual.
@@ -180,10 +191,183 @@ Inserção concluída! 32 registros copiados para 'db.sqlite3'.
 --- PROCESSO CONCLUÍDO ---
 ```
 
-### Criando o template
+### Criando a Home-Page
 
 Crie o diretório `templates` dentro do diretório `Carros/MTCars`.
 Crie o arquivo `home.html` no diretório `templates`.
+Use o seguinte conteúdo:
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+</head>
+<body>
+    <header>
+        <h1>Home-Page de Carros</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>Link para a <a href="{% url 'home' %}">Home-Page</a></li>
+            <li><a href="{% url 'lista' %}">Link</a> para a lista de todos os carros</li>
+            <li><a href="{% url 'busca' %}">Link</a> para a busca por um carro</li>
+        </ul>
+    </nav>
+</body>
+</html>
+```
+
+Crie um view para renderizar essa página.
+Crie o arquivo Carros/MTCars/`views.py` e inclua a função `home`:
+
+```python
+from django.shortcuts import render
+from MTCars.models import MTCars
+
+# Create your views here.
+
+def home(request):
+    '''
+    Renderiza a home-page.
+    Como a home-page é uma pagina estática, 
+    não precisa de variáveis de contexto.
+    '''
+    return render(request, 'home.html')
+```
+
+Crie uma rota para a sua *home page* no arquivo `urls.py`:
+
+```python
+"""
+URL configuration for MTCars project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+
+from django.contrib import admin
+from django.urls import path
+
+from MTCars import views
+
+app_name = "MTCars"
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('', views.home, name='home'),  # nova rota
+    path('lista/', views.lista, name='lista'),
+    path("busca/", views.searchf, name="busca"),
+    path("detalhes/<int:carro_id>/", views.detalhes, name="detalhes"),
+]
+```
+
+> [!NOTE]
+> Observe que as rotas chamadas de `lista`, `busca` e `detalhes` apontam para funções que ainda não existem.
+
+### Criando a lista de todos os carros
+
+Crie o arquivo `lista.html` no diretório `templates`:
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+
+    <h1>Lista de Carros</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>MPG</th>
+                <th>Cilindros</th>
+                <th>Disposição</th>
+                <th>Potência</th>
+                <th>Peso</th>
+                <th>Aceleração</th>
+                <th>Câmbio</th>
+                <th>Marchas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carro in carros %}
+                <tr>
+                    <td><a href="{% url 'detalhes' carro.id %}">{{ carro.name }}</a></td>
+                    <td>{{ carro.mpg }}</td>
+                    <td>{{ carro.cyl }}</td>
+                    <td>{{ carro.disp }}</td>
+                    <td>{{ carro.hp }}</td>
+                    <td>{{ carro.wt }}</td>
+                    <td>{{ carro.qsec }}</td>
+                    <td>{{ carro.am }}</td>
+                    <td>{{ carro.gear }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="9">Nenhum carro encontrado.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+```
+
+Crie um *view* para *renderizar* essa página.
+No arquivo `views.py`, crie a função `lista`:
+
+```python
+def lista(request):
+    '''
+    Esta função busca todos os carros no banco de dados.
+    Ela utiliza a página lista.html para exibir a lista de todos os carros
+    '''
+    carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
+    contexto = {
+        'carros': carros,
+    }
+    return render(request, 'lista.html', contexto)
+```
+
+Crie uma rota para esse *view* no arquivo `urls.py`:
+
+> [!INFO]
+> Provavelmente você já criou essa rota.
+
+```python
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('', views.home, name='home'),
+    path('lista/', views.lista, name='lista'),  # nova rota
+    path("busca/", views.searchf, name="busca"),
+    path("detalhes/<int:carro_id>/", views.detalhes, name="detalhes"),
+]
+```
+
+### Criando a página de busca
+
+Crie o arquivo `busca.html` no diretório `templates`.
 Use o seguinte conteúdo:
 
 ```html
@@ -229,30 +413,30 @@ Use o seguinte conteúdo:
         </thead>
         <tbody>
             {% for carro in carros %}
-            <tr>
-                <td>{{ carro.name }}</td>
-                <td>{{ carro.mpg }}</td>
-                <td>{{ carro.cyl }}</td>
-                <td>{{ carro.disp }}</td>
-                <td>{{ carro.hp }}</td>
-                <td>{{ carro.wt }}</td>
-                <td>{{ carro.qsec }}</td>
-                <td>{{ carro.am }}</td>
-                <td>{{ carro.gear }}</td>
-            </tr>
+                <tr>
+                    <td>{{ carro.name }}</td>
+                    <td>{{ carro.mpg }}</td>
+                    <td>{{ carro.cyl }}</td>
+                    <td>{{ carro.disp }}</td>
+                    <td>{{ carro.hp }}</td>
+                    <td>{{ carro.wt }}</td>
+                    <td>{{ carro.qsec }}</td>
+                    <td>{{ carro.am }}</td>
+                    <td>{{ carro.gear }}</td>
+                </tr>
             {% empty %}
-            <tr>
-                <td colspan="9">Nenhum carro encontrado.</td>
-            </tr>
+                <tr>
+                    <td colspan="9">Nenhum carro encontrado.</td>
+                </tr>
             {% endfor %}
         </tbody>
-
+    </table>
 </body>
 </html>
 ```
 
-Crie um view para renderizar essa página.
-Crie o arquivo `Carros/MTCars/views.py` e inclua a função `searchf`:
+Crie um *view* para *renderizar* essa página.
+Edite o arquivo `Carros/MTCars/views.py` e inclua a função `searchf`:
 
 ```python
 from django.shortcuts import render
@@ -280,7 +464,7 @@ def searchf(request):
     # No meu caso, eu mostro a mesma página,
     # mas você pode usar outro template para mostrar uma página diferente.
     # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
-    return render(request, 'home.html', contexto)
+    return render(request, 'busca.html', contexto)
 ```
 
 No diretório `Carros/MTCars`, edite o arquivo `urls.py` e inclua uma rota para esse `view`:
@@ -312,7 +496,7 @@ app_name = "MTCars"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.searchf, name="home"),
+    path("busca;", views.searchf, name="home"),
 ]
 ```
 

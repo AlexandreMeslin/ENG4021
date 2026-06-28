@@ -3,10 +3,31 @@ from MTCars.models import MTCars
 
 # Create your views here.
 
+def home(request):
+    '''
+    Renderiza a home-page.
+    Como a home-page é uma pagina estática, 
+    não precisa de variáveis de contexto.
+    '''
+    return render(request, 'home.html')
+
+def lista(request):
+    '''
+    Esta função busca todos os carros no banco de dados.
+    Ela utiliza a página lista.html para exibir a lista de todos os carros
+    '''
+    carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
+    contexto = {
+        'carros': carros,
+    }
+    return render(request, 'lista.html', contexto)
+
 def searchf(request):
     if request.method == 'GET':
         carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
-        return render(request, 'home.html', {'carros': carros})
+        contexto = {
+            'carros': carros,
+        }
     else:
         search_query = request.POST.get('search')
         # Aqui você pode adicionar a lógica para filtrar os carros com base na pesquisa
@@ -18,10 +39,10 @@ def searchf(request):
             'search_query': search_query,   # o texto pesquisado
             'carros': carros                # os resultados da pesquisa
         }
-        # No meu caso, eu mostro a mesma página,
-        # mas você pode usar outro template para mostrar uma página diferente.
-        # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
-        return render(request, 'home.html', contexto)
+    # No meu caso, eu mostro a mesma página,
+    # mas você pode usar outro template para mostrar uma página diferente.
+    # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
+    return render(request, 'busca.html', contexto)
 
 def detalhes(request, carro_id):
     carro = MTCars.objects.get(id=carro_id)
