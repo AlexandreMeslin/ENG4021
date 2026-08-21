@@ -29,6 +29,9 @@ O fluxo descrito a seguir usa **forks** (cópias individuais no GitHub) e **GitH
 | Dono do projeto | `aluno1` | Repositório principal (`ENG4021`) |
 | Colaboradores | `aluno2`, `aluno3`, ... | Criam forks e enviam Pull Requests (`PRs`) |
 
+> [!TIP]
+> Diretório, pasta e folder são sinônimos
+
 ## Todos os alunos
 
 Criar uma conta *PRO* no **GitHub**.
@@ -60,35 +63,116 @@ Use o seu e-mail da PUC para criar uma conta *PRO*.
 Use o documento de inscrição fornecido pelo SAU para comprovar que você é aluno da PUC Rio.
 
 
+## Todos os alunos: IMPORTANTE!!!
+
+Sempre que aparecer a mensagem abaixo relativa a sua conta, pasta ou arquivo, responda clicando no botão verde `Trust Folder & Continue`:
+
+![Trust folder](img/GIT-TrustFolder.png)
+
+
 
 
 ## Aluno 1: Criar repositório
 
 - Criar o repositório do time.
-No diretório `HOME` da sua conta no GitHub, 
-- Na raiz do seu repositório, clique no botão verde `<> Code`, selecione a aba `Codespaces` e clique no botão `Create Codespace on main`
+No diretório `HOME` da sua conta no GitHub, clique no botão de `+` localizado na parte superior direita da página.
+Depois clique em `New repository`.
+
+![Novo repositṍrio](img/GIT-NewRepository.png)
+
+- Na janela `New repository`, preencha os campos:
+  - **Repository name**: `ENG4021-Calculadora`
+  - **Choose visibility**: `Public`
+  - **Add .gitignore**: `Python`
+
+- Clique em `Create repository`:
+
+![Push](img/GIT-Push.png)
+
+
+
+## Aluno 1: Convidar os componentes do time
+
+Na raiz do repositório que você acabou de criar, clique em <svg aria-hidden="true" focusable="false" class="octicon octicon-gear" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align: text-bottom;"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg> `Settings` na barra de menu localizada na parte superior da página (`Settings` ao lado de `Insights`).
+
+No menu lateral esquerdo, clique em <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-people">
+    <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path>
+</svg> `Collaborators` (se necessário, entre com a confirmação de *3-steps*).
+
+Na janela `Manage access`, clique no botão `Add people`:
+
+![Adiciona componentes do time](img/GIT-ManageAccess.png)
+
+Entre com o e-mail de cada um dos componentes do time, clique no botão com os dados do componente e clique no botão verde `Add <componente>`.
+Repita esse processo para cada um dos componentes.
+
+
+
+## Alunos 2-6: Aceitar o convite
+
+Todos os alunos devem receber um e-mail com o convite.
+Clique no botão verde `Accept invitation` para aceitar o convite.
+
+
+
+## Aluno 1: Criar o Codespace
+
+- Na raiz do seu repositório (para ir para a raiz do repositório, clique no nome dele ao lado do seu username, na parte superior esquerda da tela), clique no botão verde `<> Code`, selecione a aba `Codespaces` e clique no botão `Create Codespace on main`
+
+![Cria Codespace](img/GIT-CriaCodespace.png)
+
 - Usando o **Codespace**, criar um diretório chamado `Calculadora` na raiz do repositório do time.
 Esse diretório será utilizado para criar a calculadora.
-- Implementar o módulo `calculadora.py` que irá importar os seguintes módulos que estão sendo desevolvidos pelos alunos 2, 3, 4 e 5:
+Para criar o diretório, clique com o botão direito do mouse na área em branco onde estão listados os arquivos e selecione `New Folder...`
+
+![Criar nova pasta](img/GIT-NewFile.png)
+
+- Entre com o nome `Calculadora`.
+
+- Na pasta `Calculadora`, crie o arquivo `calculadora.py` clicando com o botão direito do mouse na pasta `Calculadora`, selecionando a opção `New File...` e informando o nome do arquivo: `calculadora.py`
+
+
+
+## Aluno 1: salvando definitivamente o que já foi implementado:
+
+Clique no ícone do <svg aria-hidden="true" focusable="false" class="octicon octicon-git-branch" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path></svg>
+**Source Control**.
+Note que ele deve ter algum número associado a ele (provavelmente 1).
+Clique na seta para baixo mais à esquerda localizada no meio da página no lado esquerdo.
+Depois clique na seta para baixo do meio.
+Na caixa de texto acima do botão azul `Commit`, coloque um texto explicando o que você implementou e clique em `Commit`
+
+![Commit](img/GIT-Commit.png)
+
+Clique no botão `Sync Changes`:
+
+
+## Aluno 1: Implementar o módulo principal
+
+- Implementar o módulo `calculadora.py` que irá importar os seguintes módulos que estão sendo desevolvidos pelos alunos 2, 3, 4, 5 e 6:
     - `soma.py`
     - `subtrai.py`
     - `multiplica.py`
     - `divide.py`
+    - `resto.py`
+
 - No módulo calculadora, realizar a leitura de dois números reais e um operando. Baseado nos valores lidos exibir o resultado da operação usando as seguintes funções definidas nos modulos importados:
     - `soma.somaf`
     - `subtrai.subtraif`
     - `multiplica.multiplicaf`
     - `divide.dividef`
+    - `resto.restof`
+
 - Aceitar os PRs dos componentes do time e fazer o *merge*.
 
 
 
 
-## Aluno 2, 3, 4 e 5: Criar *fork*
+## Aluno 2, 3, 4, 5 e 6: Criar *fork*
 
 **Criar um `fork` do repositório original.**
 
-Os alunos 2, 3, 4 e 5 devem pegar com o aluno 1 o endereço do repositório do time.
+Os alunos 2, 3, 4, 5 e 6 devem obter com o aluno 1 o endereço do repositório do time.
 Cada aluno acessa o projeto principal: https://github.com/aluno1/ENG4021 (não clique nesse link, ele **não** existe - use o link do repositório do seu projeto).
 
 ![Home do repositório do projeto](./img/Git-TelaInicial.png)
@@ -115,7 +199,7 @@ Antes de começar a trabalhar, siga sempre essas [dicas](#dicas-muito-úteis-ou-
 
 
 
-## Aluno 1, 2, 3, 4 e 5: Abrir o repositório `fork` no Codespace
+## Aluno 1, 2, 3, 4, 5 e 6: Abrir o repositório `fork` no Codespace
 
 1. No repositório principal (`aluno1/ENG4021`) ou no fork (`aluno2/ENG4021`), conforme o caso, clique em **Code → Codespaces**
     - Se não existir um Codespace: **Create codespace on main**.
@@ -145,8 +229,12 @@ Antes de começar a trabalhar, siga sempre essas [dicas](#dicas-muito-úteis-ou-
 - Aluno 5:
     - Criar o modulo `divide.py` dentro do diretório `Calculadora`.
     - Criar a função `dividef` que recebe dois números reais e retorna a sua divisão.
+- Aluno 6:
+    - Criar o modulo `resto.py` dentro do diretório `Calculadora`.
+    - Criar a função `restof` que recebe dois números reais e retorna o resto da sua divisão inteira.
 
-Implementar testes no módulo. Você pode usar o segmento de código a seguir para realizar o teste. Esse código exemplifica como realizar o teste para a função `somaf`. 
+Implementar testes no módulo. 
+Você pode usar o segmento de código a seguir para realizar o teste. Esse código exemplifica como realizar o teste para a função `somaf`. 
 Modifique-o para a sua função.
 
 ```python
@@ -205,7 +293,9 @@ if __name__ == "__main__":
 
 ## Fazer commit e push no fork
 
-> Aqui você vai atualizar o seu repositório clonado, aquele que você fez o *fork*. Você **não** vai atualizar o repositório do seu projeto. Isso vai ser feito mais abaixo.
+> Aqui você vai atualizar o seu repositório clonado, aquele que você fez o *fork*. 
+Você **não** vai atualizar o repositório do seu projeto. 
+Isso vai ser feito mais abaixo.
 
 Na barra de ícones localizada no lado esquerdo, note que o ícone 
 <svg aria-hidden="true" focusable="false" class="octicon octicon-git-branch" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path></svg>
@@ -215,7 +305,8 @@ Na barra de ícones localizada no lado esquerdo, note que o ícone
 
 Clique no ícone do <svg aria-hidden="true" focusable="false" class="octicon octicon-git-branch" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path></svg> **Source Control** ou digite `Ctrl+Shift+G`.
 
-> Antes de fazer qualquer `Commit`, verifique sempre se você está com a versão atual do repositório clicando nos ícones com as setas para baixo, da esquerda para a direita. Veja a figura a seguir:
+> Antes de fazer qualquer `Commit`, verifique sempre se você está com a versão atual do repositório clicando nos ícones com as setas para baixo, da esquerda para a direita. 
+> Veja a figura a seguir:
 
 ![Codespace fetch pull push](img/codespace-fetch-pull-push.png)
 
@@ -235,6 +326,8 @@ Mas, antes disso, você irá receber uma mensagem como esta:
 ## Criar um Pull Request (PR)
 
 Agora você vai atualizar o repositório principal a partir do *fork* que você fez.
+
+No seu repositório (NÃO é no Codespace!):
 
 No GitHub (∀ n | n>1 ⇒ aluno*n*/ENG4021):
 
@@ -256,11 +349,6 @@ No GitHub (∀ n | n>1 ⇒ aluno*n*/ENG4021):
 1. Clique em `Create pull request`.
 
     ![Abrir um PR](./img/GIT-TelaCriarPR3.png)
-
-
-
-
-## Revisão pelo dono do repositório
 
 O aluno1 verá o PR em:
 
