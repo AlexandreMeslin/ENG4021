@@ -5,7 +5,7 @@
 Nessa tarefa, o time irá aprender o uso básico do Git, Github e CodeSpace.
 Iremos criar uma calculadora de quatro operações: `+`, `-`, `*` e `/` para exemplificar os diversos passos.
 
-> Essa tarefa deve ser realizada em equipe de 2, 3, 4 ou 5 alunos.
+> Essa tarefa deve ser realizada em equipe de 2, 3, 4, 5 ou 6 alunos.
 
 Este guia explica como **vários alunos podem colaborar** em um mesmo projeto no GitHub — no caso, o repositório fictício chamado `ENG4021`.
 
@@ -64,7 +64,9 @@ Use o documento de inscrição fornecido pelo SAU para comprovar que você é al
 
 ## Aluno 1: Criar repositório
 
-- Criar o repositório do time (de preferência, use o mesmo repositório criado como tarefa da `Sprint 1`).
+- Criar o repositório do time.
+No diretório `HOME` da sua conta no GitHub, 
+- Na raiz do seu repositório, clique no botão verde `<> Code`, selecione a aba `Codespaces` e clique no botão `Create Codespace on main`
 - Usando o **Codespace**, criar um diretório chamado `Calculadora` na raiz do repositório do time.
 Esse diretório será utilizado para criar a calculadora.
 - Implementar o módulo `calculadora.py` que irá importar os seguintes módulos que estão sendo desevolvidos pelos alunos 2, 3, 4 e 5:
