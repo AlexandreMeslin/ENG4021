@@ -24,6 +24,8 @@ app_name = "MTCars"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.searchf, name="home"),
+    path('', views.home, name='home'),
+    path('lista/', views.lista, name='lista'),
+    path("busca/", views.searchf, name="busca"),
     path("detalhes/<int:carro_id>/", views.detalhes, name="detalhes"),  # nova rota
 ]
