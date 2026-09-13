@@ -238,6 +238,85 @@ git push origin main
 
 ---
 
+## Descrição
+
+O GitHub detectou um GitHub OAuth Access Token dentro do histórico que você está tentando enviar.
+
+### Sintoma
+
+```bash
+> git push origin main:main
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:             
+remote:       —— GitHub OAuth Access Token —————————————————————————        
+remote:        locations:        
+remote:          - commit: 975133486184e113f577c83d8265bc72052857e7        
+remote:            path: 2026-2/2026-08-25/vgcore.22029:7770        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/AlexandreMeslin/INF1029/security/secret-scanning/unblock-secret/3JGtzAjIL44bOx6fGdJUrDWHynG        
+remote:             
+remote: 
+remote: 
+To https://github.com/AlexandreMeslin/INF1029
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/AlexandreMeslin/INF1029'
+```
+
+### Solução
+
+1. Remova o arquivo do controle do Git:
+
+> No exemplo, o arquivo problemático era `vgcore.22029` como mostrado na linha com a `path` no texto do erro.
+> Veja o nome do seu arquivo e use nos comandos a seguir.
+
+```bash
+$ git rm --cached '2026-2/2026-08-25/vgcore.22029'
+```
+Ou, se o nome do arquivo ou do caminho começarem por traço (`-`):
+
+```bash
+$ git rm --cached -- '2026-2/2026-08-25/vgcore.22029'
+```
+
+Resultado esperado:
+
+```bash
+$ git rm --cached '2026-2/2026-08-25/vgcore.22029'
+rm '2026-2/2026-08-25/vgcore.22029'
+```
+
+Remova o arquivo (se for o caso):
+
+```bash
+$ rm '2026-2/2026-08-25/vgcore.22029'
+```
+
+Ou 
+
+```bash
+$ rm -- '2026-2/2026-08-25/vgcore.22029'
+```
+
+Desfaça o commit sem apagar os arquivos (troque o número `1` pela quantidade de commits que você quer desfazer):
+
+```bash
+$ git reset --mixed HEAD~1
+```
+
+---
+
 ## Referência remota corrompida ou inconsistente
 
 ### Descrição
