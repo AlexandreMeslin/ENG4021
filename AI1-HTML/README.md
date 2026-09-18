@@ -93,7 +93,6 @@ Use o seguinte texto:
     - Mestrado em Viagem Hiperespacial (com honras)
     - Universidade Estelar de Calvin — Ciências da Galáxia
     - Academia Estelar de Calvin — Diploma em Engenharia Espacial e Aventuras
-    - Currículo incluiu estudos avançados em:
     ```
 
 1. Em outra parte do texto, crie uma lista não-numerada (com *bullets*).
