@@ -8,13 +8,24 @@ A segunda página pode ser sobre o seu currículo mesmo.
 ## HTML
 
 1. Crie um repositório na sua conta do **GitHub** chamado `ENG4021-individual` - **NÃO** use o mesmo repositório do seu projeto com o seu time.
+
+![Novo repositório](imagens/GIT-New.png)
+
 Ao criar o repositório, inclua o arquivo `README.md` e o arquivo `.gitignore` para `Python`.
+
+![Meta dados do repositório](imagens/GIT-Create_a_new_repository.png)
 
 1. Abra o Codespace do seu repositório.
 
+![Codespace](imagens/GIT-Create_codespace_on_main.png)
+
 1. Crie uma pasta chamada `HTML` para os arquivos HTML. Dentro dessa pasta, crie uma pasta chamada `css` e outra chamada `img` para você armazenar as folhas de estilo e as imagens, respectivamente.
 
+![Estrutura de pastas](imagens/GIT-Estrutura_de_pastas.png)
+
 1. Crie um arquivo chamado `index.html` na pasta `HTML`.
+
+![Arquivo index.html](imagens/GIT-index.html.png)
 
 1. Insira o seguinte código (basta digitar `html` e selecionar a opção `HTML 5`):
 
@@ -234,8 +245,9 @@ Coloque o restante das linhas como itens de uma lista não numerada
 
 1. Crie um arquivo chamado `curriculo.css` na pasta `css`.
 
-1. Crie um link CSS do arquivo HTML para o arquivo `css/curriculo.css` como mostrado a seguir:
+1. Na seção `<head>`, crie um link CSS do arquivo HTML para o arquivo `css/curriculo.css` como mostrado a seguir:
     
+    > Inclua o texto a seguir dentro de `<head>` e `</head>`:
     ```html
         <link rel="stylesheet" href="css/curriculo.css">
     ```
