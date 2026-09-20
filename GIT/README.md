@@ -847,6 +847,79 @@ git push
 
 ---
 
+## Erro ao tentar continuar ("Continue")
+
+### Descrição
+
+O botão mostra "Continue", mas a continuidade apresenta erro porque o Git encontrou um conflito entre os arquivos locais e os arquivos que vieram do repositório remoto.
+
+### Sintoma:
+
+```bash
+> git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file -
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+```
+
+### Solução
+
+Clique no ícone do `Source Control` no menu lateral esquerdo (a arvorezinha).
+Abaixo do botão azul, você irá encontrar a seção `Merge Changes` listando os arquivos com conflitos.
+Clique em acada arquivo e resolva o que deve ficar e o que deve ser eliminado no editor de conflitos.
+
+Verifique os delimitadores:
+
+```git
+<<<<<<< HEAD
+versão que veio do GitHub
+=======
+sua versão local
+>>>>>>> seu commit
+```
+
+---
+
+## Repositório local atrás do remoto mas com modificações
+
+### Descrição
+
+O repositório local está atrás do repositório remoto, mas existem modificações no repositório local.
+
+### Sintoma
+
+```bash
+> git push origin main:main
+To https://github.com/AlexandreMeslin/INF1371.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/AlexandreMeslin/INF1371.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+### Solução
+
+#### Para manter as alterações dos dois lados:
+
+Tente:
+
+```bash
+$ git pull --rebase origin main
+```
+
+Resolva todos os conflitos que aparecem abaixo do botão azul `Continue`, na seção `Merge Changes` em `Source Control`.
+
+Depois tente: 
+
+```bash
+$ git push origin main:main
+```
+
+---
+
 # Comandos utilizados
 
 ```bash
