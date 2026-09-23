@@ -240,6 +240,39 @@ git push origin main
 
 ## Descrição
 
+Existem modificações locais que podem ser sobreescritas por modificações remotas
+
+### Sintoma
+
+```
+> git pull --tags origin main
+From https://github.com/AlexandreMeslin/INF1304
+ * branch            main       -> FETCH_HEAD
+error: Your local changes to the following files would be overwritten by merge:
+	Exemplos/Kubernetes/README.md
+	Programas/gRPC/Java/grpc-calculadora/pom.xml
+	Programas/gRPC/Java/grpc-calculadora/src/main/java/br/com/meslin/calculadora/client/CalcClient.java
+	Programas/gRPC/Java/grpc-calculadora/src/main/java/br/com/meslin/calculadora/server/CalcServer.java
+	Programas/gRPC/Java/grpc-calculadora/src/main/resources/Calc.proto
+Please commit your changes or stash them before you merge.
+error: The following untracked working tree files would be overwritten by merge:
+	Programas/gRPC/Java/grpc-calculadora/dependency-reduced-pom.xml
+Please move or remove them before you merge.
+Aborting
+```
+
+### Solução
+
+```bash
+ $ git stash push -u -m "alteracoes locais antes do pull"
+ $ git pull --tags origin main
+ $ git stash pop
+ ```
+
+---
+
+## Descrição
+
 O GitHub detectou um GitHub OAuth Access Token dentro do histórico que você está tentando enviar.
 
 ### Sintoma
