@@ -643,3 +643,48 @@ Verifique também se você incluiu o seguinte comando Django no seu formulário:
 ```django
 {% csrf_token %}
 ```
+
+### Banco de Dados não aparece na interface Administrativa
+
+#### Sintoma
+
+O banco de dados não aparece na interface administrativa.
+
+![interface administrativa sem banco de dados](img/django-admin.png)
+
+#### Solução
+
+##### Tentativa 1
+
+Verifique se você incluiu a string '*' na lista de host permitidos.
+Abra o arquivo `settings.py` e procure pela lista `ALLOWED_HOSTS`.
+
+```python
+ALLOWED_HOSTS = ['*']
+```
+
+##### Tentativa 2
+
+Abra o arquivo `admin.py` e veja se o banco de dados foi registrado.
+O arquivo deve se parecer com o seguinte modelo:
+
+```python
+from django.contrib import admin
+
+# Register your models here.
+
+from MTCars.models import MTCars
+
+admin.site.register(MTCars)
+```
+
+##### Última Tentativa
+
+Verifique:
+
+- [ ] O modelo está definido em models.py
+- [ ] A aplicação está em INSTALLED_APPS
+- [ ] O modelo está registrado em admin.py
+- [ ] As migrações foram aplicadas
+- [ ] Estou acessando o banco de dados correto
+- [ ] Entrei no Admin com um usuário com permissões
