@@ -496,7 +496,7 @@ app_name = "MTCars"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("busca;", views.searchf, name="home"),
+    path("busca/", views.searchf, name="busca"),
 ]
 ```
 

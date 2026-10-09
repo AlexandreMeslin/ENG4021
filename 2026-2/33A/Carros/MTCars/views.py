@@ -1,0 +1,45 @@
+from django.shortcuts import render
+from MTCars.models import MTCars
+
+# Create your views here.
+
+def home(request):
+    '''
+    Renderiza a home-page.
+    Como a home-page é uma pagina estática, 
+    não precisa de variáveis de contexto.
+    '''
+    return render(request, 'home.html')
+
+def lista(request):
+    '''
+    Esta função busca todos os carros no banco de dados.
+    Ela utiliza a página lista.html para exibir a lista de todos os carros
+    '''
+    carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
+    contexto = {
+        'carros': carros,
+    }
+    return render(request, 'lista.html', contexto)
+
+def searchf(request):
+    if request.method == 'GET':
+        carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
+        contexto = {
+            'carros': carros,
+        }
+    else:
+        search_query = request.POST.get('search')
+        # Aqui você pode adicionar a lógica para filtrar os carros com base na pesquisa
+        carros = MTCars.objects.filter(name__icontains=search_query)
+        # contexto é uma variável do tipo dicionário 
+        # que armazena os dados a serem enviados para o template.
+        # No template, você pode acessar esses dados usando as chaves do dicionário.
+        contexto = {
+            'search_query': search_query,   # o texto pesquisado
+            'carros': carros,               # os resultados da pesquisa
+        }
+    # No meu caso, eu mostro a mesma página,
+    # mas você pode usar outro template para mostrar uma página diferente.
+    # Basta trocar o nome do arquivo HTML no parâmetro da função render a seguir.
+    return render(request, 'busca.html', contexto)
