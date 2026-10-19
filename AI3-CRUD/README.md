@@ -38,6 +38,12 @@ cd Carros
 Crie o arquivo `requirements.txt` no diretório `Carros` e inclua os requisitos iniciais (apenas `django`)
 Para realizar esse passo, você pode usar a interface gráfica do Codespace.
 
+Conteúdo do arquivo `requirements.txt`:
+
+```
+django
+```
+
 Crie e ative o ambiente virtual:
 
 ```bash
@@ -99,12 +105,17 @@ Use a aba ports para obter o endereço do seu site.
 Use a interface adminitrativa para examinar o seu banco de dados, incluindo o caminho `/admin/` no final da URL do seu site.
 Use as credenciais do superusuário que você acabou de criar.
 
+Por exemplo, se a URL do seu site for `https://laughing-funicular-v6jjjv6j9q54cpjrv-8000.app.github.dev`, edite a URL no navegador e acrescente `\admin` como em `https://laughing-funicular-v6jjjv6j9q54cpjrv-8000.app.github.dev/admin/`
+
+![página administrativa](img/django-admin.png)
+
 ### Registrando a sua aplicação MTCars
 
 > [!TIP]
 > Se necessário, interrompa o servidor Django digitando `Ctrl+C` no terminal.
 
-Registre a sua aplicação no arquivo `Carros/MTCars/settings.py`:
+Registre a sua aplicação no arquivo `Carros/MTCars/settings.py`. 
+Procure pela variável `INSTALLED_APPS`, se ela já existir (**ela já existe!**), apenas inclua a string `MTCars` na lista.
 
 ```python
 INSTALLED_APPS = [
@@ -141,8 +152,9 @@ class MTCars(models.Model):
     
     class Meta:
         managed = True
-        db_table = 'MTCars'
-        ordering = ['id']
+        db_table = 'MTCars'             # nome da tabela
+        ordering = ['id']               # ordenação default
+        verbose_name_plural = "MTCars"  # plural de MTCars
 
     def __str__(self):
         '''
@@ -152,9 +164,6 @@ class MTCars(models.Model):
         '''
         return "Modelo: " + self.name
 ```
-
-Copie os arquivos [`MTCars.sqlite3`](mtcars.sqlite3) e [`CopiaBaseDados.py`](CopiaBaseDados.py) para o diretório `Carros/`, o mesmo onde está o arquivo `db.sqlite3`.
-Os arquivos estão disponíveis no nosso repositório, no mesmo lugar onde você achou esse arquivo que você está lendo agora.
 
 Migre novamente a base de dados, mas dessa vez, crie um novo conjunto de migrações porque você criou um novo modelo:
 
@@ -166,7 +175,22 @@ python manage.py makemigrations MTCars
 python manage.py migrate
 ```
 
-Certifique-se de que ambos os comandos executaram com sucesso.
+Resultado esperado:
+
+```
+Migrations for 'MTCars':
+  MTCars/migrations/0001_initial.py
+    + Create model MTCars
+Operations to perform:
+  Apply all migrations: MTCars, admin, auth, contenttypes, sessions
+Running migrations:
+  Applying MTCars.0001_initial... OK
+```  
+
+Certifique-se de que ambos os comandos executaram com sucesso, verificando se a linha com `MTCars` aparece com `OK` no final.
+
+Copie os arquivos [`MTCars.sqlite3`](mtcars.sqlite3) e [`CopiaBaseDados.py`](CopiaBaseDados.py) para o diretório `Carros/`, o mesmo onde está o arquivo `db.sqlite3`.
+Os arquivos estão disponíveis no nosso repositório, no mesmo lugar onde você achou esse arquivo que você está lendo agora.
 
 Execute o comando a seguir para copiar os dados do banco de dados `MTCars.sqlite3` (que não vamos mais usar) para o bando de dados `db.sqlite3`:
 
@@ -239,6 +263,15 @@ def home(request):
     return render(request, 'home.html')
 ```
 
+Importe o arquivo `views` que você acabou de criar.
+Aproveite e nomeie a sua aplicação, incluindo as duas linhas a seguir no arquivo `urls.py`:
+
+```python
+from MTCars import views
+
+app_name = "MTCars"
+```
+
 Crie uma rota para a sua *home page* no arquivo `urls.py`:
 
 ```python
@@ -269,14 +302,8 @@ app_name = "MTCars"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.home, name='home'),  # nova rota
-    path('lista/', views.lista, name='lista'),
-    path("busca/", views.searchf, name="busca"),
-    path("detalhes/<int:carro_id>/", views.detalhes, name="detalhes"),
 ]
 ```
-
-> [!NOTE]
-> Observe que as rotas chamadas de `lista`, `busca` e `detalhes` apontam para funções que ainda não existem.
 
 ### Criando a lista de todos os carros
 
@@ -360,8 +387,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.home, name='home'),
     path('lista/', views.lista, name='lista'),  # nova rota
-    path("busca/", views.searchf, name="busca"),
-    path("detalhes/<int:carro_id>/", views.detalhes, name="detalhes"),
 ]
 ```
 
@@ -439,11 +464,6 @@ Crie um *view* para *renderizar* essa página.
 Edite o arquivo `Carros/MTCars/views.py` e inclua a função `searchf`:
 
 ```python
-from django.shortcuts import render
-from MTCars.models import MTCars
-
-# Create your views here.
-
 def searchf(request):
     if request.method == 'GET':
         carros = MTCars.objects.all()  # Aqui você pode obter todos os carros ou aplicar algum filtro inicial
@@ -471,32 +491,11 @@ No diretório `Carros/MTCars`, edite o arquivo `urls.py` e inclua uma rota para 
 
 ```python
 """
-URL configuration for MTCars project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
-from django.contrib import admin
-from django.urls import path
-
-from MTCars import views
-
-app_name = "MTCars"
-
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("busca/", views.searchf, name="busca"),
+    path('', views.home, name='home'),
+    path('lista/', views.lista, name='lista'),
+    path("busca/", views.searchf, name="busca"),    # nova rota
 ]
 ```
 
@@ -508,7 +507,8 @@ python manage.py runserver
 
 ## Usando a **Interface Administrativa**
 
-Para poder usar a interface administrativa para examinar o banco de dados, registre o como como adminitrável editando o arquivo `MTCars.admin.py`:
+Para poder usar a interface administrativa para examinar o banco de dados, registre o como como adminitrável.
+Para isso, no diretório `MTCars`, crie o arquivo `admin.py`:
 
 ```python
 from django.contrib import admin
@@ -519,6 +519,22 @@ from MTCars.models import MTCars
 
 admin.site.register(MTCars)
 ```
+
+No seu arquivo `settings.py`, procure pela variável `ALLOWED_HOSTS` e inclua a string `'*'` na lista, como mostrado a seguir:
+
+```python
+ALLOWED_HOSTS = ['*']
+```
+
+Teste agora a interface administrativa novamente.
+Você verá que o seu banco de dados pode ser acessado por esta interface.
+
+Use a interface adminitrativa para examinar o seu banco de dados, incluindo o caminho `/admin/` no final da URL do seu site.
+Use as credenciais do superusuário que você acabou de criar.
+
+Por exemplo, se a URL do seu site for `https://laughing-funicular-v6jjjv6j9q54cpjrv-8000.app.github.dev`, edite a URL no navegador e acrescente `\admin` como em `https://laughing-funicular-v6jjjv6j9q54cpjrv-8000.app.github.dev/admin/`
+
+![página administrativa](img/django-admin-bd.png)
 
 ## Bônus
 
