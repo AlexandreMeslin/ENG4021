@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+</head>
+<body>
+    <header>
+        <h1>Home-Page de Carros</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>Link para a <a href="{% url 'home' %}">Home-Page</a></li>
+            <li><a href="{% url 'lista' %}">Link</a> para a lista de todos os carros</li>
+            <li><a href="{% url 'busca' %}">Link</a> para a busca por um carro</li>
+        </ul>
+    </nav>
+</body>
+</html>
