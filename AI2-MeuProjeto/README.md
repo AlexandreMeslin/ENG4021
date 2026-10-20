@@ -680,7 +680,7 @@ admin.site.register(MTCars)
 
 ##### Última Tentativa
 
-Verifique:
+Verifique se:
 
 - [ ] O modelo está definido em models.py
 - [ ] A aplicação está em INSTALLED_APPS
