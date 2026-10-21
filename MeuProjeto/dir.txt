@@ -1,0 +1,27 @@
+.
+├── db.sqlite3
+├── manage.py
+├── MeuSite
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── static
+│   │   ├── css
+│   │   │   ├── curriculo-v0.css
+│   │   │   ├── curriculo-v1.css
+│   │   │   └── curriculo-v2.css
+│   │   └── img
+│   │       ├── aircraft-spiff.gif
+│   │       └── spiff.jpeg
+│   ├── templates
+│   │   ├── curriculo-v1.html
+│   │   ├── curriculo-v2.html
+│   │   ├── home.html
+│   │   ├── password_change_done.html
+│   │   └── registration
+│   │       ├── login.html
+│   │       └── password_change_form.html
+│   ├── urls.py
+│   ├── views.py
+│   └── wsgi.py
+└── requirements.txt

@@ -2,7 +2,7 @@
 
 ### Atividade Individual 4
 
-Nessa atividade, você vai implemnetar autenticação e autorização de usuários, implementando:
+Nessa atividade, você vai implementar autenticação e autorização de usuários, implementando:
 
 - Sistema de login de usuário
 - Proteção de páginas
@@ -13,7 +13,8 @@ Nessa atividade, você vai implemnetar autenticação e autorização de usuári
 
 Para você desenvolver essa atividade, você deve completar a [atividade individual 2](../AI2-MeuProjeto/).
 
-> Você vai desenvolver essa atividade no seu repositório privado. **NÃO** use o repositório do time!
+> Você vai desenvolver essa atividade no seu repositório privado. 
+> **NÃO** use o repositório do time!
 
 - Vá para o diretório do seu projeto:
 
@@ -54,17 +55,50 @@ source venv/bin/activate
 > [!IMPORTANT]
 > Tenha certeza que o ambiente virtual está ativo conferindo o texto `(venv)` no início do *prompt*.
 
-- Entre no diretório do seu site com o comando a seguir:
-
-```bash
-cd MeuSite
-```
-
 - Provavelmente você já migrou o seu banco de dados, mas se não tiver migrado ainda, essa é uma boa hora:
 
 ```bash
 python manage.py migrate
 ```
+
+O Django fornece um objeto `User` (`models.User`) com os seguintes campos, propriedades ou atributos:
+
+| Propriedades | Descrição |
+|---|---|
+| username | nome do usuário |
+| first_name | primeiro nome |
+| last_name | último nome |
+| email | e-mail
+| password | senha |
+| groups | grupos aos quais o usuário pertence |
+| user_permissions | permissões do usuário |
+| is_staff | se é parte do staff |
+| is_active | se está ativo |
+| is_superuser | se é super usuário |
+| last_login | data do último login |
+| date_joined | data de entrada |
+| is_authenticated | se está autenticado |
+| is_anonymous | se está como anonymous |
+
+Além das propriedades listadas acima, os seguintes métodos também fazem parte da classe `User`. 
+Os parâmetros, quando existirem, são informados dentro dos parêntesis. 
+Parâmetros opcionais com o valor default são exibidos no formato `parâmetro=valor_default`.
+
+| Método | Descrição |
+|---|---|
+| get_full_name() | retorna o nome completo do usuário |
+| get_short_name() | retorna o primeiro nome |
+| set_password(raw_password) | configura a senha |
+| check_password(raw_password) | verifica se a senha está correta |
+| set_unusable_password() | cria uma senha que não pode ser digitada |
+| has_usable_password() | verifica se a senha não pode ser digitada |
+| get_group_permissions(obj=None) | retorna as permissões que o usuário herdou do seu grupo |
+| get_all_permissions(obj=None) | retorna todas as permissões do usuário |
+| has_perm(perm, obj=None) | verifica se o usuário tem determinada permissão |
+| has_perms(perm_list, obj=None) | verifica se o usuário tem determinadas permissões |
+| has_module_perms(package_name) | verifica se o usuário tem permissão de acessar determinado módulo |
+| email_user(subject, message, from_email=None, **kwargs) | envia um e-mail para o usuário |
+
 
 - Aproveite para criar um usuário, caso ainda não tenha criado.
 Se você está em dúvida, crie um novo usuário e está resolvido.
@@ -322,7 +356,7 @@ def curriculo_spiff_v2(request):
 Crie um *link* na sua *home-page* para permitir que o usuário troque a senha. 
 No *link*, lembre ao usuário que ele deve estar *logado* para poder trocar sua senha.
 
-```python
+```html
 <a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
 ```
 
@@ -331,4 +365,89 @@ No *link*, lembre ao usuário que ele deve estar *logado* para poder trocar sua 
 
 Teste a troca da senha.
 
-> Observe que você está usando um *template* criado pelo **Django** para realizar a troca da senha. Se você quiser, veja como usar o seu *template*.
+> Observe que você está usando um *template* criado pelo **Django** para realizar a troca da senha. 
+> Se você quiser, veja como usar o seu *template*.
+
+### Trocar senha com páginas personalizadas
+
+No diretório `templates/registration` crie os seguintes arquivos (preserve os nomes exatamente!):
+
+- Arquivo `password_change_form.html`:
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trocar senha</title>
+</head>
+<body>
+    <h1>Trocar senha</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Alterar senha</button>
+    </form>
+
+    <p>
+        <a href="/">Voltar à página inicial</a>
+    </p>
+</body>
+</html>
+```
+
+- Arquivo `password_change_done.html`:
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Senha alterada</title>
+</head>
+<body>
+    <h1>Senha alterada com sucesso!</h1>
+
+    <p>Sua senha foi atualizada.</p>
+
+    <p>
+        <a href="/">Voltar à página inicial</a>
+    </p>
+</body>
+</html>
+```
+
+No arquivo `settings.py`, configure o diretório de *templates*.
+Modifique **APENAS** a chave `DIRS` do dicionário `TEMPLATES`:
+
+```python
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / 'MeuSite' / 'templates'],   # <== modifique apenas esta linha!!!
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+```
+
+Inclua o link para troca de senha na página desejada (no nosso caso, na home-page).
+Edite o arquivo `templates/home.html` e inclua o seguinte link:
+
+```html
+<a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
+```

@@ -18,6 +18,7 @@
     <ul>
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><form method='POST' action="{% url 'logout' %}">{% csrf_token %}<button type='submit'>Logout</button></form></li>
+        <li><a href="{% url 'password_change' %}">Trocar senha</a></li>
     </ul>
     <a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a>
 </body>
