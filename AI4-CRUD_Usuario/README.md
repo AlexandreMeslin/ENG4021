@@ -35,7 +35,7 @@ drwxrwxrwx+ 5 codespace codespace 4096 May 30 14:18 venv
 
 - Crie um ambiente virtual, se ele não existir.
 
-> ![TIP]
+> [!TIP]
 > Você pode saber se o ambiente virtual já foi criado verificando se o diretório `venv` está presente.
 
 ```bash
