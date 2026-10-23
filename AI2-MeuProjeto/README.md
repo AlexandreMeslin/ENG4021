@@ -619,7 +619,7 @@ Depois de criar o `venv`, não se esqueça de instalar os requisitos através do
 
 - [Qualquer problema relativo a *CORS* ou *CSRF*](https://github.com/AlexandreMeslin/ENG4021/tree/main/AI2-MeuProjeto#cors)
 
-### CORS ou CSRF
+### CORS ou CSRF<a name='cors'></a>
 
 #### Sintoma
 

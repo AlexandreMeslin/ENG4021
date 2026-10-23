@@ -487,6 +487,30 @@ Tente sincronizar agora com a origem (se quiser, pode usar agora a interface gr�
 
 ---
 
+## Você não está em uma branch
+
+### Descrição
+
+O Git estava apontando diretamente para um commit, em vez de apontar para uma branch. 
+
+### Sintoma
+
+```
+fatal: You are not currently on a branch.
+To push the history leading to the current (detached HEAD)
+state now, use
+
+    git push origin HEAD:<name-of-remote-branch>
+```    
+
+### Solução
+
+```bash
+git switch main
+```
+
+---
+
 ## Origem e local divergem
 
 ### Descrição

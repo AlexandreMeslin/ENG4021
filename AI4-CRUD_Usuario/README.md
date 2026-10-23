@@ -55,6 +55,12 @@ source venv/bin/activate
 > [!IMPORTANT]
 > Tenha certeza que o ambiente virtual está ativo conferindo o texto `(venv)` no início do *prompt*.
 
+Se você ainda não instalou os requisitos, criou requisitos novos ou não se lembra se instalou ou não, instale agora os requisitos:
+
+```bash
+pip install -r requirements.txt
+```
+
 - Provavelmente você já migrou o seu banco de dados, mas se não tiver migrado ainda, essa é uma boa hora:
 
 ```bash
