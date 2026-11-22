@@ -24,17 +24,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
       
       - name: Copy issue to INF1407
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           gh issue create \
             --repo "AlexandreMeslin/INF1407" \
-            --title "[ENG4021] ${{ github.event.issue.title }}" \
-            --body "**Issue original:** ${{ github.event.issue.html_url }}
-            
-            **Autor:** @${{ github.event.issue.user.login }}
-            
+            --title "[ENG4021] $ISSUE_TITLE" \
+            --body "**Issue original:** $ISSUE_URL
+
+            **Autor:** @$ISSUE_AUTHOR
+
             ---
-            
-            ${{ github.event.issue.body }}" \
+
+            $ISSUE_BODY" \
             --label "copied-from-eng4021"
       
       - name: Comment on original
